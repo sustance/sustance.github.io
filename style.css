@@ -13,7 +13,7 @@
             padding: 1rem;
         }
         nav {
-            background-image: url('https://ctrl-c.club/~identity2/bg.webp');
+            background-image: url('test.webp');
             background-size: cover;
             background-position: center;
             padding: 0.5rem;
@@ -36,8 +36,7 @@
             padding: 0.5rem;
             border-radius: 3px;
             transition: background-color 0.3s;
-
-}
+        }
         nav ul li a:hover {
             /*background-color: #555;*/
             background-color: #aaa;
