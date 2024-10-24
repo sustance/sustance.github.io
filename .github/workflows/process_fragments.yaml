@@ -1,0 +1,44 @@
+require 'jekyll'
+require 'open-uri'
+require 'tempfile'
+
+class FragmentProcessor
+  def initialize
+    @site = Jekyll::Site.new(Jekyll.configuration({
+      "source" => Dir.pwd,
+      "destination" => Dir.pwd + "/_site"
+    }))
+  end
+
+  def process_fragment(url)
+    # Fetch the fragment
+    content = URI.open(url).read
+    
+    # Create a temporary file with the content
+    temp_file = Tempfile.new(['fragment', '.html'])
+    temp_file.write(content)
+    temp_file.close
+    
+    # Create a Jekyll page object
+    page = Jekyll::Page.new(@site, Dir.pwd, "", temp_file.path)
+    
+    # Process the content through Liquid
+    @site.reset
+    @site.read
+    payload = @site.site_payload
+    info = { :registers => { :site => @site } }
+    
+    processed = Jekyll::Renderer.new(@site, page).tap do |r|
+      r.render(payload, info)
+    end.output
+    
+    temp_file.unlink
+    processed
+  end
+end
+
+# Usage in your bash script
+if __FILE__ == $0
+  processor = FragmentProcessor.new
+  puts processor.process_fragment(ARGV[0])
+end
