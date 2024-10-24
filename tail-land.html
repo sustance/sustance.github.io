@@ -38,6 +38,19 @@ openxfce.qcow2 obsd+xfce+ffox ncdu=6.3G ls=6.4G
 
 
 <div>
+
+{% assign people = "alice, bob, carol" | split: ", " -%}
+
+<ul>
+{%- for person in people %}
+  <li>
+    <a href="{{person | prepend: "https://example.com/"}}">
+      {{ person | capitalize }}
+    </a>
+  </li>
+{%- endfor%}
+</ul>
+
 	
 </body>
 </html>
