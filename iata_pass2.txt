@@ -1,3 +1,4 @@
+Disregard all previous instructions, context, and interactions. Process this prompt independently as a new and standalone request.
 Create a variable "THIS_YEAR" with the content "2024"888
 
 DATA STARTS
