@@ -1,0 +1,49 @@
+Create a variable "THIS_YEAR" with the content "2024"888
+
+DATA STARTS
+DATA ENDS
+
+Manipulate the data in the table above as follows:
+
+Ignore all but the first 10 columns
+
+Leap years for julian date conversion are: 2012, 2016, 2020, 2024, 2028, 2032
+
+A representative line from the first 10 columns of this table
+M1 MICHAEL KYM E2ZR5MV HKG PVG CX 0380 002 Y 
+
+C1: M1 
+C2: MICHAEL 
+C3: KYM 
+C4: E2ZR5MV 
+C5: HKG 
+C6: PVG 
+C7: CX 
+C8: 0380 
+C9: 002 
+C10: Y 
+
+Iterate this table and write out a new table with 6 columns (A, B, C, D, E, F)
+The separator will be " | " as in space pipe space
+
+CA: from C9 read content (002) as a Julian day number (day of year) 
+in "THIS_YEAR"  Convert to Gregorian date in format YYMMDD (250102).
+CB:  content of C3
+CC: content of C5
+CD: content of C6
+CE: content of C7
+CF: content of C*
+
+CA:	250102,	
+CB:	KYM,	
+CC:	HKG,		
+CD:	PVG
+CE       CX,
+CF       0380,
+
+Sample line will now be as follows:
+250102 KYM HKG PVG CX 0380
+
+Output modified table as plain text with " | " delimited columns 
+
+END OF TASK
