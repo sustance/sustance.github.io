@@ -96,8 +96,8 @@ CA:	250102,
 CB:	KYM,	
 CC:	HKG,		
 CD:	PVG
-CE       CX,
-CF       0380,
+CE: CX,
+CF: 0380,
 
 Sample line will now be as follows:
 250102 KYM HKG PVG CX 0380
