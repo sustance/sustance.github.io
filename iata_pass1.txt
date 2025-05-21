@@ -99,13 +99,14 @@ M1MICHAEL/KYM EMFDFYV SZXPVGCA 1894 016K033H0192 15C>3181OO4016BCA 2999923472499
 
 DATA ENDS
 
-
-
 leap_years are 2012 2016 2020 2024 2028 2032
 
 Mainipulate the data in the table above as follows:
 
 Read in Data Sample as space-delimited text table:
+
+Skip all blank lines
+Skip all lines containing MICHAEL/KYM
 
 Every line must be processed and output even if the data appears invalid or the valid output cannot be generated
 
