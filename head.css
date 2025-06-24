@@ -34,11 +34,9 @@ a    {text-decoration: none; color: #ffffff;}
 
 
 .container {
-max-width: 800px;margin: 0 auto;padding: 20px;}
-h1 {
-text-align: center;color: #333;}
-.chart {
-margin-top: 30px;}
+max-width: 500px;margin: 0 auto;padding: 20px;}
+h3 {text-align: center;color: #333;}
+.chart {margin-top: 10px;}
 .data-label {min-width: 50px;display: inline-block;}
 
 
