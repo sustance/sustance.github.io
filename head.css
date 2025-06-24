@@ -5,6 +5,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --maxn: 150000; --title: "Fred";
 --clr1: #3c5b50; --clr2: #879c7d; 
 --k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; --k25may:32835; --k25jun:34435; 
+--s25jan:32035; --s25feb:32035; --s25mar:32035; --s25apr:32035; --s25may:32835; --s25jun:34435;
       /*--k25jul:34435;  */
 }
 
@@ -42,11 +43,12 @@ a    {text-decoration: none; color: #ffffff;}
 .idx i {font-size: x-large;}
 
 .neg {max-width: 500px;margin: 0 
-      border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
-     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
-     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-     width: 860px; margin: auto; 
-     background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2));}
+    border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
+    border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
+    width: 860px; margin: auto; 
+    background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2));}
+
 .col {color: #00b0b2;}
 
 
