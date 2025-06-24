@@ -3,8 +3,9 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 :root {
   --maxn: 150000; --title: "Fred";
---clr1: #3c5b50; --clr2: #879c7d;
---k25jan:32035;--k25feb:32035;--k25mar:32035;--k25apr:32035;--k25may:32835;--k25jun:34435; /*--k25jul:34435;  */
+--clr1: #3c5b50; --clr2: #879c7d; 
+--k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; --k25may:32835; --k25jun:34435; 
+      /*--k25jul:34435;  */
 }
 
 
@@ -28,9 +29,9 @@ a    {text-decoration: none; color: #ffffff;}
      border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
      border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
      width: 860px; margin: auto; 
-     background-image: linear-gradient(to bottom right, #3c5b50, #513e3e);}
+     background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2)););}
 .box:nth-child(odd) { 
-     background-image: linear-gradient(to bottom right, #513e3e, #3c5b50);
+     background-image: linear-gradient(to bottom right, var(--clr2)), var(--clr1) ;);
      border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;}
 .bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
