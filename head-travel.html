@@ -1,169 +1,161 @@
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sustance Matching Site</title>
+  <title>Airline Mileage</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
   <link rel="stylesheet" href="https://sustance.github.io/head.css" />
-<link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+  <style>
+    :root {
+      --maxn: 100000;
+      --k25jan: 50000;
+      --k25feb: 75000;
+      --k25mar: 30000;
+      --k25apr: 60000;
+      --k25may: 90000;
+      --k25jun: 20000;
+      --s25jan: 40000;
+      --s25feb: 55000;
+      --s25mar: 35000;
+      --s25apr: 70000;
+      --s25may: 80000;
+      --s25jun: 25000;
+    }
+    .chart { 
+      width: 100%; 
+      max-width: 800px; 
+      margin: 0 auto; 
+      margin-bottom: 2rem;
+    }
+    .box {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
+  </style>
 </head>
-  
-<body>
-    <title>Airline Mileage</title>
 
+<body>
   <div class="chart">
     <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
       <caption>Available Mileage for CX</caption>
       <thead>
-        <tr><th scope="col">Date</th><th scope="col">Miles</th></tr>
+        <tr><th scope="col">Date</th><th scope="col">Miles</th><th scope="col">Bonus</th></tr>
       </thead>
       <tbody>
         <tr><th scope="row">CX 25jan</th>
           <td style="--size: calc(var(--k25jan)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td>
+          <td style="--size: calc(var(--s25jan)/var(--maxn));"><span class="data-label"></span></td>
         </tr>
         <tr><th scope="row">CX 25feb</th>
           <td style="--size: calc(var(--k25feb)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td>
+          <td style="--size: calc(var(--s25feb)/var(--maxn));"><span class="data-label"></span></td>
         </tr>
-        <!-- Add other months... -->
+        <tr><th scope="row">CX 25mar</th>
+          <td style="--size: calc(var(--k25mar)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(var(--s25mar)/var(--maxn));"><span class="data-label"></span></td>
+        </tr>
+        <tr><th scope="row">CX 25apr</th>
+          <td style="--size: calc(var(--k25apr)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(var(--s25apr)/var(--maxn));"><span class="data-label"></span></td>
+        </tr>
+        <tr><th scope="row">CX 25may</th>
+          <td style="--size: calc(var(--k25may)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(var(--s25may)/var(--maxn));"><span class="data-label"></span></td>
+        </tr>
+        <tr><th scope="row">CX 25jun</th>
+          <td style="--size: calc(var(--k25jun)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(var(--s25jun)/var(--maxn));"><span class="data-label"></span></td>
+        </tr>
       </tbody>
     </table>
   </div>
--->
+  <h2>Entry cards</h2>
+  <div class="box"> 
+    <h3>Taiwan</h3>                 
+    <ul>
+      <li><a href="https://twac.immigration.gov.tw">Taiwan TWAC Form</a>, do &lt; 3 days before<br>
+          immigration officers may request you to present the confirmation.
+      <li>There isn't a specific Android app, must use Web.
+      <li>[1] Open the /store/tickeTrip/TaiwanEntryCard.xlsx<br>
+          Update for current trip.<br>
+          * TRY NOT UPDATE, JUST CHANGE ON WEB.<br>
+          * TRAPS, non 中 in chinese name. Avoid non alpha/num like /,: any field.
+      <li>[2] On web send/validate email (valid 10 Min). <br>
+          [3] Upload passport image /store/tickeTrip/KM...jpg <br>
+          [4] Upload /store/tickeTrip/TaiwanEntryCard.xlsx<br>
+          [5] Re-edit any errors.<br>
+          [6] Declaration and Submit.
+      </li>
+    </ul>
+  </div>
 
-<div class="chart">  
-<table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
-            <caption>Available Mileage for CX </caption>
-<thead>
-<tr><th scope="col">Date</th><th scope="col">Miles</th></tr>
-</thead>
-<tbody>
-<tr><th scope="row">CX 25jan</th>
-<td style="--size: calc(var(--k25jan)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25jan)/var(--maxn));"><span class="data-label"></span></td>
-<tr><th scope="row">CX 25feb</th>
-<td style="--size: calc(var(--k25feb)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25feb)/var(--maxn));"><span class="data-label"></span></td></tr>
-<tr><th scope="row">CX 25mar</th>
-<td style="--size: calc(var(--k25mar)(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25mar)/var(--maxn));"><span class="data-label"></span></td></tr>
-<tr><th scope="row"> CX 25apr</th>
-<td style="--size: calc(var(--k25apr)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25apr)/var(--maxn));"><span class="data-label">100000</span></td></tr>
-<tr><th scope="row"> CX 25may</th>
-<td style="--size: calc(var(--k25may)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25may)/var(--maxn));"><span class="data-label"></span></td></tr>
-<tr><th scope="row"> CX 25jun</th>
-<td style="--size: calc(var(--k25jun)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25jan)/var(--maxn));"><span class="data-label"></span></td></tr>  
+  <div class="box"> 
+    <h3>Singapore</h3> 
+    <ul>
+      <li>
+        <img src="https://www.ica.gov.sg/Cwp/assets/ica/images/logo/ica_mobile_logo_new.svg" 
+            height="42"> MyICA Mobile &lt; 3 days before <br>
+        <br> or <a href="https://eservices.ica.gov.sg/sgarrivalcard/">Singapore ICA Form</a><br>
+            Scan barcode from PP copy
+        CAN RECALL PAST FORM AND SCAN PP ETC, <br>
+        Edit flights to/from from prior trip record</li>
+    </ul>
+  </div>
+  <h2>Visas</h2>
+  <div class="box">   
+    <h3>Taiwan/Australian</h3>
+    <ul>
+      <li>Visa-Free <br>Entry Requirements for <b>Australian Citizens:</b></li>
+      <li>Passport: &gt; 6 months validity from entry.</li>
+      <li>Purpose of Visit: Tourism or business OK.</li>
+      <li>Stay Duration: Up to 90 days.</li>
+      <li>Return/Onward Ticket: Must be confirmed/Proof</li>
+      <li>No Criminal Record: </li>
+      <li>Entry not permitted on emergency passport.</li>
+    </ul>
+    <h3>Taiwan/Hong Kong</h3>
+    <ul>
+      <li>Visa required</li>
+    </ul>
+  </div>
+  <h2>Apps</h2>
+  <div class="box"> 
+    <ul>
+      <li>Cathay</li>
+      <li>HK Airlines <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a></li>
+    </ul>
+    <h2>Loyalty Awards</h2> 
+    <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a>
+    MEMBERS: Hainan A, Grand China, Tianjin A, Capital A, Lucky A, Fuzhou A, Urumqi A, West A<br>
+    PARTNERS: Alaska A, Etihad A, Virgin Australia
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const rows = document.querySelectorAll("tbody tr");
 
-</tbody>
-</table>
-</div>
+      rows.forEach(row => {
+        // Get base variable name from row header
+        const monthPrefix = row.querySelector("th").textContent.trim().toLowerCase().replace("cx ", "").replace(" ", "");
 
-<!--
-<tr><th scope="row"> CX 25jul</th>
-<td style="--size: calc(var(--k25jul)/var(--maxn));"><span class="data-label"></span></td>
-<td style="--size: calc(var(--s25jul)/var(--maxn));"><span class="data-label"></span></td></tr>  
-  -->
+        // Process both mileage columns
+        const cells = row.querySelectorAll("td");
+        if (cells.length >= 2) {
+          // First column (k variables)
+          const kValue = getComputedStyle(cells[0]).getPropertyValue(--k${monthPrefix}).trim();
+          const kLabel = cells[0].querySelector(".data-label");
+          if (kLabel) kLabel.textContent = kValue;
 
-<h2>Entry cards</h2>
-
-  
-<div class="box"> 
-<h3>Taiwan</h3>                 
-
-<ul>
-<li><a href="https://twac.immigration.gov.tw">Taiwan TWAC Form</a>, do < 3 days before<br>
-    immigration officers may request you to present the confirmation.<br>
-<li>There isn't a specific Android app, must use Web.
-<li>[1] Open the /store/tickeTrip/TaiwanEntryCard.xlsx<br>
-    Update for current trip.<br>
-    * TRY NOT UPDATE, JUST CHANGE ON WEB.<br>
-    * TRAPS, non 中 in chinese name. Avoid non alpha/num like /,: any field.
-<li>[2] On web send/validate email (valid 10 Min). <br>
-    [3] Upload passport image /store/tickeTrip/KM...jpg <br>
-    [4] Upload /store/tickeTrip/TaiwanEntryCard.xlsx<br>
-    [5] Re-edit any errors.<br>
-    [6] Declaration and Submit.
-</li>
-</ul>
-</div>
-<div class="box"> 
-<h3>Singapore</h3> 
-<ul>
-<li>
-<img src="https://www.ica.gov.sg/Cwp/assets/ica/images/logo/ica_mobile_logo_new.svg" 
-    height="42"> MyICA Mobile < 3 days before <br>
-<br> or <a href="https://eservices.ica.gov.sg/sgarrivalcard/">Singapore ICA Form</a><br>
-    Scan barcode from PP copy
-CAN RECALL PAST FORM AND SCAN PP ETC, <br>
-Edit flights to/from from prior trip record</li>
-</ul>
-</div>
-
-
- 
-<h2>Visas</h2>
-
-<div class="box">   
-<h3>Taiwan/Australian</h3>
-<ul>
-<li>Visa-Free <br>Entry Requirements for <b></b>Australian Citizens:</b></li>
-<li>Passport: > 6 months validity from entry.</li>
-<li>Purpose of Visit: Tourism or business OK.</li>
-<li>Stay Duration: Up to 90 days.</li>
-<li>Return/Onward Ticket: Must be confirmed/Proof</li>
-<li>No Criminal Record: </li>
-<li>Entry not permitted on emergency passport.</li>
-</ul>
-
-<h3>Taiwan/Hong Kong</h3>
-<ul>
-<li>Visa required</li>
-</ul>
-</div>
-  
-
-<h2>Apps</h2>
-
-<div class="box"> 
-  
-<ul>
-    <li>Cathay</li>
-    <li>HK Airlines <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a></li>
-</ul>
-
- <h2>Loyalty Awards</h2> 
-<a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a>
-  MEMBERS: Hainan A, Grand China, Tianjin A, Capital A, Lucky A, Fuzhou A, Urumqi A, West A<br>
-  PARTNERS: Alaska A, Etihad A, Virgin Australia
-</div>
-<div class="box"> 
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const rows = document.querySelectorAll("tbody tr");
-  
-  rows.forEach(row => {
-    // Get the CSS variable name from the row's header (e.g., "CX 25jan" → "k25jan")
-    const monthVar = row.querySelector("th").textContent.trim().toLowerCase().replace("cx ", "k");
-    
-    // Find the first <td> (where the variable is used)
-    const valueCell = row.querySelector("td:first-child");
-    
-    if (valueCell) {
-      // Extract the computed CSS variable value (e.g., "50000")
-      const value = getComputedStyle(valueCell).getPropertyValue(`--${monthVar}`).trim();
-      
-      // Update the label with the numeric value
-      const label = valueCell.querySelector(".data-label");
-      if (label) label.textContent = value;
-    }
-  });
-});
-  
-</script>
+          // Second column (s variables)
+          const sValue = getComputedStyle(cells[1]).getPropertyValue(--s${monthPrefix}).trim();
+          const sLabel = cells[1].querySelector(".data-label");
+          if (sLabel) sLabel.textContent = sValue;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
