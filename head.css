@@ -32,7 +32,15 @@ a    {text-decoration: none; color: #ffffff;}
      background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);}
 .col {color: #00b0b2;}
 
-
+.cha {margin: 0 
+      border: 1px solid #aaaaaa; padding-left: 0px; margin-bottom: 0;
+     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
+     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
+     width: 860px; 
+      margin: 0;  padding-bottom: 0px;  padding: 0px
+     background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
+.data-label {min-width: 50px;display: inline-block;
+}
 
 .container {
 max-width: 500px;margin: 0 auto;padding: 20px;}
