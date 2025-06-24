@@ -5,7 +5,7 @@ p      {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }
 h2 {
   font: 800 40px Arial;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1.5px;
+  -webkit-text-stroke: 1px;
   font-weight: 900;
 }
 
