@@ -1,4 +1,3 @@
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,12 +7,36 @@
   <link rel="stylesheet" href="https://sustance.github.io/head.css" />
   <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
   <style>
-    :root {--k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; --k25may:32835; --k25jun:34435; 
-          --s25jan:32035; --s25feb:32035; --s25mar:32035; --s25apr:32035; --s25may:32835; --s25jun:34435;
-          }
+    :root {
+      --maxn: 100000;
+      --k25jan: 50000;
+      --k25feb: 75000;
+      --k25mar: 30000;
+      --k25apr: 60000;
+      --k25may: 90000;
+      --k25jun: 20000;
+      --s25jan: 40000;
+      --s25feb: 55000;
+      --s25mar: 35000;
+      --s25apr: 70000;
+      --s25may: 80000;
+      --s25jun: 25000;
+    }
+    .chart { 
+      width: 100%; 
+      max-width: 800px; 
+      margin: 0 auto; 
+      margin-bottom: 2rem;
+    }
+    .box {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+    }
   </style>
 </head>
-
+  
 <body>
   <div class="chart">
     <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
@@ -68,7 +91,7 @@
       </li>
     </ul>
   </div>
-
+  
   <div class="box"> 
     <h3>Singapore</h3> 
     <ul>
@@ -112,23 +135,47 @@
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const rows = document.querySelectorAll("tbody tr");
-
+      const rootStyles = getComputedStyle(document.documentElement);
+      
       rows.forEach(row => {
         // Get base variable name from row header
-        const monthPrefix = row.querySelector("th").textContent.trim().toLowerCase().replace("cx ", "").replace(" ", "");
-
+        const headerText = row.querySelector("th").textContent.trim();
+        const monthPrefix = headerText.toLowerCase().replace("cx ", "").replace(" ", "");
+        
+        console.log("Header:", headerText, "Prefix:", monthPrefix); // Debug
+        
         // Process both mileage columns
         const cells = row.querySelectorAll("td");
         if (cells.length >= 2) {
           // First column (k variables)
-          const kValue = getComputedStyle(cells[0]).getPropertyValue(--k${monthPrefix}).trim();
+          const kVarName = `--k${monthPrefix}`;
+          const kValue = rootStyles.getPropertyValue(kVarName).trim();
           const kLabel = cells[0].querySelector(".data-label");
-          if (kLabel) kLabel.textContent = kValue;
-
+          
+          console.log("Looking for:", kVarName, "Found:", kValue); // Debug
+          
+          if (kLabel) {
+            if (kValue) {
+              kLabel.textContent = parseInt(kValue).toLocaleString();
+            } else {
+              kLabel.textContent = "N/A";
+            }
+          }
+          
           // Second column (s variables)
-          const sValue = getComputedStyle(cells[1]).getPropertyValue(--s${monthPrefix}).trim();
+          const sVarName = `--s${monthPrefix}`;
+          const sValue = rootStyles.getPropertyValue(sVarName).trim();
           const sLabel = cells[1].querySelector(".data-label");
-          if (sLabel) sLabel.textContent = sValue;
+          
+          console.log("Looking for:", sVarName, "Found:", sValue); // Debug
+          
+          if (sLabel) {
+            if (sValue) {
+              sLabel.textContent = parseInt(sValue).toLocaleString();
+            } else {
+              sLabel.textContent = "N/A";
+            }
+          }
         }
       });
     });
