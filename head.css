@@ -4,8 +4,9 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 :root {
   --maxn: 150000; --title: "Fred";
 --clr1: #3c5b50; --clr2: #879c7d; 
---k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; --k25may:32835; --k25jun:34435; 
---s25jan:32035; --s25feb:32035; --s25mar:32035; --s25apr:32035; --s25may:32835; --s25jun:34435;
+--k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; 
+--k25may:32835; --k25jun:34435; --s25jan:32035; --s25feb:32035; 
+--s25mar:32035; --s25apr:32035; --s25may:32835; --s25jun:34435;
 }
 
 p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }
