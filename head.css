@@ -40,7 +40,7 @@ a    {text-decoration: none; color: #ffffff;}
 .chart {font-size: small; color: #222200; font-weight: 500;
 margin-left: 0;    margin-bottom: 0;    margin-top: 0;    margin-right: 0;
 padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 9px; 
-width: 100%; max-width: 860px; max-height: 400px; padding: 0px;
+width: 100%; max-width: 860px; height: auto; padding: 0px;
 background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
 .data-label {min-width: 60px;display: inline-block;
 }
@@ -50,7 +50,7 @@ margin: 0 ;
 border: 1px solid #aaaaaa; padding-left: 0px; margin-bottom: 0;
 border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
 border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-width: 100%; max-width: 860px; max-height: 400px;
+width: 100%; max-width: 860px; height: fit-content;
 margin: 0;  padding-bottom: 0px;  padding: 0px;
 background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
 .data-label {min-width: 50px;display: inline-block;
