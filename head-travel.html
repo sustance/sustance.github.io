@@ -7,7 +7,84 @@
   <link rel="stylesheet" href="https://sustance.github.io/head.css" />
 <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
 </head>
+<body
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CX Airline Mileage</title>
+    <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .chart {
+            margin-top: 30px;
+        }
+        .data-label {
+            min-width: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
 <body>
+    <div class="container">
+        <h1>CX Airline Mileage</h1>
+        
+        <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-5">
+            <caption>Monthly Mileage for CX Airline</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Miles</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Jan</th>
+                    <td style="--size: calc(32035 / 34435);"><span class="data-label">32035</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Feb</th>
+                    <td style="--size: calc(32035 / 34435);"><span class="data-label">32035</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Mar</th>
+                    <td style="--size: calc(32035 / 34435);"><span class="data-label">32035</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Apr</th>
+                    <td style="--size: calc(32035 / 34435);"><span class="data-label">32035</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">May</th>
+                    <td style="--size: calc(32835 / 34435);"><span class="data-label">32835</span></td>
+                </tr>
+                <tr>
+                    <th scope="row">Jun</th>
+                    <td style="--size: calc(34435 / 34435);"><span class="data-label">34435</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+  
   
 <div id="my-chart">
 
@@ -16,7 +93,8 @@
 
   <table class="line">
     <tr>
-    <td style="--size: 0.32"> <span class="data"> $ 25Apr 32035 </span> </td>
+    <td style="--size: 0.32"> <span class="data"> $ 25apr 32035 </span> </td>
+      <td style="--size: 0.32"> <span class="data"> $ 25may 32035 </span> </td>
   </tr>
   <tr>
   </table>
