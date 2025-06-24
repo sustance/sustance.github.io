@@ -33,7 +33,9 @@ a    {text-decoration: none; color: #ffffff;}
 .col {color: #00b0b2;}
 
 :root {
-  --maxn: 200000;}
+  --maxn: 250000;
+--title: "Fred";
+}
 
 .chart {font-size: small; color: #222200; font-weight: 500;
 margin-left: 0;    margin-bottom: 0;    margin-top: 0;    margin-right: 0;
