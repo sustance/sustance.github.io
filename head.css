@@ -5,8 +5,10 @@ p      {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }
 h2 {
   font: 800 40px Arial;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 3px;
+  -webkit-text-stroke: 1.5px;
+  font-weight: 900;
 }
+
 .box b {font-size: xxx-large; color: #f6c25d; font-weight: 900;}
 .box i {font-size: x-large; color: #a52b36; font-weight: 900;}
 .bsd b {font-size: xxx-large; color: #00b0b2; font-weight: 900;}
