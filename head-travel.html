@@ -21,7 +21,8 @@
 </thead>
 <tbody>
 <tr><th scope="row">CX 25jan</th>
-<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">K 32035</span></td>
+<td style="--size: calc(var(--k25jan)/var(--maxn));"><span class="data-label"></span></td>
+<!--<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">K 32035</span></td>-->
 <td style="--size: calc(100000/var(--maxn) );"><span class="data-label">S 100000</span></td>
 <tr><th scope="row">CX 25feb</th>
 <td style="--size: calc(32035/var(--maxn) );"><span class="data-label">K 32035</span></td>
@@ -48,6 +49,31 @@
 </table>
 </div>
 -->
+
+
+
+  <div class="chart">
+    <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
+      <caption>Available Mileage for CX</caption>
+      <thead>
+        <tr><th scope="col">Date</th><th scope="col">Miles</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">CX 25jan</th>
+          <td style="--size: calc(var(--k25jan)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td>
+        </tr>
+        <tr><th scope="row">CX 25feb</th>
+          <td style="--size: calc(var(--k25feb)/var(--maxn));"><span class="data-label"></span></td>
+          <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td>
+        </tr>
+        <!-- Add other months... -->
+      </tbody>
+    </table>
+  </div>
+
+
+  
   
 <div class="chart">  
 <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
@@ -159,3 +185,28 @@ Edit flights to/from from prior trip record</li>
 </div>
 <div class="box"> 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll("tbody tr");
+  
+  rows.forEach(row => {
+    // Get the CSS variable name from the row's header (e.g., "CX 25jan" → "k25jan")
+    const monthVar = row.querySelector("th").textContent.trim().toLowerCase().replace("cx ", "k");
+    
+    // Find the first <td> (where the variable is used)
+    const valueCell = row.querySelector("td:first-child");
+    
+    if (valueCell) {
+      // Extract the computed CSS variable value (e.g., "50000")
+      const value = getComputedStyle(valueCell).getPropertyValue(`--${monthVar}`).trim();
+      
+      // Update the label with the numeric value
+      const label = valueCell.querySelector(".data-label");
+      if (label) label.textContent = value;
+    }
+  });
+});
+  
+</script>
+</body>
+</html>
