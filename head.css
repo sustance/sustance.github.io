@@ -24,7 +24,8 @@ a    {text-decoration: none; color: #ffffff;}
      background-image: linear-gradient(to bottom right, #3c5b50, #00b0b2);}        
 .idx i {font-size: x-large;}
 
-.neg {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
+.neg {max-width: 500px;margin: 0 
+      border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
      border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
      border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
      width: 860px; margin: auto; 
