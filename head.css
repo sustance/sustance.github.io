@@ -41,7 +41,7 @@ a    {text-decoration: none; color: #ffffff;}
 .col {color: #00b0b2;}
 
 :root {
-  --maxn: 250000;
+  --maxn: 150000;
 --title: "Fred";
 }
 
