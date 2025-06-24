@@ -2,11 +2,11 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
 :root {
-  --maxn: 150000; --title: "Fred";
+  --maxn: 300000; 
 --clr1: #3c5b50; --clr2: #879c7d; 
 --k25jan:32035; --k25feb:32035; --k25mar:32035; --k25apr:32035; 
---k25may:32835; --k25jun:34435; --s25jan:32035; --s25feb:32035; 
---s25mar:32035; --s25apr:32035; --s25may:32835; --s25jun:34435;
+--k25may:32835; --k25jun:34435;     --s25jan:174743; --s25feb:174743; 
+--s25mar:174743; --s25apr:175543; --s25may:175543; --s25jun:177143;
 }
 
 p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }
