@@ -10,7 +10,8 @@
   
 <body>
     <title>title CX Airline Mileage</title>
-<div class="cha">
+<!--
+  <div class="cha">
         <h2>CX Airline Mileage</h2>
         
 <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-5 multiple stacked">
@@ -46,7 +47,8 @@
 </tbody>
 </table>
 </div>
-
+-->
+  
 <div class="chart">  
 <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-9 multiple stacked">
             <caption>Available Mileage for CX </caption>
@@ -55,16 +57,16 @@
 </thead>
 <tbody>
 <tr><th scope="row">CX 25jan</th>
-<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">32035</span></td>
+<td style="--size: calc(var(--k25jan)/var(--maxn) );"><span class="data-label">32035</span></td>
 <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td>
 <tr><th scope="row">CX 25feb</th>
-<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">32035</span></td>
+<td style="--size: calc(var(--k25jan)/var(--maxn) );"><span class="data-label">32035</span></td>
 <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td></tr>
 <tr><th scope="row">CX 25mar</th>
-<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">32035</span></td>
+<td style="--size: calc(var(--k25jan)(--maxn) );"><span class="data-label">32035</span></td>
 <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td></tr>
 <tr><th scope="row"> CX 25apr</th>
-<td style="--size: calc(32035/var(--maxn) );"><span class="data-label">32035</span></td>
+<td style="--size: calc(var(--k25jan)/var(--maxn) );"><span class="data-label">32035</span></td>
 <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000</span></td></tr>
 <tr><th scope="row"> CX 25may</th>
 <td style="--size: calc(32835/var(--maxn) );"><span class="data-label">32835</span></td>
@@ -72,9 +74,11 @@
 <tr><th scope="row"> CX 25jun</th>
 <td style="--size: calc(34435/var(--maxn) );"><span class="data-label">34435</span></td>
 <td style="--size: calc(100000/var(--maxn));"><span class="data-label">100000 </span></td></tr>  
+<!--
 <tr><th scope="row"> CX 25jul</th>
 <td style="--size: calc(50000/var(--maxn) );"><span class="data-label">50000</span></td>
 <td style="--size: calc(50000/var(--maxn));"><span class="data-label">50000 </span></td></tr>  
+  -->
 </tbody>
 </table>
 </div>
