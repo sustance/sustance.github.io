@@ -3,7 +3,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
 :root {
-  --maxn: 500000; 
+  --maxn: 300000; 
       
 --clr1: #3c5b50; --clr2: #879c7d; 
       
@@ -13,7 +13,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --K25marMM: 35661; --K25aprMM: 35661; --K25mayMM: 35661; --K25junMM: 35661;
 --S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
       
---S25junSK: 53445;
+--K25junSK: 53445;
 --S25junSK:159236;      
 }
 
