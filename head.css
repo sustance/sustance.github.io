@@ -7,14 +7,14 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       
 --clr1: #3c5b50; --clr2: #879c7d; 
       
---K25marAM: 32035; --K25aprCX: 32035; --K25mayCX: 32835; --K25junCX: 34435;     
---S25marCX:174743; --S25aprCX:175543; --S25mayCX:175543; --S25junCX:177143;
+--K25marAM: 32035; --K25aprAM: 32035; --K25mayAM: 32835; --K25junAM: 34435;     
+--S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
 
 --K25marMM: 35661; --K25aprMM: 35661; --K25mayMM: 35661; --K25junMM: 35661;
 --S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
       
---K25junSK: 53445;
---S25junSK:159236;      
+--K25maySK: 53445;      --K25junSK: 53445;
+--S25maySK:159236;      --S25junSK:159236;
 }
 
 /* SEARCH IN GMAIL 
