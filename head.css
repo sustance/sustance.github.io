@@ -81,7 +81,7 @@ margin: 0 ;
 border: 1px solid #aaaaaa; padding-left: 0px; margin-bottom: 0;
 border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
 border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-width: 100%; max-width: 860px; height: auto; max-height: 480px;
+width: 100%; max-width: 860px; height: auto; max-height: 3200px;
 margin: 0;  padding-bottom: 0px;  padding: 0px;
 background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
 .data-label {min-width: 50px;display: inline-block;
