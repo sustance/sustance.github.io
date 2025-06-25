@@ -7,10 +7,8 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       
 --clr1: #3c5b50; --clr2: #879c7d; 
       
---K25jan:32035; --K25feb:32035; 
---K25mar:32035; --K25apr:32035; --K25may:32835; --K25jun:34435;     
---S25jan:174743; --S25feb:174743;
---S25mar:174743; --S25apr:175543; --S25may:175543; --S25jun:177143;
+--K25marCX: 32035; --K25aprCX: 32035; --K25mayCX: 32835; --K25junCX: 34435;     
+--S25marCX:174743; --S25aprCX:175543; --S25mayCX:175543; --S25junCX:177143;
 
 --K25marMM: 35661; --K25aprMM: 35661; --K25mayMM: 35661; --K25junMM: 35661;
 --S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
