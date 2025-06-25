@@ -3,7 +3,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
 :root {
-  --maxn: 500000; 
+  --maxn: 300000; 
       
 --clr1: #3c5b50; --clr2: #879c7d; 
       
