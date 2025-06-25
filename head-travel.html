@@ -147,7 +147,8 @@
       rows.forEach(row => {
         // Get base variable name from row header
         const headerText = row.querySelector("th").textContent.trim();
-        const monthPrefix = headerText.toLowerCase().replace("cx ", "").replace(" ", "");
+        const monthPrefix = headerText 
+          //.toLowerCase().replace("cx ", "").replace(" ", "");
         
         console.log("Header:", headerText, "Prefix:", monthPrefix); // Debug
         
