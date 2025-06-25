@@ -3,10 +3,10 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
 :root {
-  --maxn: 300000; 
+--clr1: #3c5b50; 
+--clr2: #879c7d; 
       
---clr1: #3c5b50; --clr2: #879c7d; 
-      
+--maxn: 300000;       
 --K25marAM: 32035; --K25aprAM: 32035; --K25mayAM: 32835; --K25junAM: 34435;     
 --S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
 
