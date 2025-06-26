@@ -41,7 +41,7 @@ a    {text-decoration: none; color: #ffffff;}
      border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
      border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
      width: 860px; margin: auto; 
-     background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2)  ); 
+     background-image: linear-gradient(to bottom right, #3c5b50, #879c7d ); 
 }
 .box:nth-child(odd) { 
      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr1) );
