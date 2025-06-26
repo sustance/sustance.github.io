@@ -7,17 +7,17 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --clr2: #879c7d; 
       
 --maxn: 300000;       
---K25marAM: 32035; --K25aprAM: 32035; --K25mayAM: 32835; --K25junAM: 34435;     
+--K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
 --S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
 
---K25marMM: 35661; --K25aprMM: 35661; --K25mayMM: 35661; --K25junMM: 35661;
+--K25marMM: 35661; --K25aprMM:35661; --K25mayMM:35661; --K25junMM:35661;
 --S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
       
---K25maySK: 53445; --K25junSK: 53445;
+--K25maySK: 53445; --K25junSK:53445;
 --S25maySK:159236; --S25junSK:159236;
 
---K25junFW: 947;
---K25junFW: 947;
+--K25junFW:947;
+--K25junFW:947;
 }
 
 /* SEARCH IN GMAIL 
@@ -67,7 +67,6 @@ a    {text-decoration: none; color: #ffffff;}
 .col {color: #00b0b2;}
 
 
-
 .chart {font-size: small; color: #222200; font-weight: 500;
 margin-left: 0;    margin-bottom: 0;    margin-top: 0;    margin-right: 0;
 padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 9px; 
@@ -77,23 +76,3 @@ opacity: .9;
 max-width: 860px; max-height: 100px;
 }
         
-/*
-.cha {font-size: small; color: #000000; font-weight: 500;
-margin: 0 ;
-border: 1px solid #aaaaaa; padding-left: 0px; margin-bottom: 0;
-border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
-border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-width: 100%; max-width: 860px; height: auto; max-height: 300px;
-margin: 0;  padding-bottom: 0px;  padding: 0px;
-background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
-.data-label {min-width: 50px;display: inline-block;
-}
-.container {
-max-width: 500px;margin: 0 auto;padding: 20px;}
-h3 {text-align: center;color: #333;}
-.chart {margin-top: 10px;}
-.data-label {min-width: 50px;display: inline-block;}
-*/
-
-
-
