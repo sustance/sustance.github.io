@@ -1,4 +1,4 @@
-
+body { background-color: red !important; }
 body {font-family: "Noto Sans", Roboto, sans-serif; 
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
@@ -17,14 +17,14 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --S25maySK:159236; --S25junSK:159236;
 
 --K25junFW:947;
---K25junFW:947;
+;;;
 }
 
 /* SEARCH IN GMAIL 
 SK skymiles (delta)
 mm Lufthansa "Your current mileage balance in" *\
 
-p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }
+/*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
 h2 {
   font: 800 40px Arial;
@@ -57,7 +57,7 @@ a    {text-decoration: none; color: #ffffff;}
      background-image: linear-gradient(to bottom right, #3c5b50, #00b0b2);}        
 .idx i {font-size: x-large;}
 
-.neg {max-width: 500px;margin: 0 
+.neg {max-width: 500px;margin: 0 ;
     border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
