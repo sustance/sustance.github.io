@@ -4,9 +4,9 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
  /*color: #ffffff;*/
 :root {
 --clr1: #3c5b50; 
---clr2: #879c7d;  art nouveau
---clrLt1: #879c7d 
---clrLt2: #cbc385
+--clr2: #879c7d;  art nouveau;
+--clrLt1: #879c7d;
+--clrLt2: #cbc385;
 
 
       
@@ -59,9 +59,9 @@ color: #ffffff;
 .bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
      border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;
-     width: 860px; margin: auto; 
+     width: 860px; margin: auto; }
      /*background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );*/
-     }        
+            
 
 .idx i {font-size: x-large;}
 
