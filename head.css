@@ -60,7 +60,9 @@ color: #ffffff;
      border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;
      width: 860px; margin: auto; 
-     background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );}        
+     /*background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );*/
+     }        
+
 .idx i {font-size: x-large;}
 
 .neg {max-width: 500px;margin: 0 ;
