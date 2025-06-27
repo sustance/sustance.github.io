@@ -1,4 +1,3 @@
-
 body {font-family: "Noto Sans", Roboto, sans-serif; 
       font-size: small; font-weight: 500;} 
 :root {
@@ -32,8 +31,13 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 SK skymiles (delta)
 mm Lufthansa "Your current mileage balance in" *\
 
+
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
+div {{border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
+        width: 860px; margin: auto; 
+    
+    }
 h2 {
   font: 800 40px Arial;
   -webkit-text-fill-color: transparent;
@@ -48,40 +52,30 @@ h2 {
 s    {color: #aaaaaa;}
 u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
-.box {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
-     border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
-     border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-     width: 860px; margin: auto; 
-      color: #ffffff;
-     background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); 
-}
+
+.box {
+      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); 
+      border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
+      border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
+      color: #ffffff;}
+
 .box:nth-child(odd) { 
-     background-image: linear-gradient(to bottom right, var(--clr3), var(--clr2) );
-     border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
-     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px
+      background-image: linear-gradient(to bottom right, var(--clr3), var(--clr2) );
+      border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
+      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px  
+      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); }
 
-
-           
-.bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
-     border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
-     border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-     width: 860px; margin: auto; 
-      color: #ffffff;
-     background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); 
-/*.bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
-     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 55px;
-     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;
-     width: 860px; margin: auto; }  */   
+.bsd {border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px; }    
       
 
 .idx i {font-size: x-large;}
 
-.neg {max-width: 500px;margin: 0 ;
-    border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
+.neg {
+      background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );
+     max-width: 500px;margin: 0 ;
     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-    width: 860px; margin: auto; 
-    background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );
+
      }
 
 .col {color: #00b0b2;}
