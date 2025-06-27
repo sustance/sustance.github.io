@@ -1,9 +1,10 @@
 
 body {font-family: "Noto Sans", Roboto, sans-serif; 
       font-size: small; font-weight: 500;} 
- /*color: #ffffff;*/
 :root {
---clr1:   #00b0b2; 
+--clrBla: 000000;
+--clrWhi: ffffff;
+--clr1:   #10c0c2; 
 --clr2:   #00b0b2; 
 --clr3:   #3c5b50; 
 --clrDk1: #513e3e; 
@@ -51,20 +52,18 @@ a    {text-decoration: none; color: #ffffff;}
      border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
      border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
      width: 860px; margin: auto; 
-color: #ffffff;
-     background-image: linear-gradient(to bottom right, #3c5b50, #879c7d ); 
+      color: #ffffff;
+     background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); 
 }
 .box:nth-child(odd) { 
-     background-image: linear-gradient(to bottom right, var(--clr2), var(--clr1) );
+     background-image: linear-gradient(to bottom right, var(--clr3), var(--clr2) );
      border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px
       
 .bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
      border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;
-     width: 860px; margin: auto; }
-     /*background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );*/
-            
+     width: 860px; margin: auto; }            
 
 .idx i {font-size: x-large;}
 
@@ -73,8 +72,7 @@ color: #ffffff;
     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
     width: 860px; margin: auto; 
-    background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2)   );
-.blur-box { background-color: var(--clr2); box-shadow: 0 0 5px 10 ...
+    background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2) );
      }
 
 .col {color: #00b0b2;}
