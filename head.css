@@ -3,12 +3,15 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
  /*color: #ffffff;*/
 :root {
---clr1: #3c5b50; 
---clr2: #879c7d;  art nouveau;
---clrLt1: #879c7d;
---clrLt2: #cbc385;
-
-
+--clr1:   #00b0b2; 
+--clr2:   #00b0b2; 
+--clr3:   #3c5b50; 
+--clrDk1: #513e3e; 
+--clrDk2: #a52b36; 
+--clrDk2: #fbd499; 
+--clrWa2: #f6c25d;
+--clrLt1: #cbc385; 
+--clrLt2: #879c7d;
       
 --maxn: 300000;       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
