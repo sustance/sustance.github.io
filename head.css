@@ -4,7 +4,11 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
  /*color: #ffffff;*/
 :root {
 --clr1: #3c5b50; 
---clr2: #879c7d; 
+--clr2: #879c7d;  art nouveau
+--clrLt1: #879c7d 
+--clrLt2: #cbc385
+
+
       
 --maxn: 300000;       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
@@ -50,12 +54,13 @@ color: #ffffff;
 .box:nth-child(odd) { 
      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr1) );
      border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
-     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;}
+     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px
+      
 .bsd {border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
      border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 55px;
      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;
      width: 860px; margin: auto; 
-     background-image: linear-gradient(to bottom right, #3c5b50, #00b0b2);}        
+     background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );}        
 .idx i {font-size: x-large;}
 
 .neg {max-width: 500px;margin: 0 ;
@@ -63,7 +68,9 @@ color: #ffffff;
     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
     width: 860px; margin: auto; 
-    background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2)   );}
+    background-image: linear-gradient(to bottom right, var(--clr1), var(--clr2)   );
+.blur-box { background-color: var(--clr2); box-shadow: 0 0 5px 10 ...
+     }
 
 .col {color: #00b0b2;}
 
