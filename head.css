@@ -1,8 +1,8 @@
 body {font-family: "Noto Sans", Roboto, sans-serif; 
       font-size: small; font-weight: 500;} 
+
 :root {
---clrBla: 000000;
---clrWhi: ffffff;
+--clrBla: #000000; --clrWhi: #ffffff;
 --clr1:   #10c0c2; 
 --clr2:   #00b0b2; 
 --clr3:   #3c5b50; 
@@ -12,7 +12,8 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --clrWa2: #f6c25d;
 --clrLt1: #cbc385; 
 --clrLt2: #879c7d;
-      
+--clrLt3: #ebd395; --clrLt4: #97ac8d;   
+   
 --maxn: 300000;       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
 --S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
@@ -23,28 +24,16 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --K25maySK: 53445; --K25junSK:53445;
 --S25maySK:159236; --S25junSK:159236;
 
---K25junFW:947;
-;;;
-}
-
-/* SEARCH IN GMAIL 
-SK skymiles (delta)
-mm Lufthansa "Your current mileage balance in" *\
-
+--K25junFW:947;}
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
-div {{border: 1px solid #aaaaaa; padding-left: 12px; margin-bottom: 0;
-        width: 860px; margin: auto; 
-    
-    }
-h2 {
-  font: 800 40px Arial;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px;
-  font-weight: 900;
-}
+div { padding-left: 12px; max-width: 860px; margin: 10px; }
 
+h2 {font: 800 40px Arial; font-weight: 900;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px;}
+ 
 .box b {font-size: xxx-large; color: #f6c25d; font-weight: 900;}
 .box i {font-size: x-large; color: #a52b36; font-weight: 900;}
 .bsd b {font-size: xxx-large; color: #00b0b2; font-weight: 900;}
@@ -53,40 +42,35 @@ s    {color: #aaaaaa;}
 u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
 
-.box {
-      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); 
-      border-top-left-radius: 125px 88px;    border-top-right-radius: 99px 333px;
-      border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-      color: #ffffff;}
-
+.box {color: #ffffff;
+    border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
+    border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
+    background-image: linear-gradient(to bottom right,var(--clr2),var(--clrLt2) );}
 .box:nth-child(odd) { 
-      background-image: linear-gradient(to bottom right, var(--clr3), var(--clr2) );
-      border-top-left-radius: 55px 15px;    border-top-right-radius: 15px 55px;
-      border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px  
-      background-image: linear-gradient(to bottom right, var(--clr2), var(--clr3) ); }
+    border-top-left-radius: 55px 15px; border-top-right-radius: 15px 55px;
+    border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;  
+    background-image: linear-gradient(to bottom right,var(--clrLt2),var(--clr2) );}
 
-.bsd {border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px; }    
+.bsd {
+    border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
+    border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
+    background-image: linear-gradient(to bottom right,var(--clrLt3),var(--clr2) );}    
       
-
 .idx i {font-size: x-large;}
 
 .neg {
-      background-image: linear-gradient(to bottom right, var(--clrLt1), var(--clrLt2) );
-     max-width: 500px;margin: 0 ;
+    max-width: 500px;margin: 0 ;
     border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-
-     }
+    background-image:linear-gradient(to bottom right,var(--clrLt3),var(--clrLt4) );}
 
 .col {color: #00b0b2;}
 
-
-.chart {font-size: small; color: #222200; font-weight: 500;
-margin-left: 0;    margin-bottom: 0;    margin-top: 0;    margin-right: 0;
-padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 9px; 
-width: 100%; 
-background-image: linear-gradient(to bottom right, #3c5b50, #879c7d);
-opacity: .9;
-max-width: 860px; max-height: 100px;
-}
-        
+.chart {
+    font-size: small; color: #222200; font-weight: 500;
+    margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
+    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 9px; 
+    border-top-left-radius: 55px 15px;    border-top-right-radius: 20px 75px;
+    border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
+    background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
+       \*width: 100%;*/ opacity: 1; }
