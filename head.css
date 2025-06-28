@@ -67,7 +67,19 @@ a    {text-decoration: none; color: #ffffff;}
 
 .col {color: #00b0b2;}
 
-.chart {max-height: 300px;
+.chart {
+  --color-1: var(--clrDk1);
+  --color-2: var(--clrDk2);
+  --color-3: var(--clrDk3);
+  --color-4: rgba(255, 170, 170, 0.6);
+  --color-5: rgba(255, 170, 170, 1.0);
+  --color-6: rgba(255, 170, 170, 1.0);
+  --color-7: rgba(255, 170, 170, 0.8);
+  --color-8: rgba(255, 170, 170, 0.6);
+  --color-9: rgba(255, 170, 170, 0.4);
+  --color-10: rgba(255, 170, 170, 0.2);
+      
+      max-height: 300px;
     \*font-size: small; color: #222200; font-weight: 500; 
     margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
     padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; *\
@@ -75,21 +87,8 @@ a    {text-decoration: none; color: #ffffff;}
     border-top-left-radius: 55px 15px; border-top-right-radius: 20px 75px;
     border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
-       \*width: 100%; opacity: 1;*/
-
-display: table-caption;
-        
-       
-       
-       }
-caption {
-      display: table-caption;
-      caption-side: top;
-      text-align: center;
-      padding: 0.5rem;
-      font-weight: bold;
-    }
-table caption {
+       \*width: 100%; opacity: 1;*/ }
+caption { font: 800 40px Arial; font-weight: 900;
       display: table-caption;
       caption-side: top;
       text-align: center;
