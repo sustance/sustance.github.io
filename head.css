@@ -73,7 +73,7 @@ a    {text-decoration: none; color: #ffffff;}
 .box {color: #ffffff;
     border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
     border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-    background-image: linear-gradient(to bottom right,var(--color-4),var(--color-2) );}
+    background-image: linear-gradient(to bottom right,var(--clr1),var(--color-2) );}
 .box:nth-child(odd) { 
     border-top-left-radius: 55px 15px; border-top-right-radius: 15px 55px;
     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;  
