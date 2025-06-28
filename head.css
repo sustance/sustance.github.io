@@ -61,16 +61,16 @@ a    {text-decoration: none; color: #ffffff;}
 
 .neg {
     max-width: 500px;margin: 0 ;
-    border-top-left-radius: 255px 15px;    border-top-right-radius: 15px 255px;
+    border-top-left-radius: 255px 15px; border-top-right-radius: 15px 255px;
     border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
     background-image:linear-gradient(to bottom right,var(--clrLt3),var(--clrLt4) );}
 
 .col {color: #00b0b2;}
 
-.chart {
-    font-size: small; color: #222200; font-weight: 500;
+.chart {max-height: 300px;
+    font-size: small; color: var(--clrDk2; font-weight: 500; \*#222200*\
     margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
-    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 9px; 
+    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; 
     border-top-left-radius: 55px 15px;    border-top-right-radius: 20px 75px;
     border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
