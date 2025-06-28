@@ -67,7 +67,9 @@ a    {text-decoration: none; color: #ffffff;}
 .bsd {
     border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
     border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-    background-image: linear-gradient(to bottom right,var(--clrLt3),var(--clr2) );}    
+    background-image: linear-gradient(to bottom right,var(--color-5),var(--color-6) );
+/*var(--clrLt3),var(--clr2)*/
+}    
       
 .idx i {font-size: x-large;}
 
@@ -89,10 +91,10 @@ a    {text-decoration: none; color: #ffffff;}
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
        \*width: 100%; opacity: 1;*/ }
 
-/*caption { font: 800 40px Arial; font-weight: 900;
+caption { font: 800 40px Arial; font-weight: 900;
       display: table-caption;
       caption-side: top;
       text-align: center;
       padding: 0.5rem;
       font-weight: bold;
-    }*
+    }
