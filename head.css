@@ -38,7 +38,7 @@ h2 {font: 800 40px Arial; font-weight: 900;
 .box i {font-size: x-large; color: #a52b36; font-weight: 900;}
 .bsd b {font-size: xxx-large; color: #00b0b2; font-weight: 900;}
 .bsd i {font-size: x-large; color: #a52b36; font-weight: 900;}
-.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}
+/*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
 s    {color: #aaaaaa;}
 u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
@@ -68,10 +68,18 @@ a    {text-decoration: none; color: #ffffff;}
 .col {color: #00b0b2;}
 
 .chart {max-height: 300px;
-    font-size: small; color: var(--clrDk2; font-weight: 500; \*#222200*\
+    \*font-size: small; color: #222200; font-weight: 500; 
     margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
-    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; 
-    border-top-left-radius: 55px 15px;    border-top-right-radius: 20px 75px;
+    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; *\
+        
+    border-top-left-radius: 55px 15px; border-top-right-radius: 20px 75px;
     border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
-       \*width: 100%;*/ opacity: 1; }
+       \*width: 100%; opacity: 1;*/ }
+.table caption {
+      display: table-caption;
+      caption-side: top;
+      text-align: center;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
