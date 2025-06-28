@@ -14,7 +14,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --clrLt2: #879c7d;
 --clrLt3: #ebd395; --clrLt4: #97ac8d;  
 
-  --color-1: rgba(255, 170, 170, 0.2);
+  /*--color-1: rgba(255, 170, 170, 0.2);
   --color-2: rgba(255, 170, 170, 0.4);
   --color-3: rgba(255, 170, 170, 0.5);
   --color-4: rgba(255, 170, 170, 0.6);
@@ -23,7 +23,19 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --color-7: rgba(255, 170, 170, 0.8);
   --color-8: rgba(255, 170, 170, 0.6);
   --color-9: rgba(255, 170, 170, 0.4);
-  --color-10: rgba(255, 170, 170, 0.2);
+  --color-10: rgba(255, 170, 170, 0.2);*/
+
+ --color-1: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-2: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-3: repeating-linear-gradient(90deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-4: repeating-linear-gradient(-45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-5: repeating-linear-gradient(transparent, #e34 20px),
+             repeating-linear-gradient(90deg, transparent, #e34 20px);
+  --color-6: repeating-radial-gradient(circle, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-7: repeating-radial-gradient(circle at 50% 100%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-8: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-9: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-10: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
       
    
 --maxn: 300000;       
@@ -62,12 +74,16 @@ a    {text-decoration: none; color: #ffffff;}
 .box:nth-child(odd) { 
     border-top-left-radius: 55px 15px; border-top-right-radius: 15px 55px;
     border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;  
-    background-image: linear-gradient(to bottom right,var(--clrLt2),var(--clr2) );}
+    background-image: var(--color-4);
+          /*linear-gradient(to bottom right,var(--clrLt2),var(--clr2) );*/
+
+
+}
 
 .bsd {
     border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
     border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-    background-image: linear-gradient(to bottom right,var(--color-5),var(--color-6) );
+    background-image: linear-gradient(to bottom right,var(--color-5),var(--color-4 ) );
 /*var(--clrLt3),var(--clr2)*/
 }    
       
