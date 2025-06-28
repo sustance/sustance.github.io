@@ -83,3 +83,10 @@ a    {text-decoration: none; color: #ffffff;}
       padding: 0.5rem;
       font-weight: bold;
     }
+table caption {
+      display: table-caption;
+      caption-side: top;
+      text-align: center;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
