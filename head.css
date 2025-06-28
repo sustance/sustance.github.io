@@ -12,7 +12,19 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --clrWa2: #f6c25d;
 --clrLt1: #cbc385; 
 --clrLt2: #879c7d;
---clrLt3: #ebd395; --clrLt4: #97ac8d;   
+--clrLt3: #ebd395; --clrLt4: #97ac8d;  
+
+  --color-1: rgba(255, 170, 170, 0.2);
+  --color-2: rgba(255, 170, 170, 0.4);
+  --color-3: rgba(255, 170, 170, 0.5);
+  --color-4: rgba(255, 170, 170, 0.6);
+  --color-5: rgba(255, 170, 170, 1.0);
+  --color-6: rgba(255, 170, 170, 1.0);
+  --color-7: rgba(255, 170, 170, 0.8);
+  --color-8: rgba(255, 170, 170, 0.6);
+  --color-9: rgba(255, 170, 170, 0.4);
+  --color-10: rgba(255, 170, 170, 0.2);
+      
    
 --maxn: 300000;       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
@@ -68,18 +80,6 @@ a    {text-decoration: none; color: #ffffff;}
 .col {color: #00b0b2;}
 
 .chart {
-  --color-1: var(--clrDk1);
-  --color-2: var(--clrDk2);
-  --color-3: var(--clrDk3);
-  --color-4: rgba(255, 170, 170, 0.6);
-  --color-5: rgba(255, 170, 170, 1.0);
-  --color-6: rgba(255, 170, 170, 1.0);
-  --color-7: rgba(255, 170, 170, 0.8);
-  --color-8: rgba(255, 170, 170, 0.6);
-  --color-9: rgba(255, 170, 170, 0.4);
-  --color-10: rgba(255, 170, 170, 0.2);
-      
-      max-height: 300px;
     \*font-size: small; color: #222200; font-weight: 500; 
     margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
     padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; *\
@@ -88,10 +88,11 @@ a    {text-decoration: none; color: #ffffff;}
     border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
        \*width: 100%; opacity: 1;*/ }
-caption { font: 800 40px Arial; font-weight: 900;
+
+/*caption { font: 800 40px Arial; font-weight: 900;
       display: table-caption;
       caption-side: top;
       text-align: center;
       padding: 0.5rem;
       font-weight: bold;
-    }
+    }*
