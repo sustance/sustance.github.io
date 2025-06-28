@@ -14,41 +14,31 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --clrLt3: rgba(235, 211, 149, 0.9);   /* #ebd395 */
   --clrLt4: rgba(151, 172, 141, 0.9);   /* #97ac8d */
       
-/*
---clrBla: #000000; --clrWhi: #ffffff;
---clr1:   #10c0c2; 
---clr2:   #00b0b2; 
---clr3:   #3c5b50; 
---clrDk1: #513e3e; 
---clrDk2: #a52b36; 
---clrDk2: #fbd499; 
---clrWa2: #f6c25d;
---clrLt1: #cbc385; 
---clrLt2: #879c7d;
---clrLt3: #ebd395; --clrLt4: #97ac8d;  */
+/* The standard charts.css set */
+  --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
+  --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
+  --color-3: rgba(255, 206, 86, 0.75);     /* #ffce56 */
+  --color-4: rgba(75, 192, 192, 0.75);     /* #4bc0c0 */
+  --color-5: rgba(153, 102, 255, 0.75);    /* #9966ff */
+  --color-6: rgba(255, 159, 64, 0.75);     /* #ff9f40 */
+  --color-7: rgba(93, 173, 226, 0.75);     /* #5dade2 */
+  --color-8: rgba(178, 223, 138, 0.75);    /* #b2df8a */
+  --color-9: rgba(255, 117, 117, 0.75);    /* #ff7575 */
+  --color-10: rgba(169, 169, 169, 0.75);   /* #a9a9a9 */
 
-  /*--color-1: rgba(255, 170, 170, 0.2);
-  --color-2: rgba(255, 170, 170, 0.4);
-  --color-3: rgba(255, 170, 170, 0.5);
-  --color-4: rgba(255, 170, 170, 0.6);
-  --color-5: rgba(255, 170, 170, 1.0);
-  --color-6: rgba(255, 170, 170, 1.0);
-  --color-7: rgba(255, 170, 170, 0.8);
-  --color-8: rgba(255, 170, 170, 0.6);
-  --color-9: rgba(255, 170, 170, 0.4);
-  --color-10: rgba(255, 170, 170, 0.2);*/
+      
 
-  --color-1: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-2: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-3: repeating-linear-gradient(90deg, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-4: repeating-linear-gradient(-45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-5: repeating-linear-gradient(transparent, #e34 20px),
+  --color-11: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-12: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-13: repeating-linear-gradient(90deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-14: repeating-linear-gradient(-45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-15: repeating-linear-gradient(transparent, #e34 20px),
              repeating-linear-gradient(90deg, transparent, #e34 20px);
-  --color-6: repeating-radial-gradient(circle, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-7: repeating-radial-gradient(circle at 50% 100%, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-8: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-9: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-10: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-16: repeating-radial-gradient(circle, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-17: repeating-radial-gradient(circle at 50% 100%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-18: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-19: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
       
    
 --maxn: 300000;       
