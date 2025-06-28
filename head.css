@@ -75,8 +75,14 @@ a    {text-decoration: none; color: #ffffff;}
     border-top-left-radius: 55px 15px; border-top-right-radius: 20px 75px;
     border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
     background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
-       \*width: 100%; opacity: 1;*/ }
-.table caption {
+       \*width: 100%; opacity: 1;*/
+
+display: table-caption;
+        
+       
+       
+       }
+caption {
       display: table-caption;
       caption-side: top;
       text-align: center;
