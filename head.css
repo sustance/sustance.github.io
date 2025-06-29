@@ -70,8 +70,8 @@ u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
-    Order top-left, top-right, bottom-right, bottom-left,  both sides slash.*/
-.bsd {border-radius: 255px 15px 255px 15px / 333px 22px 99px 255px;
+            Order      t-le, t-ri, b-ri, b-le, / t-le, t-ri, b-ri, b-le, */
+.bsd {border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
     background: linear-gradient(to bottom right, var(--color-5), var(--color-4) );}
   
 .box {border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
@@ -79,16 +79,8 @@ a    {text-decoration: none; color: #ffffff;}
 .box:nth-child(odd) {border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
     background: linear-gradient(to bottom right, var(--color-2), var(--clr1) );}
 .neg {border-radius: 125px 99px 77px 22px / 88px 15px 99px 255px;
-    background: linear-gradient(to bottom right, var(--color-3), var(--color-7) );}
+    background: linear-gradient(to bottom right, var(--color-3), var(--color-8) );}
 .selec {line-height:0;}
 
 .idx i {font-size: x-large;}
-
-.neg {
-    max-width: 500px;margin: 0 ;
-    border-top-left-radius: 255px 15px; border-top-right-radius: 15px 255px;
-    border-bottom-right-radius: 225px 15px;border-bottom-left-radius:15px 255px;
-    background-image:linear-gradient(to bottom right,var(--clrLt3),var(--clrLt4) );}
-
 .col {color: #00b0b2;}
-
