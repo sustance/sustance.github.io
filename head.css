@@ -3,7 +3,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 :root {
       /*Chart of available points*/
---maxn: 300000;     
+--maxn: 250000;     
       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
 --S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
@@ -95,12 +95,22 @@ a    {text-decoration: none; color: #ffffff;}
 .chart {
   font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow fallbacks */
   font-size: 10px; /* Very small size */
+      letter-spacing: -0.5px; /* Compress spacing */
   font-weight: 400; /* Normal weight (avoid bold for more compression) */
   letter-spacing: -0.5px; /* Tighter spacing (negative reduces gaps) */
   text-transform: uppercase; /* Uppercase can look more compact */
   line-height: 1; /* Minimal line spacing */
       margin: 0;padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px;
       width: 100%; opacity: 1;*/ }
+
+.chart .label {
+  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow font */
+  font-weight: 400; /* Less bold (normal weight) */
+  font-size: 10px; /* Adjust size if needed */
+  letter-spacing: -0.3px; /* Compress spacing */
+  text-transform: uppercase; /* Optional: Uppercase for tighter fit */
+  line-height: 1; /* Remove extra vertical space */
+}
 
 caption { font: 800 40px Arial; font-weight: 900;
       display: table-caption; caption-side: top;
