@@ -11,7 +11,13 @@
   <!--<link rel="stylesheet" href="head-charts.css" />-->
 
 </head>
-<body>
+
+
+
+
+
+
+
 
 
 
@@ -113,236 +119,18 @@ FW = Fortune Wings Club = HK Airline
 -->
   </div>
 
-  
-  <h2>Entry cards</h2>
-  <div class="box"> 
-    <h3>Taiwan</h3>                 
-    <ul>
-      <li><a href="https://twac.immigration.gov.tw">Taiwan TWAC Form</a>, do &lt; 3 days before<br>
-          immigration officers may request you to present the confirmation.
-      <li>There isn't a specific Android app, must use Web.
-      <li>[1] Open the /store/tickeTrip/TaiwanEntryCard.xlsx<br>
-          Update for current trip.<br>
-          * TRY NOT UPDATE, JUST CHANGE ON WEB.<br>
-          * TRAPS, non 中 in chinese name. Avoid non alpha/num like /,: any field.
-      <li>[2] On web send/validate email (valid 10 Min). <br>
-          [3] Upload passport image /store/tickeTrip/KM...jpg <br>
-          [4] Upload /store/tickeTrip/TaiwanEntryCard.xlsx<br>
-          [5] Re-edit any errors.<br>
-          [6] Declaration and Submit.
-      </li>
-    </ul>
-  </div>
-  
-  <div class="box"> 
-    <h3>Singapore</h3> 
-    <ul>
-      <li>
-        <img src="https://www.ica.gov.sg/Cwp/assets/ica/images/logo/ica_mobile_logo_new.svg" 
-            height="42"> MyICA Mobile &lt; 3 days before <br>
-        <br> or <a href="https://eservices.ica.gov.sg/sgarrivalcard/">Singapore ICA Form</a><br>
-            Scan barcode from PP copy
-        CAN RECALL PAST FORM AND SCAN PP ETC, <br>
-        Edit flights to/from from prior trip record</li>
-    </ul>
-  </div>
-  <h2>Visas</h2>
-  <div class="box">   
-    <h3>Taiwan/Australian</h3>
-    <ul>
-      <li>Visa-Free <br>Entry Requirements for <b>Australian Citizens:</b></li>
-      <li>Passport: &gt; 6 months validity from entry.</li>
-      <li>Purpose of Visit: Tourism or business OK.</li>
-      <li>Stay Duration: Up to 90 days.</li>
-      <li>Return/Onward Ticket: Must be confirmed/Proof</li>
-      <li>No Criminal Record: </li>
-      <li>Entry not permitted on emergency passport.</li>
-    </ul>
-    <h3>Taiwan/Hong Kong</h3>
-    <ul>
-      <li>Visa required</li>
-    </ul>
-  </div>
-  <h2>Apps</h2>
-  <div class="box"> 
-    <ul>
-      <li>Cathay</li>
-      <li>HK Airlines <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a></li>
-    </ul>
-    <h2>Loyalty Awards</h2> 
-    <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a>
-    MEMBERS: Hainan A, Grand China, Tianjin A, Capital A, Lucky A, Fuzhou A, Urumqi A, West A<br>
-    PARTNERS: Alaska A, Etihad A, Virgin Australia
-  </div>
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const rows = document.querySelectorAll("tbody tr");
-      const rootStyles = getComputedStyle(document.documentElement);
-      
-      rows.forEach(row => {
-        // Get base variable name from row header
-        const headerText = row.querySelector("th").textContent.trim();
-        const monthPrefix = headerText 
-          //.toLowerCase().replace("cx ", "").replace(" ", "");
-        
-        console.log("Header:", headerText, "Prefix:", monthPrefix); // Debug
-        
-        // Process both mileage columns
-        const cells = row.querySelectorAll("td");
-        if (cells.length >= 2) {
-          // First column (K variables)
-          const kVarName = `--K${monthPrefix}`;
-          const kValue = rootStyles.getPropertyValue(kVarName).trim();
-          const kLabel = cells[0].querySelector(".data-label");
-          
-          console.log("Looking for:", kVarName, "Found:", kValue); // Debug
-          
-          if (kLabel) {
-            if (kValue) {
-              kLabel.textContent = parseInt(kValue).toLocaleString();
-            } else {
-              kLabel.textContent = "N/A";
-            }
-          }
-          
-          // Second column (S variables)
-          const sVarName = `--S${monthPrefix}`;
-          const sValue = rootStyles.getPropertyValue(sVarName).trim();
-          const sLabel = cells[1].querySelector(".data-label");
-          
-          console.log("Looking for:", sVarName, "Found:", sValue); // Debug
-          
-          if (sLabel) {
-            if (sValue) {
-              sLabel.textContent = parseInt(sValue).toLocaleString();
-            } else {
-              sLabel.textContent = "N/A";
-            }
-          }
-        }
-      });
-    });
-  </script>
-</body>
-</html>id2@rosa:N:-bash:~/p> micro head-travel.html 
-id2@rosa:N:-bash:~/p> cat head-travel.html 
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Airline</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
-    
-  <link rel="stylesheet" href="https://sustance.github.io/head.css" />
-  <link rel="stylesheet" href="https://sustance.github.io/head-charts.css" />
-  <link rel="stylesheet" href="head-charts.css" />
-
-</head>
-<body>
 
 
 
-<div class="chart neg">
-<table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-2 multiple stacked show-heading">
-      <caption>Asian Miles</caption>
-      <thead>
-        <tr><th scope="col">Date</th><th scope="col">Miles</th><th scope="col">Bonus</th></tr>
-      </thead>
-      <tbody>
-       <tr>
-          <th scope="row">25marAM</th>
-          <td style="--size: calc(var(--K25marAM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25marAM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-        <tr>
-          <th scope="row">25aprAM</th>
-          <td style="--size: calc(var(--K25aprAM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25aprAM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-        <tr>
-          <th scope="row">25mayAM</th>
-          <td style="--size: calc(var(--K25mayAM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25mayAM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-        <tr>
-          <th scope="row">25junAM</th>
-          <td style="--size: calc(var(--K25junAM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25junAM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>      
-      </tbody>
-</table>
-</div>
 
-  
-<div class="chart neg">
-    <table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-2 multiple stacked show-heading">
-      <caption>Miles & More</caption>
-     <thead>
-        <tr><th scope="col">Date</th><th scope="col">Miles</th><th scope="col">Bonus</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-            <th scope="row">25marMM</th>
-          <td style="--size: calc(var(--K25marMM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25marMM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-          <tr><th scope="row">25aprMM</th>
-          <td style="--size: calc(var(--K25aprMM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25aprMM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-          <tr><th scope="row">25mayMM</th>
-          <td style="--size: calc(var(--K25mayMM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25mayMM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
-        <tr>
-          <th scope="row">25junMM</th>
-          <td style="--size: calc(var(--K25junMM)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25junMM)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>
 
-      </tbody>
-    </table>
-</div>
 
-      
-<div class="chart neg" >
-<table class="charts-css bar show-labels show-primary-axis show-data-axes data-spacing-2 multiple stacked show-heading">
-		<caption>Sky Team</caption>
-      <thead>
-        <tr><th scope="col">Date</th><th scope="col">Miles</th><th scope="col">Bonus</th></tr>
-      </thead>
-      <tbody>    
-        <tr>
-          <th scope="row">25maySK</th>
-          <td style="--size: calc(var(--K25maySK)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25maySK)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>       
-        <tr>
-          <th scope="row">25junSK</th>
-          <td style="--size: calc(var(--K25junSK)/var(--maxn));"><span class="data-label"></span></td>
-          <td style="--size: calc(var(--S25junSK)/var(--maxn));"><span class="data-label"></span></td>
-        </tr>     
-      </tbody>
-    </table>
-</div>
 
-  
 
-AM = ASIAMILES = Cathay Pacific, Alaska A, American A, British A, Finnair, Japan A, Malaysia A, Qantas, Qatar A
-MM = Miles & More = United, ANA, Turkish A, Air Canada, Singapore A, Brussels A, Egyptair.
-SK = Skyteam = AirFrance, China A, China Eastern, Delta, KLM, SAS, Saudia
-FW = Fortune Wings Club = HK Airline     
 
-  = StarAlliance = Air China, Air New Zealand, Austrian A, EVA A, Lufthansa, Singapore A, 
-<!--
-    <ul class="charts-css legend legend-rectangle">
-  <li> K </li>
-  <li> S </li>
-</ul>
--->
-  </div>
+
+
+	
 
   
   <h2>Entry cards</h2>
@@ -455,4 +243,117 @@ FW = Fortune Wings Club = HK Airline
       });
     });
   </script>
+
+  
+  <h2>Entry cards</h2>
+  <div class="box"> 
+    <h3>Taiwan</h3>                 
+    <ul>
+      <li><a href="https://twac.immigration.gov.tw">Taiwan TWAC Form</a>, do &lt; 3 days before<br>
+          immigration officers may request you to present the confirmation.
+      <li>There isn't a specific Android app, must use Web.
+      <li>[1] Open the /store/tickeTrip/TaiwanEntryCard.xlsx<br>
+          Update for current trip.<br>
+          * TRY NOT UPDATE, JUST CHANGE ON WEB.<br>
+          * TRAPS, non 中 in chinese name. Avoid non alpha/num like /,: any field.
+      <li>[2] On web send/validate email (valid 10 Min). <br>
+          [3] Upload passport image /store/tickeTrip/KM...jpg <br>
+          [4] Upload /store/tickeTrip/TaiwanEntryCard.xlsx<br>
+          [5] Re-edit any errors.<br>
+          [6] Declaration and Submit.
+      </li>
+    </ul>
+  </div>
+  
+  <div class="box"> 
+    <h3>Singapore</h3> 
+    <ul>
+      <li>
+        <img src="https://www.ica.gov.sg/Cwp/assets/ica/images/logo/ica_mobile_logo_new.svg" 
+            height="42"> MyICA Mobile &lt; 3 days before <br>
+        <br> or <a href="https://eservices.ica.gov.sg/sgarrivalcard/">Singapore ICA Form</a><br>
+            Scan barcode from PP copy
+        CAN RECALL PAST FORM AND SCAN PP ETC, <br>
+        Edit flights to/from from prior trip record</li>
+    </ul>
+  </div>
+  <h2>Visas</h2>
+  <div class="box">   
+    <h3>Taiwan/Australian</h3>
+    <ul>
+      <li>Visa-Free <br>Entry Requirements for <b>Australian Citizens:</b></li>
+      <li>Passport: &gt; 6 months validity from entry.</li>
+      <li>Purpose of Visit: Tourism or business OK.</li>
+      <li>Stay Duration: Up to 90 days.</li>
+      <li>Return/Onward Ticket: Must be confirmed/Proof</li>
+      <li>No Criminal Record: </li>
+      <li>Entry not permitted on emergency passport.</li>
+    </ul>
+    <h3>Taiwan/Hong Kong</h3>
+    <ul>
+      <li>Visa required</li>
+    </ul>
+  </div>
+  <h2>Apps</h2>
+  <div class="box"> 
+    <ul>
+      <li>Cathay</li>
+      <li>HK Airlines <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a></li>
+    </ul>
+    <h2>Loyalty Awards</h2> 
+    <a href="https://www.hongkongairlines.com/en_HK/FFP/member-privileges/clubtiers">Fortune Wings Club</a>
+    MEMBERS: Hainan A, Grand China, Tianjin A, Capital A, Lucky A, Fuzhou A, Urumqi A, West A<br>
+    PARTNERS: Alaska A, Etihad A, Virgin Australia
+  </div>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const rows = document.querySelectorAll("tbody tr");
+      const rootStyles = getComputedStyle(document.documentElement);
+      
+      rows.forEach(row => {
+        // Get base variable name from row header
+        const headerText = row.querySelector("th").textContent.trim();
+        const monthPrefix = headerText 
+          //.toLowerCase().replace("cx ", "").replace(" ", "");
+        
+        console.log("Header:", headerText, "Prefix:", monthPrefix); // Debug
+        
+        // Process both mileage columns
+        const cells = row.querySelectorAll("td");
+        if (cells.length >= 2) {
+          // First column (K variables)
+          const kVarName = `--K${monthPrefix}`;
+          const kValue = rootStyles.getPropertyValue(kVarName).trim();
+          const kLabel = cells[0].querySelector(".data-label");
+          
+          console.log("Looking for:", kVarName, "Found:", kValue); // Debug
+          
+          if (kLabel) {
+            if (kValue) {
+              kLabel.textContent = parseInt(kValue).toLocaleString();
+            } else {
+              kLabel.textContent = "N/A";
+            }
+          }
+          
+          // Second column (S variables)
+          const sVarName = `--S${monthPrefix}`;
+          const sValue = rootStyles.getPropertyValue(sVarName).trim();
+          const sLabel = cells[1].querySelector(".data-label");
+          
+          console.log("Looking for:", sVarName, "Found:", sValue); // Debug
+          
+          if (sLabel) {
+            if (sValue) {
+              sLabel.textContent = parseInt(sValue).toLocaleString();
+            } else {
+              sLabel.textContent = "N/A";
+            }
+          }
+        }
+      });
+    });
+  </script>
 </body>
+</html>html>
