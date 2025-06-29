@@ -12,7 +12,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
       
 --K25maySK: 53445; --K25junSK:53445;
---S25maySK: 59236; --S25junSK:159236;
+--S25maySK: 159236; --S25junSK:159236;
 
 --K25junFW:947;
       
@@ -94,8 +94,8 @@ a    {text-decoration: none; color: #ffffff;}
 
 .chart {
   font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow fallbacks */
-  font-size: 10px; /* Very small size */
-      letter-spacing: -0.5px; /* Compress spacing */
+  font-size: 8px; /* Very small size */
+      letter-spacing: -0.6px; /* Compress spacing */
   font-weight: 400; /* Normal weight (avoid bold for more compression) */
   letter-spacing: -0.5px; /* Tighter spacing (negative reduces gaps) */
   text-transform: uppercase; /* Uppercase can look more compact */
@@ -106,8 +106,8 @@ a    {text-decoration: none; color: #ffffff;}
 .chart .label {
   font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow font */
   font-weight: 400; /* Less bold (normal weight) */
-  font-size: 10px; /* Adjust size if needed */
-  letter-spacing: -0.3px; /* Compress spacing */
+  font-size: 8px; /* Adjust size if needed */
+  letter-spacing: -0.6px; /* Compress spacing */
   text-transform: uppercase; /* Optional: Uppercase for tighter fit */
   line-height: 1; /* Remove extra vertical space */
 }
