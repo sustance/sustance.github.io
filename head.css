@@ -2,31 +2,42 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
 
 :root {
-  --clr1:   rgba(16, 192, 194, 0.9);    /* #10c0c2 */
-  --clr2:   rgba(0, 176, 178, 0.9);     /* #00b0b2 */
-  --clr3:   rgba(60, 91, 80, 0.9);      /* #3c5b50 */
-  --clrDk1: rgba(81, 62, 62, 0.9);      /* #513e3e */
-  --clrDk2: rgba(165, 43, 54, 0.9);     /* #a52b36 */
-  --clrWa3: rgba(251, 212, 153, 0.9);   /* #fbd499 
-  --clrWa2: rgba(246, 194, 93, 0.9);    /* #f6c25d */
-  --clrLt1: rgba(203, 195, 133, 0.9);   /* #cbc385 */
-  --clrLt2: rgba(135, 156, 125, 0.9);   /* #879c7d */
-  --clrLt3: rgba(235, 211, 149, 0.9);   /* #ebd395 */
-  --clrLt4: rgba(151, 172, 141, 0.9);   /* #97ac8d */
+      /*Chart of available points*/
+--maxn: 300000;     
       
+--K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
+--S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
+
+--K25marMM: 35661; --K25aprMM:35661; --K25mayMM:35661; --K25junMM:35661;
+--S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
+      
+--K25maySK: 53445; --K25junSK:53445;
+--S25maySK:159236; --S25junSK:159236;
+
+--K25junFW:947;
+      
+  --clr1:   rgba(16, 192, 194, 0.9);     /* #10c0c2 */
+  --clr2:   rgba(0, 176, 178, 0.9);      /* #00b0b2 */
+  --clr3:   rgba(60, 91, 80, 0.9);       /* #3c5b50 */
+  --clrDk1: rgba(81, 62, 62, 0.9);       /* #513e3e */
+  --clrDk2: rgba(165, 43, 54, 0.9);      /* #a52b36 */
+  --clrWa3: rgba(251, 212, 153, 0.9);    /* #fbd499 */
+  --clrWa2: rgba(246, 194, 93, 0.9);     /* #f6c25d */
+  --clrLt1: rgba(203, 195, 133, 0.9);    /* #cbc385 */
+  --clrLt2: rgba(135, 156, 125, 0.9);    /* #879c7d */
+  --clrLt3: rgba(235, 211, 149, 0.9);    /* #ebd395 */
+  --clrLt4: rgba(151, 172, 141, 0.9);    /* #97ac8d */
 /* The standard charts.css set */
   --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
   --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
-  --color-3: rgba(255, 206, 86, 0.75);     /* #ffce56 */
-  --color-4: rgba(75, 192, 192, 0.75);     /* #4bc0c0 */
-  --color-5: rgba(153, 102, 255, 0.75);    /* #9966ff */
-  --color-6: rgba(255, 159, 64, 0.75);     /* #ff9f40 */
-  --color-7: rgba(93, 173, 226, 0.75);     /* #5dade2 */
-  --color-8: rgba(178, 223, 138, 0.75);    /* #b2df8a */
-  --color-9: rgba(255, 117, 117, 0.75);    /* #ff7575 */
-  --color-10: rgba(169, 169, 169, 0.75);   /* #a9a9a9 */
-
-      
+  --color-3: rgba(255, 206, 86, 0.75);    /* #ffce56 */
+  --color-4: rgba(75, 192, 192, 0.75);    /* #4bc0c0 */
+  --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
+  --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
+  --color-7: rgba(93, 173, 226, 0.75);    /* #5dade2 */
+  --color-8: rgba(178, 223, 138, 0.75);   /* #b2df8a */
+  --color-9: rgba(255, 117, 117, 0.75);   /* #ff7575 */
+  --color-10:rgba(169, 169, 169, 0.75);   /* #a9a9a9 */
 
   --color-11: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
   --color-12: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
@@ -39,25 +50,13 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --color-18: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-19: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
-      
-   
---maxn: 300000;       
---K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
---S25marAM:174743; --S25aprAM:175543; --S25mayAM:175543; --S25junAM:177143;
-
---K25marMM: 35661; --K25aprMM:35661; --K25mayMM:35661; --K25junMM:35661;
---S25marMM:205518; --S25aprMM:205518; --S25mayMM:209268; --S25junMM:209268;  
-      
---K25maySK: 53445; --K25junSK:53445;
---S25maySK:159236; --S25junSK:159236;
-
---K25junFW:947;}
+      }
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
 div { padding-left: 12px; max-width: 860px; margin: 10px; }
 
-h2 {font: 800 40px Arial; font-weight: 900;
+h2 h3{font: 800 40px Arial; font-weight: 900;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px;}
  
@@ -70,22 +69,17 @@ s    {color: #aaaaaa;}
 u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
 
-.box {color: #ffffff;
-    border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
-    border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-    background-image: linear-gradient(to bottom right,var(--clr1),var(--color-2) );}
-.box:nth-child(odd) { 
-    border-top-left-radius: 55px 15px; border-top-right-radius: 15px 55px;
-    border-bottom-right-radius: 25px 15px;border-bottom-left-radius:15px 55px;  
-    background-image: linear-gradient(to bottom right,var(--color-2),var(--color-4) );}
+/*  slash (/) in border-radius separates horizontal and vertical radii
+    Order top-left, top-right, bottom-right, bottom-left,  both sides slash.*/
+.bsd {border-radius: 255px 15px 255px 15px / 333px 22px 99px 255px;
+    background: linear-gradient(to bottom right, var(--color-5), var(--color-4) );}
+  
+.box {border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
+    background: linear-gradient(to bottom right, var(--clr1), var(--color-8) );}
+.box:nth-child(odd) {border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
+    background: linear-gradient(to bottom right, var(--color-2), var(--clr1) );}
+.selec {line-height:0;}
 
-.bsd {
-    border-top-left-radius: 125px 88px; border-top-right-radius: 99px 333px;
-    border-bottom-right-radius: 333px 99px;border-bottom-left-radius:22px 255px;
-    background-image: linear-gradient(to bottom right,var(--color-5),var(--color-4 ) );
-/*var(--clrLt3),var(--clr2)*/
-}    
-      
 .idx i {font-size: x-large;}
 
 .neg {
@@ -100,16 +94,8 @@ a    {text-decoration: none; color: #ffffff;}
     \*font-size: small; color: #222200; font-weight: 500; 
     margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
     padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; *\
-        
-    border-top-left-radius: 55px 15px; border-top-right-radius: 20px 75px;
-    border-bottom-right-radius: 25px 45px;border-bottom-left-radius:15px 55px;
-    background-image: linear-gradient(to bottom right, var(--clr2),var(--clrLt2));
        \*width: 100%; opacity: 1;*/ }
 
 caption { font: 800 40px Arial; font-weight: 900;
-      display: table-caption;
-      caption-side: top;
-      text-align: center;
-      padding: 0.5rem;
-      font-weight: bold;
-    }
+      display: table-caption; caption-side: top;
+      text-align: center; padding: 0.5rem; font-weight: bold;}
