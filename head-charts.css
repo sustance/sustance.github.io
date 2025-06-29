@@ -1,24 +1,73 @@
-
 .chart {
-  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow fallbacks */
-  font-size: 9px; /* Very small size */
-      letter-spacing: -0.6px; /* Compress spacing */
-  font-weight: 400; /* Normal weight (avoid bold for more compression) */
-  letter-spacing: -0.5px; /* Tighter spacing (negative reduces gaps) */
-  /*text-transform: uppercase; Uppercase can look more compact */
+  font-family:  'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
+  font-size: 8px; /* Very small size */
+  letter-spacing: -2x; /*Text IN BAR  Compress spacing THIS DOES WORK*/
+  /*font-weight: 400;  Normal weight (avoid bold for more compression)
+  text-transform: uppercase; Uppercase can look more compact */
   line-height: 1; /* Minimal line spacing */
-      margin: 0;padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px;
-      width: 100%; opacity: 1;*/ }
+  margin: 0;padding-left: 9px; padding-bottom: 9px; 
+  padding-top: 0px; padding-right: 0px;
+      width: 100%; opacity: 1; 
+   /* Container styles (optional) */
+   height: auto; /* or fixed height like 200px if preferred */
+ }
+ 
+ .chart table {
+   height: auto !important; /* Override charts.css default */
+   aspect-ratio: unset !important; /* Remove forced square ratio */
+   min-height: unset !important; /* Remove any min-height constraints */
+ }
+ 
+ /* Optional: Adjust bar spacing if needed */
+ .chart .bar tbody tr {
+   height: 2em; /* Makes bars tighter vertically */
+ }
 
+  
 .chart .label {
-  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow font */
-  font-weight: 400; /* Less bold (normal weight) */
-  font-size: 9px; /* Adjust size if needed */
-  letter-spacing: -0.6px; /* Compress spacing */
-  /*text-transform: uppercase;*/ /* Optional: Uppercase for tighter fit */
-  line-height: 1; /* Remove extra vertical space */
-}
+  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
+  font-weight: 400; 
+  font-size: 9px; 
+  letter-spacing: -2px; 
+  line-height: 1; }
 
-caption { font: 800 40px Arial; font-weight: 900;
+caption {
       display: table-caption; caption-side: top;
-      text-align: center; padding: 0.5rem; font-weight: bold;}
+      text-align: center; padding: 0.0rem; }
+ id2@rosa:N:-bash:~/p> cat head-charts.css 
+.chart {
+  font-family:  'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
+  font-size: 8px; /* Very small size */
+  letter-spacing: -2x; /*Text IN BAR  Compress spacing THIS DOES WORK*/
+  /*font-weight: 400;  Normal weight (avoid bold for more compression)
+  text-transform: uppercase; Uppercase can look more compact */
+  line-height: 1; /* Minimal line spacing */
+  margin: 0;padding-left: 9px; padding-bottom: 9px; 
+  padding-top: 0px; padding-right: 0px;
+      width: 100%; opacity: 1; 
+   /* Container styles (optional) */
+   height: auto; /* or fixed height like 200px if preferred */
+ }
+ 
+ .chart table {
+   height: auto !important; /* Override charts.css default */
+   aspect-ratio: unset !important; /* Remove forced square ratio */
+   min-height: unset !important; /* Remove any min-height constraints */
+ }
+ 
+ /* Optional: Adjust bar spacing if needed */
+ .chart .bar tbody tr {
+   height: 2em; /* Makes bars tighter vertically */
+ }
+
+  
+.chart .label {
+  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
+  font-weight: 400; 
+  font-size: 9px; 
+  letter-spacing: -2px; 
+  line-height: 1; }
+
+caption {
+      display: table-caption; caption-side: top;
+      text-align: center; padding: 0.0rem; }
