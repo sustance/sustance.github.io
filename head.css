@@ -92,10 +92,14 @@ a    {text-decoration: none; color: #ffffff;}
 
 .col {color: #00b0b2;}
 
-.chart {font-family: "Archivo Narrow", Roboto Condensed, Fira Sans Condensed, sans-serif; 
-      font-size: small; 
-    \*color: #222200; font-weight: 500;*\
-    margin: 0;padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px;
+.chart {
+  font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; /* Narrow fallbacks */
+  font-size: 10px; /* Very small size */
+  font-weight: 400; /* Normal weight (avoid bold for more compression) */
+  letter-spacing: -0.5px; /* Tighter spacing (negative reduces gaps) */
+  text-transform: uppercase; /* Uppercase can look more compact */
+  line-height: 1; /* Minimal line spacing */
+      margin: 0;padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px;
       width: 100%; opacity: 1;*/ }
 
 caption { font: 800 40px Arial; font-weight: 900;
