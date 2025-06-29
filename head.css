@@ -92,11 +92,11 @@ a    {text-decoration: none; color: #ffffff;}
 
 .col {color: #00b0b2;}
 
-.chart {
-    \*font-size: small; color: #222200; font-weight: 500; 
-    margin-left: 0; margin-bottom: 0; margin-top: 0; margin-right: 0;
-    padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px; *\
-       \*width: 100%; opacity: 1;*/ }
+.chart {font-family: "Archivo Narrow", Roboto Condensed, Fira Sans Condensed, sans-serif; 
+      font-size: small; 
+    \*color: #222200; font-weight: 500;*\
+    margin: 0;padding-left: 9px; padding-bottom: 9px; padding-top: 9px; padding-right: 0px;
+      width: 100%; opacity: 1;*/ }
 
 caption { font: 800 40px Arial; font-weight: 900;
       display: table-caption; caption-side: top;
