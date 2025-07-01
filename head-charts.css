@@ -35,7 +35,7 @@
 
 /* allow spill box*/
 .chart .data-label {
-  font-size: 7px;
+  font-size: 8.5px;
   white-space: nowrap; /* Keep text in one line */
   overflow: visible; /* Let text overflow container */
   text-overflow: unset; /* Disable ellipsis */
