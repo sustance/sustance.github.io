@@ -5,7 +5,7 @@
   /*font-weight: 400;  Normal weight (avoid bold for more compression)
   text-transform: uppercase; Uppercase can look more compact */
   line-height: 1; /* Minimal line spacing */
-  margin: 0;padding-left: 9px; padding-bottom: 9px; 
+  margin: 0;padding-left: 5px; padding-bottom: 9px; 
   padding-top: 0px; padding-right: 0px;
       width: 100%; opacity: 1; 
    /* Container styles (optional) */
@@ -27,8 +27,8 @@
 .chart .label {
   font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
   font-weight: 400; 
-  font-size: 9px; 
-  letter-spacing: -2px; 
+  font-size: 8px; 
+  letter-spacing: -1.2px; 
   line-height: 1; }
 
 caption {
@@ -64,8 +64,8 @@ caption {
 .chart .label {
   font-family: 'Oswald', 'Roboto Condensed', 'Arial Narrow', sans-serif; 
   font-weight: 400; 
-  font-size: 9px; 
-  letter-spacing: -2px; 
+  font-size: 8px; 
+  letter-spacing: -1.2px; 
   line-height: 1; }
 
 caption {
