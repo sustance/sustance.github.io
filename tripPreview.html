@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Performance Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .flight-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .flight-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .flight-route {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat-box {
+            flex: 1;
+            min-width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: white;
+        }
+        .stat-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #3498db;
+        }
+        .aircraft-info {
+            margin-top: 15px;
+        }
+        .loading {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .error {
+            color: #e74c3c;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Flight Performance Report</h1>
+    <p>Generated on: <span id="current-date"></span></p>
+
+    <div id="flight-reports">
+        <!-- Flight reports will be inserted here -->
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+
+        // Aviationstack API configuration
+        const API_KEY = 'aaf8e19222bb2b781bd0ee219c3c9719'; // Replace with your actual key
+        const BASE_URL = 'http://api.aviationstack.com/v1';
+
+        // Flight data to analyze
+        const flights = [
+            { date: '2024-07-22', departure: 'CDG', arrival: 'ZRH', airline: 'AF', flightNumber: '1114' },
+            { date: '2024-08-02', departure: 'HKG', arrival: 'CDG', airline: 'AF', flightNumber: '0185' }
+        ];
+
+        // Fetch flight data from Aviationstack API
+        async function fetchFlightData(flight) {
+            const url = `${BASE_URL}/flights?access_key=${API_KEY}&flight_date=${flight.date}&dep_iata=${flight.departure}&arr_iata=${flight.arrival}&airline_iata=${flight.airline}&flight_number=${flight.flightNumber}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.data || [];
+            } catch (error) {
+                console.error('Error fetching flight data:', error);
+                return null;
+            }
+        }
+
+        // Fetch aircraft details
+        async function fetchAircraftDetails(registration) {
+            if (!registration) return null;
+            
+            const url = `${BASE_URL}/airplanes?access_key=${API_KEY}&registration=${registration}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.data ? data.data[0] : null;
+            } catch (error) {
+                console.error('Error fetching aircraft details:', error);
+                return null;
+            }
+        }
+
+        // Fetch airport information
+        async function fetchAirportInfo(iataCode) {
+            const url = `${BASE_URL}/airports?access_key=${API_KEY}&iata_code=${iataCode}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.data ? data.data[0] : null;
+            } catch (error) {
+                console.error('Error fetching airport info:', error);
+                return null;
+            }
+        }
+
+        // Fetch airline information
+        async function fetchAirlineInfo(iataCode) {
+            const url = `${BASE_URL}/airlines?access_key=${API_KEY}&iata_code=${iataCode}`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data.data ? data.data[0] : null;
+            } catch (error) {
+                console.error('Error fetching airline info:', error);
+                return null;
+            }
+        }
+
+        // Analyze historical flight data
+        function analyzeHistoricalData(flightData) {
+            const analysis = {
+                totalFlights: flightData.length,
+                delayedDepartures: 0,
+                delayedArrivals: 0,
+                cancellations: 0,
+                diversions: 0,
+                aircraftCount: {},
+                averageDepartureDelay: 0,
+                averageArrivalDelay: 0
+            };
+
+            let totalDepartureDelay = 0;
+            let totalArrivalDelay = 0;
+
+            flightData.forEach(flight => {
+                // Count delays
+                if (flight.departure.delay) {
+                    analysis.delayedDepartures++;
+                    totalDepartureDelay += flight.departure.delay;
+                }
+                if (flight.arrival.delay) {
+                    analysis.delayedArrivals++;
+                    totalArrivalDelay += flight.arrival.delay;
+                }
+
+                // Count cancellations and diversions
+                if (flight.flight_status === 'cancelled') analysis.cancellations++;
+                if (flight.flight_status === 'diverted') analysis.diversions++;
+
+                // Track aircraft usage
+                if (flight.aircraft && flight.aircraft.registration) {
+                    const reg = flight.aircraft.registration;
+                    analysis.aircraftCount[reg] = (analysis.aircraftCount[reg] || 0) + 1;
+                }
+            });
+
+            // Calculate averages
+            analysis.averageDepartureDelay = analysis.delayedDepartures > 0 
+                ? Math.round(totalDepartureDelay / analysis.delayedDepartures) 
+                : 0;
+            analysis.averageArrivalDelay = analysis.delayedArrivals > 0 
+                ? Math.round(totalArrivalDelay / analysis.delayedArrivals) 
+                : 0;
+
+            // Find most common aircraft
+            let mostCommonAircraft = null;
+            let maxCount = 0;
+            for (const [registration, count] of Object.entries(analysis.aircraftCount)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    mostCommonAircraft = registration;
+                }
+            }
+            analysis.mostCommonAircraft = mostCommonAircraft;
+            analysis.mostCommonAircraftCount = maxCount;
+
+            return analysis;
+        }
+
+        // Generate seating plan link based on aircraft model
+        function getSeatingPlanLink(aircraftModel) {
+            if (!aircraftModel) return null;
+            
+            // This is a simplified approach - you might need to map model codes to actual aircraft types
+            const modelMap = {
+                'A320': 'airbus-a320',
+                'A321': 'airbus-a321',
+                'A330': 'airbus-a330',
+                'A350': 'airbus-a350',
+                'A380': 'airbus-a380',
+                'B737': 'boeing-737',
+                'B747': 'boeing-747',
+                'B777': 'boeing-777',
+                'B787': 'boeing-787'
+            };
+
+            const modelKey = aircraftModel.substring(0, 4);
+            const seatGuruPath = modelMap[modelKey];
+            
+            return seatGuruPath 
+                ? `https://www.seatguru.com/airlines/${seatGuruPath}` 
+                : null;
+        }
+
+        // Display flight report
+        async function displayFlightReport(flight) {
+            const reportsContainer = document.getElementById('flight-reports');
+            const flightCard = document.createElement('div');
+            flightCard.className = 'flight-card';
+            flightCard.innerHTML = `
+                <div class="flight-header">
+                    <span class="flight-route">${flight.departure} → ${flight.arrival}</span>
+                    <span>${flight.date} | ${flight.airline} ${flight.flightNumber}</span>
+                </div>
+                <div id="flight-${flight.date}-${flight.flightNumber}">
+                    <p class="loading">Loading flight data...</p>
+                </div>
+            `;
+            reportsContainer.appendChild(flightCard);
+
+            // Fetch all data for this flight
+            const flightData = await fetchFlightData(flight);
+            if (!flightData || flightData.length === 0) {
+                document.getElementById(`flight-${flight.date}-${flight.flightNumber}`).innerHTML = `
+                    <p class="error">No historical data available for this flight.</p>
+                `;
+                return;
+            }
+
+            const analysis = analyzeHistoricalData(flightData);
+            const mostCommonAircraftDetails = analysis.mostCommonAircraft 
+                ? await fetchAircraftDetails(analysis.mostCommonAircraft) 
+                : null;
+            const departureAirport = await fetchAirportInfo(flight.departure);
+            const arrivalAirport = await fetchAirportInfo(flight.arrival);
+            const airlineInfo = await fetchAirlineInfo(flight.airline);
+
+            // Generate seating plan link if we have aircraft model info
+            const seatingPlanLink = mostCommonAircraftDetails 
+                ? getSeatingPlanLink(mostCommonAircraftDetails.model_name) 
+                : null;
+
+            // Display the report
+            document.getElementById(`flight-${flight.date}-${flight.flightNumber}`).innerHTML = `
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-title">Flight Performance</div>
+                        <p>Total flights analyzed: ${analysis.totalFlights}</p>
+                        <p>Departure delays: ${analysis.delayedDepartures} (${Math.round(analysis.delayedDepartures / analysis.totalFlights * 100)}%)</p>
+                        <p>Average departure delay: ${analysis.averageDepartureDelay} mins</p>
+                        <p>Arrival delays: ${analysis.delayedArrivals} (${Math.round(analysis.delayedArrivals / analysis.totalFlights * 100)}%)</p>
+                        <p>Average arrival delay: ${analysis.averageArrivalDelay} mins</p>
+                        <p>Cancellations: ${analysis.cancellations} (${Math.round(analysis.cancellations / analysis.totalFlights * 100)}%)</p>
+                        <p>Diversions: ${analysis.diversions} (${Math.round(analysis.diversions / analysis.totalFlights * 100)}%)</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-title">Common Aircraft</div>
+                        ${mostCommonAircraftDetails ? `
+                            <p>Most common aircraft: ${mostCommonAircraftDetails.model_name} (${analysis.mostCommonAircraftCount} of ${analysis.totalFlights} flights)</p>
+                            <p>Registration: ${mostCommonAircraftDetails.registration || 'N/A'}</p>
+                            <p>Age: ${mostCommonAircraftDetails.plane_age || 'N/A'} years</p>
+                            ${seatingPlanLink ? `<p>Seating plan: <a href="${seatingPlanLink}" target="_blank">View on SeatGuru</a></p>` : ''}
+                        ` : '<p>No aircraft data available</p>'}
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-title">Airport Information</div>
+                        <p><strong>${flight.departure}:</strong> ${departureAirport ? departureAirport.airport_name : 'N/A'}</p>
+                        <p><strong>${flight.arrival}:</strong> ${arrivalAirport ? arrivalAirport.airport_name : 'N/A'}</p>
+                        ${departureAirport ? `<p>Departure terminal: ${departureAirport.terminal || 'Not specified'}</p>` : ''}
+                        ${arrivalAirport ? `<p>Arrival terminal: ${arrivalAirport.terminal || 'Not specified'}</p>` : ''}
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-title">Airline Information</div>
+                        ${airlineInfo ? `
+                            <p>${airlineInfo.airline_name}</p>
+                            <p>Fleet size: ${airlineInfo.fleet_size || 'N/A'} aircraft</p>
+                            <p>Fleet average age: ${airlineInfo.fleet_average_age || 'N/A'} years</p>
+                        ` : '<p>No airline data available</p>'}
+                    </div>
+                </div>
+
+                <div class="aircraft-info">
+                    <h3>Recent Flight History</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Departure Delay</th>
+                                <th>Arrival Delay</th>
+                                <th>Aircraft</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${flightData.slice(0, 5).map(f => `
+                                <tr>
+                                    <td>${f.flight_date}</td>
+                                    <td>${f.flight_status}</td>
+                                    <td>${f.departure.delay ? f.departure.delay + ' mins' : 'On time'}</td>
+                                    <td>${f.arrival.delay ? f.arrival.delay + ' mins' : 'On time'}</td>
+                                    <td>${f.aircraft ? (f.aircraft.registration || f.aircraft.iata || 'N/A') : 'N/A'}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Generate reports for all flights
+        flights.forEach(displayFlightReport);
+    </script>
+</body>
+</html>
