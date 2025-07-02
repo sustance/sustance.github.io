@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Journey Visualization</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .visualization {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .map-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .stats-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .stat-card h3 {
+            margin-top: 0;
+            color: #3498db;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .flight-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .flight-table th, .flight-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .flight-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        .flight-table tr:hover {
+            background-color: #f1f9ff;
+        }
+        .flight-path {
+            stroke: #e74c3c;
+            stroke-width: 2;
+            fill: none;
+        }
+        .flight-point {
+            fill: #3498db;
+            stroke: white;
+            stroke-width: 2;
+        }
+        .flight-point:hover {
+            fill: #e74c3c;
+            cursor: pointer;
+        }
+        .airport-label {
+            font-size: 10px;
+            text-anchor: middle;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .highlight {
+            background-color: #fffde7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flight Journey Visualization</h1>
+        
+        <div class="controls">
+            <button id="showAll">Show All Flights</button>
+            <button id="showRecent">Show Last 5 Flights</button>
+            <button id="showByAirline">Show by Airline</button>
+            <select id="airlineSelect" style="padding: 8px; border-radius: 4px; border: 1px solid #ddd;">
+                <option value="all">All Airlines</option>
+            </select>
+        </div>
+        
+        <div class="visualization">
+            <div class="map-container">
+                <h3>Flight Path Map</h3>
+                <svg id="flightMap" width="100%" height="400"></svg>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h3>Flight Statistics</h3>
+                    <div id="flightStats">
+                        <p><strong>Total Flights:</strong> <span id="totalFlights">0</span></p>
+                        <p><strong>Unique Airports:</strong> <span id="uniqueAirports">0</span></p>
+                        <p><strong>Most Frequent Route:</strong> <span id="frequentRoute">-</span></p>
+                        <p><strong>Most Used Airline:</strong> <span id="topAirline">-</span></p>
+                        <p><strong>Last Flight:</strong> <span id="lastFlight">-</span></p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Airlines Breakdown</h3>
+                    <div id="airlineStats"></div>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Detailed Flight Log</h3>
+        <table class="flight-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Airline</th>
+                    <th>Flight No.</th>
+                    <th>Day of Year</th>
+                    <th>Premium?</th>
+                </tr>
+            </thead>
+            <tbody id="flightTableBody">
+                <!-- Flight data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Flight data
+        const flightData = [
+            {date: "250620", from: "TPE", to: "HKG", airline: "HX", flightNo: "0255", dayOfYear: 171, premium: "-"},
+            {date: "250618", from: "SHA", to: "TSA", airline: "MU", flightNo: "5097", dayOfYear: 169, premium: "Y"},
+            {date: "250612", from: "HKG", to: "PVG", airline: "CX", flightNo: "0380", dayOfYear: 163, premium: "Y"},
+            {date: "250529", from: "SIN", to: "HKG", airline: "CX", flightNo: "0758", dayOfYear: 149, premium: "Y"},
+            {date: "250525", from: "PVG", to: "SIN", airline: "MU", flightNo: "0565", dayOfYear: 145, premium: "Y"},
+            {date: "250519", from: "PEK", to: "SHA", airline: "MU", flightNo: "5122", dayOfYear: 139, premium: "Y"},
+            {date: "250515", from: "HKG", to: "PEK", airline: "CX", flightNo: "0336", dayOfYear: 135, premium: "Y"},
+            {date: "250505", from: "CDG", to: "HKG", airline: "AF", flightNo: "0188", dayOfYear: 125, premium: "Y"},
+            {date: "250505", from: "ZAG", to: "CDG", airline: "AF", flightNo: "1161", dayOfYear: 125, premium: "Y"},
+            {date: "250501", from: "ZRH", to: "ZAG", airline: "OU", flightNo: "0461", dayOfYear: 121, premium: "Y"},
+            {date: "250424", from: "ZAG", to: "ZRH", airline: "OU", flightNo: "0464", dayOfYear: 114, premium: "Y"},
+            {date: "250421", from: "AMS", to: "ZAG", airline: "OU", flightNo: "0451", dayOfYear: 111, premium: "Y"},
+            {date: "250420", from: "HKG", to: "AMS", airline: "KL", flightNo: "0888", dayOfYear: 110, premium: "Y"},
+            {date: "250402", from: "CDG", to: "HKG", airline: "AF", flightNo: "0188", dayOfYear: 92, premium: "Y"},
+            {date: "250402", from: "ZRH", to: "CDG", airline: "AF", flightNo: "1815", dayOfYear: 92, premium: "Y"},
+            {date: "250326", from: "CDG", to: "ZRH", airline: "AF", flightNo: "1114", dayOfYear: 85, premium: "Y"},
+            {date: "250325", from: "HKG", to: "CDG", airline: "AF", flightNo: "0185", dayOfYear: 84, premium: "Y"},
+            {date: "250321", from: "PVG", to: "HKG", airline: "MU", flightNo: "0509", dayOfYear: 80, premium: "Y"},
+            {date: "250316", from: "BKK", to: "PVG", airline: "TG", flightNo: "0664", dayOfYear: 75, premium: "Y"},
+            {date: "250312", from: "TPE", to: "BKK", airline: "TG", flightNo: "0633", dayOfYear: 71, premium: "Y"},
+            {date: "250310", from: "HKG", to: "TPE", airline: "BR", flightNo: "0870", dayOfYear: 69, premium: "-"},
+            {date: "250219", from: "SIN", to: "SZX", airline: "ZH", flightNo: "0230", dayOfYear: 50, premium: "Y"},
+            {date: "250215", from: "TPE", to: "SIN", airline: "SQ", flightNo: "0879", dayOfYear: 46, premium: "Y"},
+            {date: "250212", from: "HKG", to: "TPE", airline: "BR", flightNo: "0870", dayOfYear: 43, premium: "-"},
+            {date: "250117", from: "SIN", to: "HKG", airline: "SQ", flightNo: "0896", dayOfYear: 17, premium: "Y"},
+            {date: "250113", from: "HKG", to: "SIN", airline: "SQ", flightNo: "0893", dayOfYear: 13, premium: "Y"},
+            {date: "250108", from: "PVG", to: "HKG", airline: "CX", flightNo: "0377", dayOfYear: 8, premium: "Y"},
+            {date: "250102", from: "HKG", to: "PVG", airline: "CX", flightNo: "0380", dayOfYear: 2, premium: "Y"}
+        ];
+
+        // Airport coordinates (simplified for visualization)
+        const airportCoords = {
+            TPE: {x: 800, y: 300, name: "Taipei"},
+            HKG: {x: 750, y: 350, name: "Hong Kong"},
+            SHA: {x: 700, y: 300, name: "Shanghai Hongqiao"},
+            TSA: {x: 800, y: 300, name: "Taipei Songshan"},
+            PVG: {x: 700, y: 300, name: "Shanghai Pudong"},
+            SIN: {x: 650, y: 450, name: "Singapore"},
+            PEK: {x: 650, y: 250, name: "Beijing"},
+            CDG: {x: 450, y: 200, name: "Paris"},
+            ZAG: {x: 500, y: 220, name: "Zagreb"},
+            ZRH: {x: 480, y: 210, name: "Zurich"},
+            AMS: {x: 460, y: 190, name: "Amsterdam"},
+            BKK: {x: 600, y: 380, name: "Bangkok"},
+            SZX: {x: 730, y: 340, name: "Shenzhen"}
+        };
+
+        // Initialize the visualization
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFlightTable(flightData);
+            updateStats(flightData);
+            renderFlightMap(flightData);
+            setupControls();
+        });
+
+        // Render the flight table
+        function renderFlightTable(data) {
+            const tableBody = document.getElementById('flightTableBody');
+            tableBody.innerHTML = '';
+            
+            data.forEach(flight => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${formatDate(flight.date)}</td>
+                    <td>${flight.from} (${airportCoords[flight.from]?.name || 'Unknown'})</td>
+                    <td>${flight.to} (${airportCoords[flight.to]?.name || 'Unknown'})</td>
+                    <td>${flight.airline}</td>
+                    <td>${flight.airline}${flight.flightNo}</td>
+                    <td>${flight.dayOfYear}</td>
+                    <td>${flight.premium === 'Y' ? 'Yes' : 'No'}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Update statistics
+        function updateStats(data) {
+            document.getElementById('totalFlights').textContent = data.length;
+            
+            // Count unique airports
+            const airports = new Set();
+            data.forEach(flight => {
+                airports.add(flight.from);
+                airports.add(flight.to);
+            });
+            document.getElementById('uniqueAirports').textContent = airports.size;
+            
+            // Find most frequent route
+            const routeCounts = {};
+            data.forEach(flight => {
+                const route = `${flight.from}-${flight.to}`;
+                routeCounts[route] = (routeCounts[route] || 0) + 1;
+            });
+            const frequentRoute = Object.entries(routeCounts).sort((a, b) => b[1] - a[1])[0];
+            document.getElementById('frequentRoute').textContent = 
+                `${frequentRoute[0]} (${frequentRoute[1]} times)`;
+            
+            // Find most used airline
+            const airlineCounts = {};
+            data.forEach(flight => {
+                airlineCounts[flight.airline] = (airlineCounts[flight.airline] || 0) + 1;
+            });
+            const topAirline = Object.entries(airlineCounts).sort((a, b) => b[1] - a[1])[0];
+            document.getElementById('topAirline').textContent = 
+                `${topAirline[0]} (${topAirline[1]} flights)`;
+            
+            // Last flight
+            const lastFlight = data[0];
+            document.getElementById('lastFlight').textContent = 
+                `${formatDate(lastFlight.date)}: ${lastFlight.from} → ${lastFlight.to} (${lastFlight.airline}${lastFlight.flightNo})`;
+            
+            // Update airline stats
+            const airlineStats = document.getElementById('airlineStats');
+            airlineStats.innerHTML = '';
+            
+            Object.entries(airlineCounts).sort((a, b) => b[1] - a[1]).forEach(([airline, count]) => {
+                const p = document.createElement('p');
+                p.innerHTML = `<strong>${airline}:</strong> ${count} flights (${Math.round((count / data.length) * 100)}%)`;
+                airlineStats.appendChild(p);
+            });
+            
+            // Update airline select options
+            const airlineSelect = document.getElementById('airlineSelect');
+            airlineSelect.innerHTML = '<option value="all">All Airlines</option>';
+            Object.keys(airlineCounts).forEach(airline => {
+                const option = document.createElement('option');
+                option.value = airline;
+                option.textContent = airline;
+                airlineSelect.appendChild(option);
+            });
+        }
+
+        // Render flight map
+        function renderFlightMap(data) {
+            const svg = document.getElementById('flightMap');
+            svg.innerHTML = '';
+            
+            // Draw flight paths
+            data.forEach(flight => {
+                const from = airportCoords[flight.from];
+                const to = airportCoords[flight.to];
+                
+                if (from && to) {
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', `M${from.x},${from.y} L${to.x},${to.y}`);
+                    path.setAttribute('class', 'flight-path');
+                    path.setAttribute('opacity', '0.5');
+                    svg.appendChild(path);
+                }
+            });
+            
+            // Draw airports
+            Object.entries(airportCoords).forEach(([code, coord]) => {
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', coord.x);
+                circle.setAttribute('cy', coord.y);
+                circle.setAttribute('r', '5');
+                circle.setAttribute('class', 'flight-point');
+                circle.setAttribute('data-airport', code);
+                svg.appendChild(circle);
+                
+                const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                label.setAttribute('x', coord.x);
+                label.setAttribute('y', coord.y - 10);
+                label.setAttribute('class', 'airport-label');
+                label.textContent = code;
+                svg.appendChild(label);
+            });
+        }
+
+        // Setup control buttons
+        function setupControls() {
+            document.getElementById('showAll').addEventListener('click', () => {
+                renderFlightTable(flightData);
+                updateStats(flightData);
+                renderFlightMap(flightData);
+            });
+            
+            document.getElementById('showRecent').addEventListener('click', () => {
+                const recentFlights = flightData.slice(0, 5);
+                renderFlightTable(recentFlights);
+                updateStats(recentFlights);
+                renderFlightMap(recentFlights);
+            });
+            
+            document.getElementById('showByAirline').addEventListener('click', () => {
+                const airline = document.getElementById('airlineSelect').value;
+                if (airline === 'all') {
+                    renderFlightTable(flightData);
+                    updateStats(flightData);
+                    renderFlightMap(flightData);
+                } else {
+                    const filtered = flightData.filter(f => f.airline === airline);
+                    renderFlightTable(filtered);
+                    updateStats(filtered);
+                    renderFlightMap(filtered);
+                }
+            });
+        }
+
+        // Helper function to format date
+        function formatDate(dateStr) {
+            // Assuming format is YYMMDD
+            const year = '20' + dateStr.substring(0, 2);
+            const month = dateStr.substring(2, 4);
+            const day = dateStr.substring(4, 6);
+            return `${year}-${month}-${day}`;
+        }
+    </script>
+</body>
+</html>
