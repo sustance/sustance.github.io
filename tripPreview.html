@@ -98,19 +98,35 @@
             { date: '2024-08-02', departure: 'HKG', arrival: 'CDG', airline: 'AF', flightNumber: '0185' }
         ];
 
-        // Fetch flight data from Aviationstack API
-        async function fetchFlightData(flight) {
-            const url = `${BASE_URL}/flights?access_key=${API_KEY}&flight_date=${flight.date}&dep_iata=${flight.departure}&arr_iata=${flight.arrival}&airline_iata=${flight.airline}&flight_number=${flight.flightNumber}`;
-            
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
-                return data.data || [];
-            } catch (error) {
-                console.error('Error fetching flight data:', error);
-                return null;
-            }
-        }
+
+
+
+
+// In your fetchFlightData function, change the date parameter to search PAST dates only
+async function fetchFlightData(flight) {
+    // Calculate a date range (e.g., past 6 months)
+    const endDate = new Date(flight.date);
+    endDate.setMonth(endDate.getMonth() - 1); // Stop before future date
+    const startDate = new Date(endDate);
+    startDate.setMonth(startDate.getMonth() - 6); // Look back 6 months
+    
+    const dateRange = `&date_from=${formatDate(startDate)}&date_to=${formatDate(endDate)}`;
+    const url = `${BASE_URL}/flights?access_key=${API_KEY}${dateRange}&dep_iata=${flight.departure}&arr_iata=${flight.arrival}&airline_iata=${flight.airline}&flight_number=${flight.flightNumber}`;
+    
+    // ... rest of the function remains the same
+}
+
+// Helper function to format dates as YYYY-MM-DD
+function formatDate(date) {
+    return date.toISOString().split('T')[0];
+}
+
+
+
+
+
+        
+   
 
         // Fetch aircraft details
         async function fetchAircraftDetails(registration) {
@@ -127,6 +143,7 @@
                 return null;
             }
         }
+
 
         // Fetch airport information
         async function fetchAirportInfo(iataCode) {
