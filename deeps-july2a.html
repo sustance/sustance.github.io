@@ -15,7 +15,7 @@
             touch-action: pan-x pan-y;
         }
         #map-container {
-            width: 1500px;
+            width: 1200px; /* Reduced from 1500px */
             height: 100vh;
         }
         #flightMap {
@@ -65,23 +65,24 @@
             {from: "PVG", to: "HKG"}, {from: "HKG", to: "PVG"}
         ];
 
-        // Mobile-optimized coordinates
+        // Adjusted coordinates to minimize whitespace
         const airports = {
-            TPE: {x: 1200, y: 300}, HKG: {x: 1100, y: 350}, 
-            SHA: {x: 1000, y: 300}, TSA: {x: 1200, y: 300},
-            PVG: {x: 1000, y: 300}, SIN: {x: 900, y: 450},
-            PEK: {x: 900, y: 250}, CDG: {x: 300, y: 200},
-            ZAG: {x: 400, y: 220}, ZRH: {x: 380, y: 210},
-            AMS: {x: 350, y: 190}, BKK: {x: 800, y: 380},
-            SZX: {x: 1050, y: 340}
+            TPE: {x: 1000, y: 300}, HKG: {x: 900, y: 350}, 
+            SHA: {x: 800, y: 300}, TSA: {x: 1000, y: 300},
+            PVG: {x: 800, y: 300}, SIN: {x: 700, y: 450},
+            PEK: {x: 700, y: 250}, CDG: {x: 100, y: 200},
+            ZAG: {x: 200, y: 220}, ZRH: {x: 180, y: 210},
+            AMS: {x: 150, y: 190}, BKK: {x: 600, y: 380},
+            SZX: {x: 850, y: 340}
         };
 
         // Render map
         document.addEventListener('DOMContentLoaded', function() {
             const svg = document.getElementById('flightMap');
+            const container = document.getElementById('map-container');
             
-            // Set SVG dimensions to container
-            svg.setAttribute('viewBox', `0 0 1500 ${window.innerHeight}`);
+            // Set SVG dimensions
+            svg.setAttribute('viewBox', `0 0 1200 ${window.innerHeight}`);
             
             // Draw flight paths
             flights.forEach(flight => {
@@ -106,17 +107,22 @@
                 
                 const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 label.setAttribute('x', coord.x);
-                label.setAttribute('y', coord.y - 12);
+                label.setAttribute('y', coord.y - 8); // Reduced from 12px
                 label.setAttribute('class', 'airport-label');
                 label.textContent = code;
                 svg.appendChild(label);
             });
+
+            // Scroll to right side on load
+            setTimeout(() => {
+                container.scrollLeft = container.scrollWidth;
+            }, 50);
         });
         
         // Handle window resize
         window.addEventListener('resize', function() {
             const svg = document.getElementById('flightMap');
-            svg.setAttribute('viewBox', `0 0 1500 ${window.innerHeight}`);
+            svg.setAttribute('viewBox', `0 0 1200 ${window.innerHeight}`);
         });
     </script>
 </body>
