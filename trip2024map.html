@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Flight Map</title>
+    <title>2024 Flight Map</title>
     <style>
         body {
             margin: 0;
@@ -15,7 +15,7 @@
             touch-action: pan-x pan-y;
         }
         #map-container {
-            width: 1200px; /* Reduced from 1500px */
+            width: 1000px;
             height: 100vh;
         }
         #flightMap {
@@ -47,33 +47,44 @@
     </div>
 
     <script>
-        // Flight data
+        // 2024 Flight data (single entries)
         const flights = [
-            {from: "TPE", to: "HKG"}, {from: "SHA", to: "TSA"}, 
-            {from: "HKG", to: "PVG"}, {from: "SIN", to: "HKG"},
-            {from: "PVG", to: "SIN"}, {from: "PEK", to: "SHA"},
-            {from: "HKG", to: "PEK"}, {from: "CDG", to: "HKG"},
-            {from: "ZAG", to: "CDG"}, {from: "ZRH", to: "ZAG"},
-            {from: "ZAG", to: "ZRH"}, {from: "AMS", to: "ZAG"},
-            {from: "HKG", to: "AMS"}, {from: "CDG", to: "HKG"},
-            {from: "ZRH", to: "CDG"}, {from: "CDG", to: "ZRH"},
-            {from: "HKG", to: "CDG"}, {from: "PVG", to: "HKG"},
-            {from: "BKK", to: "PVG"}, {from: "TPE", to: "BKK"},
-            {from: "HKG", to: "TPE"}, {from: "SIN", to: "SZX"},
-            {from: "TPE", to: "SIN"}, {from: "HKG", to: "TPE"},
-            {from: "SIN", to: "HKG"}, {from: "HKG", to: "SIN"},
-            {from: "PVG", to: "HKG"}, {from: "HKG", to: "PVG"}
+            {from: "AKL", to: "HKG"}, {from: "ZQN", to: "AKL"},
+            {from: "AKL", to: "ZQN"}, {from: "MEL", to: "AKL"},
+            {from: "AKL", to: "MEL"}, {from: "HKG", to: "AKL"},
+            {from: "SIN", to: "HKG"}, {from: "PVG", to: "SIN"},
+            {from: "HKG", to: "PVG"}, {from: "HKT", to: "HKG"},
+            {from: "HKG", to: "HKT"}, {from: "TPE", to: "HKG"},
+            {from: "SIN", to: "TPE"}, {from: "HKG", to: "SIN"},
+            {from: "TPE", to: "HKG"}, {from: "HKG", to: "TPE"},
+            {from: "DXB", to: "HKG"}, {from: "VIE", to: "DXB"},
+            {from: "ZRH", to: "VIE"}, {from: "VIE", to: "ZRH"},
+            {from: "DXB", to: "VIE"}, {from: "HKG", to: "DXB"},
+            {from: "AMS", to: "HKG"}, {from: "ZRH", to: "AMS"},
+            {from: "CDG", to: "GVA"}, {from: "HKG", to: "CDG"},
+            {from: "PVG", to: "HKG"}, {from: "HKG", to: "PVG"},
+            {from: "OKA", to: "HKG"}, {from: "HKG", to: "OKA"},
+            {from: "PVG", to: "HKG"}, {from: "SZX", to: "PVG"}
         ];
 
-        // Adjusted coordinates to minimize whitespace
+        // Optimized coordinates for 2024 flights
         const airports = {
-            TPE: {x: 1000, y: 300}, HKG: {x: 900, y: 350}, 
-            SHA: {x: 800, y: 300}, TSA: {x: 1000, y: 300},
-            PVG: {x: 800, y: 300}, SIN: {x: 700, y: 450},
-            PEK: {x: 700, y: 250}, CDG: {x: 100, y: 200},
-            ZAG: {x: 200, y: 220}, ZRH: {x: 180, y: 210},
-            AMS: {x: 150, y: 190}, BKK: {x: 600, y: 380},
-            SZX: {x: 850, y: 340}
+            HKG: {x: 700, y: 350, name: "Hong Kong"},
+            AKL: {x: 900, y: 500, name: "Auckland"},
+            ZQN: {x: 920, y: 520, name: "Queenstown"},
+            MEL: {x: 850, y: 450, name: "Melbourne"},
+            SIN: {x: 650, y: 420, name: "Singapore"},
+            PVG: {x: 720, y: 320, name: "Shanghai"},
+            HKT: {x: 600, y: 380, name: "Phuket"},
+            TPE: {x: 750, y: 340, name: "Taipei"},
+            DXB: {x: 400, y: 300, name: "Dubai"},
+            VIE: {x: 450, y: 220, name: "Vienna"},
+            ZRH: {x: 440, y: 210, name: "Zurich"},
+            AMS: {x: 420, y: 200, name: "Amsterdam"},
+            CDG: {x: 410, y: 210, name: "Paris"},
+            GVA: {x: 430, y: 215, name: "Geneva"},
+            OKA: {x: 780, y: 330, name: "Okinawa"},
+            SZX: {x: 710, y: 340, name: "Shenzhen"}
         };
 
         // Render map
@@ -82,10 +93,10 @@
             const container = document.getElementById('map-container');
             
             // Set SVG dimensions
-            svg.setAttribute('viewBox', `0 0 1200 ${window.innerHeight}`);
+            svg.setAttribute('viewBox', `0 0 1000 ${window.innerHeight}`);
             
-            // Draw flight paths
-            flights.forEach(flight => {
+            // Draw flight paths (newest first)
+            flights.slice().reverse().forEach(flight => {
                 const from = airports[flight.from];
                 const to = airports[flight.to];
                 if (from && to) {
@@ -107,13 +118,13 @@
                 
                 const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
                 label.setAttribute('x', coord.x);
-                label.setAttribute('y', coord.y - 8); // Reduced from 12px
+                label.setAttribute('y', coord.y - 7); // Tight label spacing
                 label.setAttribute('class', 'airport-label');
                 label.textContent = code;
                 svg.appendChild(label);
             });
 
-            // Scroll to right side on load
+            // Scroll to right side (newest flights) on load
             setTimeout(() => {
                 container.scrollLeft = container.scrollWidth;
             }, 50);
@@ -122,7 +133,7 @@
         // Handle window resize
         window.addEventListener('resize', function() {
             const svg = document.getElementById('flightMap');
-            svg.setAttribute('viewBox', `0 0 1200 ${window.innerHeight}`);
+            svg.setAttribute('viewBox', `0 0 1000 ${window.innerHeight}`);
         });
     </script>
 </body>
