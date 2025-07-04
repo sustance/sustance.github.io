@@ -4,57 +4,63 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>✈️ Trips ✈️</title>
-  <!-- Open Graph Meta Tags for Social Media -->
-  <meta property="og:title" content="History and Planning">
-  <meta property="og:description" content="Various summaries derived from Boarding passes and points award notifications">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Trip Information Portal">
+  <meta property="og:description" content="Access various trip summaries and point balances">
   <meta property="og:image" content="https://sustance.github.io/assets/image/trip.jpg">
-  <meta property="og:url" content="https://sustance.github.io/tripVisualize.html">
+  <meta property="og:url" content="https://sustance.github.io/trips">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="My Website">
-  <!-- Twitter Card Meta Tags (optional, enhances Twitter sharing) -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="✈️ Trips"
-
-  <meta name="twitter:description" content="Various summaries derived from Boarding passes and points award notifications">
-  <meta name="twitter:image" content="https://sustance.github.io/tripVisualize.html">
-  <!-- Basic CSS for styling -->
+  <meta name="twitter:title" content="Trip Information Portal">
+  <meta name="twitter:description" content="Access various trip summaries and point balances">
+  <meta name="twitter:image" content="https://sustance.github.io/assets/image/trip.jpg">
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 0;
+      max-width: 600px;
+      margin: 0 auto;
       padding: 20px;
-      background-color: #f4f4f4;
+      background-color: #f8f9fa;
+    }
+    .link-card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .link-card:hover {
+      transform: translateY(-3px);
+    }
+    .link-card a {
+      text-decoration: none;
+      color: #333;
+      display: block;
     }
     h1 {
-      color: #333;
-    }
-    .social-links {
-      margin-top: 20px;
-    }
-    .social-links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .social-links a:hover {
-      background-color: #0056b3;
+      color: #0066cc;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>✈️ Trip Information</h1>
-  <p>Various views: </p>
-  <div class="social-links">
-
-<a href="https://sustance.github.io/tripVisualize.html">Visualize</a>
-    <br>
-<a href="https://sustance.github.io/tripPoints.html" target="_blank">Available Points</a>
-
+  <h1>✈️ Trip Information Portal</h1>
+  
+  <div class="link-card">
+    <a href="https://sustance.github.io/tripVisualize.html">
+      <h2>Trip Visualization</h2>
+      <p>Interactive maps and timelines of your travels</p>
+    </a>
+  </div>
+  
+  <div class="link-card">
+    <a href="https://sustance.github.io/tripPoints.html">
+      <h2>Points Balance</h2>
+      <p>View your available loyalty points</p>
+    </a>
   </div>
 </body>
 </html>
