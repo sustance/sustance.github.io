@@ -16,38 +16,48 @@
   <meta name="twitter:description" content="Various summaries and point credited & available">
   <meta name="twitter:image" content="https://sustance.github.io/assets/image/trip.jpg">
   <style>
-  --col1:   rgba(255,246,246, 0.9); 
-  --col2:   rgba(255,247,239, 0.9);  
-  --col3:   rgba(255,255,241, 0.9);  
-  --col4:   rgba(247,255,243, 0.9); 
-  --col5:   rgba(245,249,255, 0.9);  
-  /*https://www.color-hex.com/color-palette/110389 */
+/* The standard charts.css set */
+  --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
+  --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
+  --color-3: rgba(255, 206, 86, 0.75);    /* #ffce56 */
+  --color-4: rgba(75, 192, 192, 0.75);    /* #4bc0c0 */
+  --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
+  --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
+  --color-7: rgba(93, 173, 226, 0.75);    /* #5dade2 */
+  --color-8: rgba(178, 223, 138, 0.75);   /* #b2df8a */
+  --color-9: rgba(255, 117, 117, 0.75);   /* #ff7575 */
+  --color-10:rgba(169, 169, 169, 0.75);   /* #a9a9a9 */
+
 
     
-    body {
+body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
+      width: 600px; /*max-width: 600px;*/
       margin: 0 auto;
-      padding: 20px;
-      background-color: #f8f9fa;
+      padding: 20px;   
+      background-color: rgba(0,0,0, 0.75);
     }
-    .link-card {
-      background: white;
-      border-radius: 10px;
-     /*border-radius: 75px 99px 33px 22px / 88px 33px 99px 55px;*/
+    
+.link-card {
+      border-radius: 65px 29px 33px 22px / 48px 33px 19px 55px;
       padding: 5px;
       margin: 10px 0;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
       transition: transform 0.2s;
-      background: linear-gradient(to bottom right, var(--col4), var(--col5) )
+      background: linear-gradient(to bottom right,
+      rgba(178, 223, 138, 0.15),rgba(54, 162, 235, 0.15) );
     }
+ .link-card:nth-child(odd) {    
+     border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
+     rgba(54, 162, 235, 0.1),rgba(178, 223, 138, 0.1) );
+     }
 
-    pre {font-face:bold;}
+pre {font-face:bold;}
     .link-card:hover {
       transform: translateY(-3px);
     }
-    .link-card a {
+ .link-card a {
       text-decoration: none;
       color: #333;
       display: block;
@@ -56,12 +66,7 @@
       color: #0066cc;
       text-align: center;
     }
-    /*
-    .curvy {border-radius: 75px 99px 33px 22px / 88px 33px 99px 55px;
-    background: linear-gradient(to bottom right, var(--col4), var(--col5) );}
-    .curvy: {border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
-    background: linear-gradient(to bottom right, var(--col5), var(--col4) );}
-    */
+
 
   </style>
 </head>
@@ -245,4 +250,3 @@ HKair,,,,,
   </div>
   
 </body>
-</html>
