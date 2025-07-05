@@ -1,4 +1,4 @@
-its and <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -16,6 +16,14 @@ its and <!DOCTYPE html>
   <meta name="twitter:description" content="Various summaries and point credited & available">
   <meta name="twitter:image" content="https://sustance.github.io/assets/image/trip.jpg">
   <style>
+  --col1:   rgba(255,246,246, 0.9); 
+  --col2:   rgba(255,247,239, 0.9);  
+  --col3:   rgba(255,255,241, 0.9);  
+  --col5:   rgba(247,255,243, 0.9); 
+  --col6:   rgba(245,249,255, 0.9);  
+  /*https://www.color-hex.com/color-palette/110389 */
+
+    
     body {
       font-family: Arial, sans-serif;
       max-width: 600px;
@@ -45,13 +53,19 @@ its and <!DOCTYPE html>
       color: #0066cc;
       text-align: center;
     }
+.curvy {border-radius: 75px 99px 33px 22px / 88px 33px 99px 55px;
+    background: linear-gradient(to bottom right, var(--col4), var(--col5) );}
+.curvy:nth-child(odd) {border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
+    background: linear-gradient(to bottom right, var(--col5), var(--col4) );}
+
+    
   </style>
 </head>
 <body>
     <h1>✈️ Trip Information Portal</h1>
 
   
-<div class="link-card">
+<div class="link-card curvy">
     <a href="https://sustance.github.io/tripPoints.html">
       <h2>Points Available</h2>
       <p>Usable points as at last advice.</p>
@@ -59,7 +73,7 @@ its and <!DOCTYPE html>
   </div>
 
   
-  <div class="link-card">
+  <div class="link-card curvy">
     <a href="https://sustance.github.io/trip2025map.html">
       <h2>2025 Visualization</h2>
       <p>Map of each trip.</p>
@@ -67,14 +81,14 @@ its and <!DOCTYPE html>
   </div>
 
   
-  <div class="link-card">
+  <div class="link-card curvy">
     <a href="https://sustance.github.io/trip2024map.html">
       <h2>2024 Visualization</h2>
       <p>Map of each trip.</p>
     </a>
   </div>
 
-  <div class="link-card">  
+  <div class="link-card curvy">  
 <h2>  2025 H1</h2>
 <p></p>Credit of Points confirmed</p>
 
