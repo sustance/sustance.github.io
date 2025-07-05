@@ -15,6 +15,16 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 --S25maySK: 159236; --S25junSK:159236;
 
 --K25junFW:947;
+
+
+  --col1:   rgba(255,246,246, 0.9); 
+  --col2:   rgba(255,247,239, 0.9);  
+  --col3:   rgba(255,255,241, 0.9);  
+  --col5:   rgba(247,255,243, 0.9); 
+  --col6:   rgba(245,249,255, 0.9);  
+  /*https://www.color-hex.com/color-palette/110389 */
+
+      
       
   --clr1:   rgba(16, 192, 194, 0.9);     /* #10c0c2 */
   --clr2:   rgba(0, 176, 178, 0.9);      /* #00b0b2 */
@@ -72,7 +82,7 @@ a    {text-decoration: none; color: #ffffff;}
 /*  slash (/) in border-radius separates horizontal and vertical radii
             Order      t-le, t-ri, b-ri, b-le, / t-le, t-ri, b-ri, b-le, */
 .bsd {border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
-    background: linear-gradient(to bottom right, var(--color-5), var(--color-4) );}
+    background: linear-gradient(to bottom right, var(--col5), var(--col4) );}
   
 .box {border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
     background: linear-gradient(to bottom right, var(--clr1), var(--color-8) );}
