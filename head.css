@@ -81,9 +81,9 @@ u    {color: #a52b36;}
 a    {text-decoration: none; color: #ffffff;}
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
-            Order      t-le, t-ri, b-ri, b-le, / t-le, t-ri, b-ri, b-le, */
-
-.bsd {border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
+           Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
+.bsd {
+      border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
       background-image:var(--colo2-24);}
 
 .box {
@@ -93,8 +93,6 @@ a    {text-decoration: none; color: #ffffff;}
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
       background: linear-gradient(to bottom right, var(--color-8), var(--color-7) );}
 
-.neg {border-radius: 125px 99px 77px 22px / 88px 15px 99px 255px;
-    background: linear-gradient(to bottom right, var(--color-3), var(--color-8) );}
 .selec {line-height:0;}
 
 .idx i {font-size: x-large;}
