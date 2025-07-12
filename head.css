@@ -37,6 +37,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
   --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
   --color-7: rgba(93, 173, 226, 0.75);    /* #5dade2 */
+  --colo1-7: rgba(93, 173, 226, 0.1);
   --colo2-7: rgba(93, 173, 226, 0.2);
   --color-8: rgba(178, 223, 138, 0.75);   /* #b2df8a */
   --colo2-8: rgba(178, 223, 138, 0.2);
@@ -45,7 +46,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 --colo2-22: repeating-linear-gradient(45deg,  rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
 --colo2-23: repeating-linear-gradient(90deg,  rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
---colo2-24: repeating-linear-gradient(-45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+--colo2-24: repeating-linear-gradient(-45deg, var(--colo1-7), var(--colo1-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
 
       
   --color-11: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
