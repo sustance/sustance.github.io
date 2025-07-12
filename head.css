@@ -53,8 +53,7 @@
   --color-19: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
 
- --color-24: repeating-linear-gradient(-45deg, rgba(93, 173, 226, 0.25), rgba(93, 173, 226, 0.25) 10px, rgba(178, 223, 138, 0.25) 10px, rgba(178, 223, 138, 0.25) 20px);
---color-24a: repeating-linear-gradient(-45deg, rgb(93, 173, 226), rgb(93, 173, 226) 10px, rgb(178, 223, 138) 10px, rgb(178, 223, 138) 20px);
+ --color-24: repeating-linear-gradient(-45deg, rgba(93, 173, 226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
 
 }
 
@@ -81,7 +80,7 @@ a    {text-decoration: none; color: #ffffff;}
     background: linear-gradient(to bottom right, var(--color-5), var(--color-4) );}
 */
 .bsd {border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
-      background-image:var(--color-24a);}
+      background-image:var(--color-24);}
 
 <div style="background-image:var(--color-24a);"> <p>--color-24a Charts.css</p></div>
   
