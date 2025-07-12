@@ -88,10 +88,10 @@ a    {text-decoration: none; color: #ffffff;}
 
 .box {
       border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
-      background: linear-gradient(to bottom right, var(--color-7), var(--color-8) );}
+      background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
-      background: linear-gradient(to bottom right, var(--color-8), var(--color-7) );}
+      background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
 
 .selec {line-height:0;}
 
