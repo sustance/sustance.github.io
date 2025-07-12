@@ -52,6 +52,8 @@
   --color-18: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-19: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+
+  --color-22: repeating-linear-gradient(45deg, rgba(93, 173, 226, 0.75), rgba(178, 223, 138, 0.75); 10px, rgba(178, 223, 138, 0.75); 10px, rgba(178, 223, 138, 0.75);20px);    
       }
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
