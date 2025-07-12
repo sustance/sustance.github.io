@@ -79,7 +79,7 @@ h2 h3{font: 800 40px Arial; font-weight: 900;
 /*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
 s    {color: #aaaaaa;}
 u    {color: #a52b36;}
-a    {text-decoration: none; font-size: large; color: #a52b36; margin-rightt:5px;}
+a    {text-decoration: none; font-size: large; color: #a52b36; margin-right: 5px; margin-left: 5px;}
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
