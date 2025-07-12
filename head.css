@@ -43,17 +43,18 @@
 
   --color-11: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
   --color-12: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-22: repeating-linear-gradient(45deg, rgba(93, 173, 226,.2), rgba(93, 173, 226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --color-13: repeating-linear-gradient(90deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-23: repeating-linear-gradient(90deg, rgba(93, 173, 226,.2), rgba(93, 173, 226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --color-14: repeating-linear-gradient(-45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
-  --color-15: repeating-linear-gradient(transparent, #e34 20px),
-             repeating-linear-gradient(90deg, transparent, #e34 20px);
+  --color-24: repeating-linear-gradient(-45deg, rgba(93, 173, 226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --color-15: repeating-linear-gradient(transparent, #e34 20px), repeating-linear-gradient(90deg, transparent, #e34 20px);
   --color-16: repeating-radial-gradient(circle, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-17: repeating-radial-gradient(circle at 50% 100%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-18: repeating-radial-gradient(circle at 50% 0%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-19: repeating-radial-gradient(circle at 0% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
   --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
 
- --color-24: repeating-linear-gradient(-45deg, rgba(93, 173, 226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
 
 }
 
