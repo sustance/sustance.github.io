@@ -46,7 +46,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 --colo2-22: repeating-linear-gradient(45deg,  rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
 --colo2-23: repeating-linear-gradient(90deg,  rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
---colo2-24: repeating-linear-gradient(-45deg, var(--colo1-7), var(--colo1-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+--colo2-24: repeating-linear-gradient(-45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
 
       
   --color-11: repeating-linear-gradient(#f80, #f80 10px, #e34 10px, #e34 20px);
