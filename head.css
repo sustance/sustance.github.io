@@ -54,6 +54,7 @@
   --color-20: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
 
   --color-24: repeating-linear-gradient(-45deg, rgba(93, 173, 226, 0.75), rgba(93, 173, 226, 0.75) 10px, rgba(178, 223, 138, 0.75) 10px, rgba(178, 223, 138, 0.75) 20px);
+--color-24: repeating-linear-gradient(-45deg, rgb(93, 173, 226), rgb(93, 173, 226) 10px, rgb(178, 223, 138) 10px, rgb(178, 223, 138) 20px);
 
 }
 
