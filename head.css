@@ -86,7 +86,7 @@ a    {text-decoration: none; color: #ffffff;}
     background: linear-gradient(to bottom right, var(--color-5), var(--color-4) );}
 */
 .bsd {border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
-      background-image:var(--color-24);}
+      background-image:var(--colo2-24);}
 
 <div style="background-image:var(--color-24a);"> <p>--color-24a Charts.css</p></div>
   
