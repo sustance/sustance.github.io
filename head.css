@@ -2,7 +2,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
 
 :root {
-      /*Chart of available points*/
+      /*Chart of available points https://sustance.github.io/tripPoints.html*/
 --maxn: 250000;     
       
 --K25marAM:32035; --K25aprAM:32035; --K25mayAM:32835; --K25junAM:34435;     
