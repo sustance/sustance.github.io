@@ -64,7 +64,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 }
 
-
+/* Eefines the hidden div containing the CRON from servers*/
 #B, #C, #D, #E, #F, #G, #H, #I, #J, #O, #P, #S, #T, #V, #X, #N { display: none }
 #B:target, #C:target, #D:target, #E:target, #F:target, #G:target, #H:target, 
 #I:target, #J:target, #O:target, #P:target, #S:target, #T:target, #V:target, 
