@@ -64,10 +64,9 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 }
 
-#bThing { display: none }
-#bThing:target { display: block }
-#cThing #dThing{ display: none }
-#cThing:target dThing:target{ display: block }
+
+#b, #c, #d { display: none }
+#b:target, #c:target, #d:target { display: block }
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
