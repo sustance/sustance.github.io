@@ -32,13 +32,16 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 /* The standard charts.css set */
   --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
   --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
+      --col10-2: rgba(54, 162, 235, 1); 
   --color-3: rgba(255, 206, 86, 0.75);    /* #ffce56 */
   --color-4: rgba(75, 192, 192, 0.75);    /* #4bc0c0 */
   --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
+      --col10-5: rgba(153, 102, 255, 1); 
   --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
   --color-7: rgba(93, 173, 226, 0.75);    /* #5dade2 */
   --colo1-7: rgba(93, 173, 226, 0.1);
   --colo2-7: rgba(93, 173, 226, 0.2);
+      --col10-7: rgba(93, 173, 226, 1);
   --color-8: rgba(178, 223, 138, 0.75);   /* #b2df8a */
   --colo2-8: rgba(178, 223, 138, 0.2);
   --color-9: rgba(255, 117, 117, 0.75);   /* #ff7575 */
@@ -85,7 +88,7 @@ h2 h3{font: 800 40px Arial; font-weight: 900;
 /*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
 s    {color: #aaaaaa;}
 u    {color: #a52b36;}
-a    {text-decoration: none; color: #a52b36; font-weight: 900; margin-right: 5px; margin-left: 5px;}
+a    {text-decoration: none; color: #a52b36; font-weight: 700; margin-right: 5px; margin-left: 5px;}
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
