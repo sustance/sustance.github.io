@@ -75,7 +75,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
-div { padding-left: 12px; max-width: 860px; margin: 1px; }
+div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
 
 h2 h3{font: 800 40px Arial; font-weight: 900;
     -webkit-text-fill-color: transparent;
