@@ -73,6 +73,9 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 #I:target, #J:target, #O:target, #P:target, #S:target, #T:target, #V:target, 
 #X:target, #N:target, #seven:target { display: block }
 
+#email        { display: none }
+#email:target { display: block }
+
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
 div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
