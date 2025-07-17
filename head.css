@@ -83,7 +83,7 @@ div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px;
 h2 h3{font: 800 40px Arial; font-weight: 900;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px;}
-td     {padding: 10px;}
+td     {padding: 15px; text-align:center;}
 .box b {font-size: xxx-large; color: var(--col10-5); font-weight: 900;}
 .box i {font-size: x-large; color: #a52b36; font-weight: 900;}
 .bsd b {font-size: xxx-large; color: #00b0b2; font-weight: 900;}
