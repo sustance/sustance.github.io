@@ -33,11 +33,13 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
   --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
       --col10-2: rgba(54, 162, 235, 1); 
-  --color-3: rgba(255, 206, 86, 0.75);    /* #ffce56 */
+  --col10-3: rgba(255, 206, 86, 1);    /* #ffce56 */
+      --color-3: rgba(255, 206, 86, 0.75);
   --color-4: rgba(75, 192, 192, 0.75);    /* #4bc0c0 */
   --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
       --col10-5: rgba(153, 102, 255, 1); 
   --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
+      --col10-6: rgba(255, 159, 64, 1); 
   --color-7: rgba(93, 173, 226, 0.75);    /* #5dade2 */
   --colo1-7: rgba(93, 173, 226, 0.1);
   --colo2-7: rgba(93, 173, 226, 0.2);
