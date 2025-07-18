@@ -16,21 +16,6 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 --K25junFW:947;
 
-  /*https://www.color-hex.com/color-palette/110389 */
-      
-  --clr1:   rgba(16, 192, 194, 0.9);     /* #10c0c2 */
-  --clr2:   rgba(0, 176, 178, 0.9);      /* #00b0b2 */
-  --clr3:   rgba(60, 91, 80, 0.9);       /* #3c5b50 */
-  --clrDk1: rgba(81, 62, 62, 0.9);       /* #513e3e */
-  --clrDk2: rgba(165, 43, 54, 0.9);      /* #a52b36 */
-  --clrWa3: rgba(251, 212, 153, 0.9);    /* #fbd499 */
-  --clrWa2: rgba(246, 194, 93, 0.9);     /* #f6c25d */
-  --clrLt1: rgba(203, 195, 133, 0.9);    /* #cbc385 */
-  --clrLt2: rgba(135, 156, 125, 0.9);    /* #879c7d */
-  --clrLt3: rgba(235, 211, 149, 0.9);    /* #ebd395 */
-  --clrLt4: rgba(151, 172, 141, 0.9);    /* #97ac8d */
-
-
       
 /* The standard charts.css set */
   --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
