@@ -64,10 +64,10 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 }
 
 /* Eefines the hidden div containing the CRON from servers*/
-#B, #C, #D, #E, #F, #G, #H, #I, #J, #O, #P, #S, #T, #V, #X, #N, #seven { display: none }
+#B, #C, #D, #E, #F, #G, #H, #I, #J, #O, #P, #S, #T, #V, #X, #N, #ζ, #seven { display: none }
 #B:target, #C:target, #D:target, #E:target, #F:target, #G:target, #H:target, 
 #I:target, #J:target, #O:target, #P:target, #S:target, #T:target, #V:target, 
-#X:target, #N:target, #seven:target { display: block }
+#X:target, #N:target, #ζ:target, #seven:target { display: block }
 
 #email        { display: none }
 #email:target { display: block }
