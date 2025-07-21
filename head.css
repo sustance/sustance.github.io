@@ -23,7 +23,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       --colo2-1: rgba(255, 99, 132, 0.2); 
   --color-2: rgba(54, 162, 235, 0.75);    /* #36a2eb */
       --col10-2: rgba(54, 162, 235, 1.0); 
-      --col02-2: rgba(54, 162, 235, 0.2);    
+      --colo2-2: rgba(54, 162, 235, 0.2);    
   --color-3: rgba(255, 206, 86, 0.75);
       --col10-3: rgba(255, 206, 86, 1.0);
       --colo2-3: rgba(255, 206, 86, 0.2);
@@ -32,7 +32,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       --colo2-4: rgba(75, 192, 192, 0.2);
   --color-5: rgba(153, 102, 255, 0.75);   /* #9966ff */
       --col10-5: rgba(153, 102, 255, 1.0); 
-      --col02-5: rgba(153, 102, 255, 0.2);
+      --colo2-5: rgba(153, 102, 255, 0.2);
   --color-6: rgba(255, 159, 64, 0.75);    /* #ff9f40 */
       --col10-6: rgba(255, 159, 64, 1.0); 
       --colo2-6: rgba(255, 159, 64, 0.2); 
@@ -44,20 +44,20 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       --colo2-8: rgba(178, 223, 138, 0.2);
   --color-9: rgba(255, 117, 117, 0.75);   /* #ff7575 */
       --col10-9: rgba(255, 117, 117, 1.0);
-      --col02-9: rgba(255, 117, 117, 0.2);
+      --colo2-9: rgba(255, 117, 117, 0.2);
   --color-10:rgba(169, 169, 169, 0.75);   /* #a9a9a9 */
       --col10-10:rgba(169, 169, 169, 1.0); 
       --colo2-10:rgba(169, 169, 169, 0.2); 
 
-  --colo2-21: repeating-linear-gradient(rgba(93,173,226,.2),   rgba(93,173,226,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-22: repeating-linear-gradient(45deg, rgba(93,173,226,.2),   rgba(93,173,226,.2) 10px,   rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
-  --colo2-23: repeating-linear-gradient(90deg, rgba(93, 173, 226,.2), rgba(93, 173, 226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-21: repeating-linear-gradient(       rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
+  --colo2-22: repeating-linear-gradient(45deg, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-23: repeating-linear-gradient(90deg, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --colo2-24: repeating-linear-gradient(-45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
   --colo2-25: repeating-linear-gradient(transparent, rgba(178,223,138,.2) 20px), repeating-linear-gradient(90deg, transparent, rgba(178,223,138,.2) 20px);
-  --colo2-26: repeating-radial-gradient(circle, #f80, #f80 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
+  --colo2-26: repeating-radial-gradient(circle,             rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
   --colo2-27: repeating-radial-gradient(circle at 50% 100%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-28: repeating-radial-gradient(circle at 50% 0%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-29: repeating-radial-gradient(circle at 0% 50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
+  --colo2-28: repeating-radial-gradient(circle at 50%   0%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
+  --colo2-29: repeating-radial-gradient(circle at 0%   50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
   --colo2-30: repeating-radial-gradient(circle at 100% 50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
 
 
