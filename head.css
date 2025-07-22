@@ -103,7 +103,7 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 5px
       background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
-      background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
+      background: linear-gradient(to bottom right, var(--colo2-9), var(--colo2-5) );}
 
 .selec {line-height:0;}
 
