@@ -49,19 +49,35 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       --col10-10:rgba(169, 169, 169, 1.0); 
       --colo2-10:rgba(169, 169, 169, 0.2); 
 
-  --colo2-21: repeating-linear-gradient(       rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
+  --colo2-21: repeating-linear-gradient(       rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --colo2-22: repeating-linear-gradient(45deg, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --colo2-23: repeating-linear-gradient(90deg, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
   --colo2-24: repeating-linear-gradient(-45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
   --colo2-25: repeating-linear-gradient(transparent, rgba(178,223,138,.2) 20px), repeating-linear-gradient(90deg, transparent, rgba(178,223,138,.2) 20px);
-  --colo2-26: repeating-radial-gradient(circle,             rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-27: repeating-radial-gradient(circle at 50% 100%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-28: repeating-radial-gradient(circle at 50%   0%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-29: repeating-radial-gradient(circle at 0%   50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-  --colo2-30: repeating-radial-gradient(circle at 100% 50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, 10px, rgba(178,223,138,.2) 10px, 20px);
-
-
+  --colo2-26: repeating-radial-gradient(circle,             rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-27: repeating-radial-gradient(circle at 50% 100%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-28: repeating-radial-gradient(circle at 50%   0%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-29: repeating-radial-gradient(circle at 0%   50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
+  --colo2-30: repeating-radial-gradient(circle at 100% 50%, rgba(93,173,226,.2), rgba(93,173,226,.2) 10px, rgba(178,223,138,.2) 10px, rgba(178,223,138,.2) 20px);
 }
+/*
+  #my-chart .column {
+  --color-1: repeating-linear-gradient(       #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-2: repeating-linear-gradient(45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-3: repeating-linear-gradient(90deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-4: repeating-linear-gradient(-45deg, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-5: repeating-linear-gradient(transparent, #e34 20px),
+             repeating-linear-gradient(90deg, transparent, #e34 20px);
+  --color-6: repeating-radial-gradient(circle,              #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-7: repeating-radial-gradient(circle at 50%  100%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-8: repeating-radial-gradient(circle at 50%    0%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-9: repeating-radial-gradient(circle at  0%   50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+  --color-10: repeating-radial-gradient(circle at 100% 50%, #f80, #f80 10px, #e34 10px, #e34 20px);
+}
+*/
+
+
+
 
 /* Defines the hidden div containing the CRON from servers  Y is 7 as 7 cannot be a html ID*/
 #B, #C, #D, #E, #F, #G, #H, #I, #J, #O, #P, #S, #T, #V, #X, #N, #Y { display: none }
