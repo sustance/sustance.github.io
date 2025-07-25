@@ -109,10 +109,10 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 5px
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
 .bsd {
       border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
-      background-image:var(--colo2-24);}
+      background-image:var(--colo2-27);}
 .bsd:nth-child(odd) {
       border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
-      background-image:var(--colo2-26);}
+      background-image:var(--colo2-28);}
 
 .box {
       border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
