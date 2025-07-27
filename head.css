@@ -101,7 +101,6 @@ td     {font-size: large; padding: 8px; text-align:center;}
 .bsd b {font-size: xxx-large; color: #00b0b2; font-weight: 900;}
 .bsd i {font-size: x-large; color: #a52b36; font-weight: 900;}
 /*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
-s    {color: #aaaaaa ;}
 u    {color: var(--color-7);}
 a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 5px; margin-left: 5px;}
 .pr {color: var(--col10-2);}
