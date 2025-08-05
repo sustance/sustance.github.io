@@ -112,7 +112,51 @@
     <td style="background-image: var(--colo2-30);">colo2-30</td>
   </tr>   
 <table>
+  
+<pre>
+#firefox -P
 
+  
+~/.mozilla/firefox/profiles.ini
+
+[Profile2]
+Name=socks-profile
+IsRelative=1
+Path=wwag6l90.socks-profile
+
+[Profile1]
+Name=default
+IsRelative=1
+Path=0zdckpe2.default
+Default=1
+
+[Profile0]
+Name=default-esr
+IsRelative=1
+Path=cosnlops.default-esr
+
+[General]
+StartWithLastProfile=1
+Version=2
+
+[Install3B6073811A6ABF12]
+Default=wwag6l90.socks-profile
+Locked=1
+
+
+#If IsRelative=1, the Path is relative to ~/.mozilla/firefox/
+
+# ~/.mozilla/firefox/wwag6l90.socks-profile
+
+ script using user.js in the dedicated profile directory:
+
+js
+user_pref("network.proxy.type", 1);
+user_pref("network.proxy.socks", "127.0.0.1");
+user_pref("network.proxy.socks_port", 9999);
+user_pref("network.proxy.socks_remote_dns", true);
+
+</pre>
 
 </body>
 </html>
