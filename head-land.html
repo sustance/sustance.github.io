@@ -67,6 +67,20 @@ gpsbabel  -i kml -f FavoritesJP.kml -o gpx -F FavoritesJP.gpx
  
 </p>
 
+	
+<H1> test include local</H1>
+<?php
+include 'a.txt';
+<H1> END test include</H1>
+?>
+
+<H1> test include remote </H1>
+<?php
+include 'https://bsd.tilde.team/~identity2/a.txt';
+<H1> END test include</H1>
+?>
+
+	
  
 </div>
 
