@@ -40,7 +40,7 @@
 <a href="https://ctrl-c.club/~identity2/lineage/">c.c/~i72/lineage</a> &nbsp; 
 <p>
 <?php
-    $ccc = file_get_contents('https://ctrlc-c.club/~identity2/a.txt');
+    $ccc = file_get_contents('https://ctrl-c.club/~identity2/a.txt');
     echo $ccc;
 ?>
 </p>
