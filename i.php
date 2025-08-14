@@ -52,7 +52,7 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <i>DE.</i> <b>f</b>reeshell.de <span class="sml">116.202.128.144</span> 
 <a href="https://freeshell.de/">f.d</a> 
 <a href="https://freeshell.de/~identity">f.d/~i6y</a> 
-<a href="https://freeshell.de/~identiy/lineage/">f.d/~i6y/lineage</a> 
+<a href="https://freeshell.de/~identity/lineage/">f.d/~i6y/lineage</a> 
 SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new 
 ssh ssh.freeshell.de -p 443 or -p 32768</p>
 <?php
@@ -90,7 +90,7 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <a href="https://tilde.institute">t.i</a>  
 <a href="https://id2.tilde.institute">id2.t.i</a> </p>
 <?php
-    $t = file_get_contents('https://tilde.institute/~id2/a.txt'); echo $t;
+    $i = file_get_contents('https://tilde.institute/~id2/a.txt'); echo $i;
 ?>
 NOT RESPOND HTTP</div>
 
