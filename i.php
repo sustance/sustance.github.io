@@ -10,10 +10,8 @@
 <i>DE.</i> <b>b</b>sd.tilde.team <span class="sml">157.90.196.52</span> 
 <a href="https://bsd.tilde.team/">b.t.t</a> 
 <a href="https://bsd.tilde.team/~identity2">b.t.t/~i52</a> 
-
 <?php
-    $bbb = file_get_contents('https://bsd.tilde.team/~identity2/a.txt');
-    echo $bbb;
+    $ = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
 ?>
 </p>
 </div>
@@ -24,9 +22,9 @@
 <i>US.</i> <b>c</b>trl-c.club <span class="tin">165.227.127.54</span> <i>NewsB</i> 
 <a href="https://ctrl-c.club/">c.c</a>
 <a href="https://ctrl-c.club/~i52">c.c/~i72</a>
-<a href="https://ctrl-c.club/~identity2/lineage/">c.c/~i72/lineage</a> &nbsp; 
+<a href="https://ctrl-c.club/~identity2/lineage/">c.c/~i72/lineage</a> &nbsp 
 <?php
-$ccc = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $ccc;
+$c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
 </div>
 
@@ -46,6 +44,9 @@ $ccc = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $ccc;
 <i>GB.</i> <b>d</b>imesion.sh <span class="sml">209.97.187.90</span> 
 <a href="https://dimension.sh/">d.s</a> 
 <a href="https://dimension.sh/~identity2">d.s/~i72</a></p>
+<?php
+    $d = file_get_contents('https://dimension.sh/~identity2/a.txt'); echo $d;
+?>
 </div>
 
 	<div class="box">
@@ -55,6 +56,9 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <a href="https://envs.net/">e.n</a>  
 <a href="https://envs.net/~identity2">e.n/~i72</a>  
 <a href="https://envs.net/~identity2/lineage/">e.n/~i72/lineage</a> </p>
+<?php
+    $e = file_get_contents('https://envs.net/~identity2/a.txt'); echo $e;
+?>
 </div>
 
 	<div class="box">
@@ -65,6 +69,9 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <a href="https://freeshell.de/~identiy/lineage/">f.d/~i6y/lineage</a> 
 SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new<br>
 ssh ssh.freeshell.de -p 443 or -p 32768</p>
+<?php
+    $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
+?>
 </div>
 
 	<div class="bsd">
@@ -73,6 +80,9 @@ ssh ssh.freeshell.de -p 443 or -p 32768</p>
 <a href="https://tilde.guru">t.g</a>  
 <a href="https://tilde.guru/~edi">t.g/~edi</a>
 </p>
+<?php
+    $g = file_get_contents('https://tilde.guru/~edi/a.txt'); echo $g;
+?>
 </div>
 
 	<div class="box">
@@ -83,6 +93,9 @@ ssh ssh.freeshell.de -p 443 or -p 32768</p>
 2043108 <a href="https://tilde.tel">t.tel</a><br>
 Uname: 2043108, Pwrd: p;;tel,<br>
 Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
+<?php
+    $h = file_get_contents('https://thunix.net/~id/a.txt'); echo $h;
+?>
 </div>
 
 	<div class="bsd">
@@ -90,18 +103,18 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <span class="sml">159.69.146.152</span>  
 <a href="https://tilde.institute">t.i</a>  
 <a href="https://id2.tilde.institute">id2.t.i</a> </p>
+<?php
+    $t = file_get_contents('https://tilde.institute/~id2/a.txt'); echo $t;
+?>
 </div>
 
 	<div class="box">
 <p><i>DE.</i> pro<b>j</b>ectsegfau.lt <span class="sml">45.145.41.226</span> 
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://identity2.p.projectsegfau.lt/">i.p.p.l/~i72</a></p>
-
-<p><u> Hostname   Os  Lua Php Rb  Gem Sh </u><br>]J pubnix pub Lin     8.4         sh <br>
-!J w3m lynx <s>jek</s> <s>nwsb</s>    <br>
-[J y2:x:30183:30184::/h/y2:/b/bash<br>
-(J 12:05/11 04:05/11 |dn.3   hk.    av.     
-</p>
+<?php
+    $j = file_get_contents('https://projectsegfau.lt/~identity2/a.txt'); echo $j;
+?>
 </div>
 
 	<div class="box">
