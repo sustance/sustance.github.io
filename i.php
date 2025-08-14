@@ -9,7 +9,7 @@
 <a href="https://bsd.tilde.team/">b.t.t</a> 
 <a href="https://bsd.tilde.team/~identity2">b.t.t/~i52</a> 
 <?php
-    $b = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
+$b = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
 ?>
 </p>
 </div>
