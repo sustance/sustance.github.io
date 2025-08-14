@@ -3,8 +3,6 @@
     echo $header
 ?>
 
-    
-    
 <div class="bsd">
 <p>
 <i>DE.</i> <b>b</b>sd.tilde.team <span class="sml">157.90.196.52</span> 
@@ -17,7 +15,6 @@
 </div>
 
 
-    
 <div class="box">
 <i>US.</i> <b>c</b>trl-c.club <span class="tin">165.227.127.54</span> <i>NewsB</i> 
 <a href="https://ctrl-c.club/">c.c</a>
@@ -27,17 +24,6 @@
 $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 	<div class="box">
 <p>
@@ -135,7 +121,6 @@ $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 ?>
 </div>
 
-
 	<div class="box">
 <p><i>CA.</i> tilde.<b>t</b>eam <span class="sml">198.50.210.248</span> <i>Newsb</i> <a href="https://tilde.team/">t.t</a> 
 <a href="https://tilde.team/~identity2">t.t/~i72</a> 
@@ -203,17 +188,7 @@ Server: sip.zoiper.com (port 5060)</p>
 <body>
 <div class="box"> 
 
-
-
-
-
-
-
-
-
-
-
-
+<!--
 <?php
 // Establish an SSH connection using .ssh/config settings
 $connection = ssh2_connect('c', 22);
@@ -240,7 +215,7 @@ if ($connection) {
     ssh2_disconnect($connection);
 }
 ?>
-
+-->
 
     
 <?php
