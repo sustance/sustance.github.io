@@ -121,56 +121,63 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <p><i>DE.</i> pr<b>o</b>jectsegfau.lt <span class="sml">45.145.41.226</span>
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://id.p.projectsegfau.lt/">i.p.p.l/~id</a></p>
+<?php
+    $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
+?>	
 </div>
 
 	<div class="bsd">
 <p><i>CA.</i> &nbsp; tilde.<b>p</b>ink  
 <span class="sml">198.50.210.248 </span> <a href="https://tilde.pink/">t.p</a>  
 <a href="https://tilde.pink/~id2">t.p/~id2</a> </p>
+<?php
+    $p = file_get_contents('https://tilde.pink/~id2/a.txt'); echo $p;
+?>
 </div>
 
-	<div class="bsd">
-<p><i>US</i> &nbsp; <b>r</b>w.rs  
-<span class="sml">45.58.42.71</span> <a href="https://rw.rs/">r.r</a>  
-<a href="https://rw.rs/~sustance">r.r/~sustance</a> </p>
 
-/bin/curl https://rw.rs/~sustance/a.txt
-</div>
 	<div class="box">
 <p><i>CA.</i> tilde.<b>t</b>eam <span class="sml">198.50.210.248</span> <i>Newsb</i> <a href="https://tilde.team/">t.t</a> 
 <a href="https://tilde.team/~identity2">t.t/~i72</a> 
 <a href="https://tilde.team/~identity2/lineage">t.t/~i72/lineage</a> </p>
+<?php
+    $t = file_get_contents('https://tilde.team/~identity2/a.txt'); echo $t;
+?>
 </div>
 
 	<div class="box">
 <p><i>US.</i> <b>v</b>ern.cc <span class="sml">5.161.108.85</span> 
 <a href="https://vern.cc/">v.c</a> 
 <a href="https://id.vern.cc/">id.v.c/~id</a></p>
+<?php
+    $v = file_get_contents('https://vern.cc/~identity2/a.txt'); echo $v;
+?>
 </div>
 
 	<div class="box">
 <p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
 <a href="https://rawtext.club/">r.c</a> 
 <a href="https://rawtext.club/~identity2">r.c/~i72</a> </p>
+<?php
+    $x = file_get_contents('https://rawtext.club/~identity2/a.txt'); echo $x;
+?>
 </div>
 
 	<div class="box">
 <p><i>US.</i>    <b>s</b>fo     <span class="sml">104.245.33.223</span> 
 <a href="http://identity2.com">http i.c</a> 
 <a href="http://nix.identity2.com">http nix.i.c</a></p>
-
-<p><u> Hostname   Os  Lua Php Rb  Gem Sh </u><br>]S sfo sfo    Lin     7.4 3.1 3.3 sh <br>
-!S w3m lynx jek <s>nwsb</s>    <br>
-[S aa:x:1000:1000::/h/aa:/b/bash<br>
-(S 12:05/11 12:05/11 |dn.1   hk.    av.  </p>
+<?php
+    $s = file_get_contents('https://identity2.com/~identity2/a.txt'); echo $s;
+?>
 </div>
 
-	<div class="bsd">
+<div class="bsd">
 <p><i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
 <span class="sml">sufbo.tplinkdns.com</span></p>
 </div>
 
-	<div class="box"> <p><i>Mob</i> <b>le</b><span class="sml">novo</p>
+<div class="box"> <p><i>Mob</i> <b>le</b><span class="sml">novo</p>
 <p>SIP Address	2233589729@sip2sip.info<br>
 Username	2233589729  PASS: ;;6sip<br>
 Domain	sip2sip.info<br>
