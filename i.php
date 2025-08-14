@@ -1,20 +1,7 @@
 <?php 
     $header = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
-    echo $header;
+    echo $header
 ?>
-
-
-<div class="box">
-<div class="idx">
-<p><b>
-    <span class="col">b</span> c <s>d</s> e <u>f</u><span class="col"> g
-    </span> <s>h</s><span class="col"> i</span> <u>j</u> o p <s>s</s> r <s>t</s> v x
-    <span class="col"> 7</span>
-</b><br>
-    @sufbo.tplinkdns.com <s>~1Msec</s> <u>no -D forward</u>
-</p>
-</div>
-</div>
 
     
     
@@ -38,32 +25,17 @@
 <a href="https://ctrl-c.club/">c.c</a>
 <a href="https://ctrl-c.club/~i52">c.c/~i72</a>
 <a href="https://ctrl-c.club/~identity2/lineage/">c.c/~i72/lineage</a> &nbsp; 
-<p>
+
 <?php
-    $ccc = file_get_contents('https://ctrl-c.club/~identity2/a.txt');
-    echo $ccc;
+$ccc = file_get_contents('https://ctrl-c.club/~identity2/a.txt');
+echo $ccc;
 ?>
-</p>
+
 </div>
 
 
 
 
-<?php
-$connection = ssh2_connect('ctrl-c.club', 22);
-if (ssh2_auth_password($connection, 'username', 'password')) {
-    echo "Authentication successful!\n";
-    $remoteFile = '/path/to/remote/file.txt';
-    $localFile = '/path/to/local/file.txt';
-    if (ssh2_scp_recv($connection, $remoteFile, $localFile)) {
-        echo "File successfully downloaded to $localFile\n";
-    } else {
-        echo "Failed to download the file.\n";
-    }
-} else {
-    echo "Authentication failed!\n";
-}
-?>
 
 
 <?php
