@@ -1,4 +1,4 @@
-<?php 
+ <?php 
     $header = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
     echo $header
 ?>
@@ -12,7 +12,7 @@
 $b = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
 ?>
 </p>
-</div>
+</div>  
 
 
 <div class="box">
@@ -134,10 +134,10 @@ $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 <p><i>US.</i> <b>v</b>ern.cc <span class="sml">5.161.108.85</span> 
 <a href="https://vern.cc/">v.c</a> 
 <a href="https://id.vern.cc/">id.v.c/~id</a></p>
-<?php
+<!--php
     $v = file_get_contents('https://vern.cc/~identity2/a.txt'); echo $v;
-?>
-</div>
+?> NO WEB
+</div>-->
 
 	<div class="box">
 <p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
