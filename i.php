@@ -51,7 +51,7 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 
 	<div class="box">
 <p>
-<i>DE.</i> <b>e</b>nvs.net <span class="sml">89.163.145.170</span> <i>remi</i><br> 
+<i>DE.</i> <b>e</b>nvs.net <span class="sml">89.163.145.170</span> <i>remi</i> 
 identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webmail/#?action=listmailbox">identity2@envs.net</a><br>
 <a href="https://envs.net/">e.n</a>  
 <a href="https://envs.net/~identity2">e.n/~i72</a>  
@@ -67,10 +67,10 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <a href="https://freeshell.de/">f.d</a> 
 <a href="https://freeshell.de/~identity">f.d/~i6y</a> 
 <a href="https://freeshell.de/~identiy/lineage/">f.d/~i6y/lineage</a> 
-SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new<br>
+SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new 
 ssh ssh.freeshell.de -p 443 or -p 32768</p>
 <?php
-    $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
+$f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 ?>
 </div>
 
@@ -106,14 +106,14 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <?php
     $t = file_get_contents('https://tilde.institute/~id2/a.txt'); echo $t;
 ?>
-</div>
+NOT RESPOND HTTP</div>
 
 	<div class="box">
 <p><i>DE.</i> pro<b>j</b>ectsegfau.lt <span class="sml">45.145.41.226</span> 
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://identity2.p.projectsegfau.lt/">i.p.p.l/~i72</a></p>
 <?php
-    $j = file_get_contents('https://projectsegfau.lt/~identity2/a.txt'); echo $j;
+$j = file_get_contents('https://projectsegfau.lt/~identity2/a.txt'); echo $j;
 ?>
 </div>
 
@@ -122,7 +122,7 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://id.p.projectsegfau.lt/">i.p.p.l/~id</a></p>
 <?php
-    $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
+$o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 ?>	
 </div>
 
