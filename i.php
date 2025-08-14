@@ -49,6 +49,51 @@
 
 
 
+<?php
+$connection = ssh2_connect('ctrl-c.club', 22);
+if (ssh2_auth_password($connection, 'username', 'password')) {
+    echo "Authentication successful!\n";
+    $remoteFile = '/path/to/remote/file.txt';
+    $localFile = '/path/to/local/file.txt';
+    if (ssh2_scp_recv($connection, $remoteFile, $localFile)) {
+        echo "File successfully downloaded to $localFile\n";
+    } else {
+        echo "Failed to download the file.\n";
+    }
+} else {
+    echo "Authentication failed!\n";
+}
+?>
+
+
+<?php
+// Establish an SSH connection using .ssh/config settings
+$connection = ssh2_connect('c', 22);
+if ($connection) {
+    // Attempt public key authentication (configured in .ssh/config)
+    if (ssh2_auth_pubkey_file($connection, 'username', 
+        '~/.ssh/ctrlc.pub', '~/.ssh/ctrlc')) {
+        echo "Authentication successful!\n";
+        $remoteFile = '$HOME/public_html/a.txt';
+        $localFile = '$HOME/public_html/file-c.txt';
+        if (ssh2_scp_recv($connection, $remoteFile, $localFile)) {
+            echo "File successfully downloaded to $localFile\n";
+        } else {
+            echo "Failed to download the file.\n";
+        }
+    } else {
+        echo "Authentication failed!\n";
+    }
+} else {
+    echo "Connection failed!\n";
+}
+// Close the connection
+if ($connection) {
+    ssh2_disconnect($connection);
+}
+?>
+
+
     
 <?php
     // Load footer
