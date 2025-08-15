@@ -1,6 +1,6 @@
- <?php 
-    $header = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
-    echo $header
+<?php 
+    $head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
+    echo $head;
 ?>
 
 <div class="bsd">
@@ -25,7 +25,7 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p>
 <i>GB.</i> <b>d</b>imesion.sh <span class="sml">209.97.187.90</span> 
 <a href="https://dimension.sh/">d.s</a> 
@@ -47,7 +47,7 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p>
 <i>DE.</i> <b>f</b>reeshell.de <span class="sml">116.202.128.144</span> 
 <a href="https://freeshell.de/">f.d</a> 
@@ -60,7 +60,7 @@ $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 ?>
 </div>
 
-	<div class="bsd">
+<div class="bsd">
 <p>
 <i>??.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
 <a href="https://tilde.guru">t.g</a>  
@@ -71,7 +71,7 @@ $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p>
 <i>CA.</i>  t<b>h</b>unix.net <span class="sml">142.44.150.185</span> 
 <a href="https://thunix.net">t.n</a>  
@@ -92,9 +92,10 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <?php
     $i = file_get_contents('https://id2.tilde.institute/a.txt'); echo $i;
 ?>
-NOT RESPOND HTTP</div>
+</div>
 
-	<div class="box">
+
+<div class="box">
 <p><i>DE.</i> pro<b>j</b>ectsegfau.lt <span class="sml">45.145.41.226</span> 
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://identity2.p.projectsegfau.lt/">i.p.p.l/~i72</a></p>
@@ -103,7 +104,7 @@ $j = file_get_contents('https://identity2.p.projectsegfau.lt/a.txt'); echo $j;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p><i>DE.</i> pr<b>o</b>jectsegfau.lt <span class="sml">45.145.41.226</span>
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://id.p.projectsegfau.lt/">i.p.p.l/~id</a></p>
@@ -112,7 +113,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 ?>	
 </div>
 
-	<div class="bsd">
+<div class="bsd">
 <p><i>CA.</i> &nbsp; tilde.<b>p</b>ink  
 <span class="sml">198.50.210.248 </span> <a href="https://tilde.pink/">t.p</a>  
 <a href="https://tilde.pink/~id2">t.p/~id2</a> </p>
@@ -121,7 +122,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p><i>CA.</i> tilde.<b>t</b>eam <span class="sml">198.50.210.248</span> <i>Newsb</i> <a href="https://tilde.team/">t.t</a> 
 <a href="https://tilde.team/~identity2">t.t/~i72</a> 
 <a href="https://tilde.team/~identity2/lineage">t.t/~i72/lineage</a> </p>
@@ -130,7 +131,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p><i>US.</i> <b>v</b>ern.cc <span class="sml">5.161.108.85</span> 
 <a href="https://vern.cc/">v.c</a> 
 <a href="https://id.vern.cc/">id.v.c/~id</a></p>
@@ -139,12 +140,12 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 ?> 
 </div>
 
-	<div class="box">
+<div class="box">
 <p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
 <a href="https://rawtext.club/">r.c</a> 
 <a href="https://rawtext.club/~identity2">r.c/~i72</a> </p>
 <?php
-    $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
+$x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 ?>
 </div>
 
@@ -162,7 +163,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 <span class="sml">sufbo.tplinkdns.com</span>
 </p>
 <?php
-    $s = file_get_contents('https://thunix.net/~id/a-7.txt'); echo $s;
+$s = file_get_contents('https://thunix.net/~id/a-7.txt'); echo $s;
 ?>
 </div>
 
@@ -183,50 +184,8 @@ Quick setup for basic SIP testing<br>
 Use username: test, password: test1234<br>
 Server: sip.zoiper.com (port 5060)</p>
 </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>IDNIX</title>
- <link rel="stylesheet" href="https://sustance.github.io/head.css" />
-</head>
-<body>
-<div class="box"> 
-
-<!--
+	
 <?php
-// Establish an SSH connection using .ssh/config settings
-$connection = ssh2_connect('c', 22);
-if ($connection) {
-    // Attempt public key authentication (configured in .ssh/config)
-    if (ssh2_auth_pubkey_file($connection, 'username', 
-        '~/.ssh/ctrlc.pub', '~/.ssh/ctrlc')) {
-        echo "Authentication successful!\n";
-        $remoteFile = '$HOME/public_html/a.txt';
-        $localFile = '$HOME/public_html/file-c.txt';
-        if (ssh2_scp_recv($connection, $remoteFile, $localFile)) {
-            echo "File successfully downloaded to $localFile\n";
-        } else {
-            echo "Failed to download the file.\n";
-        }
-    } else {
-        echo "Authentication failed!\n";
-    }
-} else {
-    echo "Connection failed!\n";
-}
-// Close the connection
-if ($connection) {
-    ssh2_disconnect($connection);
-}
+    $tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
+    echo $tail;
 ?>
--->
-
-    
-<?php
-    // Load footer
-    $footer = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
-    echo $footer;
-?>
-
-</body>
-</html>
