@@ -1,6 +1,6 @@
 <?php 
-    $head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
-    echo $head;
+$head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
+echo $head;
 ?>
 
 <div class="bsd">
@@ -35,7 +35,7 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p>
 <i>DE.</i> <b>e</b>nvs.net <span class="sml">89.163.145.170</span> <i>remi</i> 
 identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webmail/#?action=listmailbox">identity2@envs.net</a><br>
@@ -84,7 +84,7 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 ?>
 </div>
 
-	<div class="bsd">
+<div class="bsd">
 <p><i>DE.</i> tilde.<b>i</b>nstitute. <span class="sml">opt-svr</span>
 <span class="sml">159.69.146.152</span>  
 <a href="https://tilde.institute">t.i</a>  
@@ -93,7 +93,6 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
     $i = file_get_contents('https://id2.tilde.institute/a.txt'); echo $i;
 ?>
 </div>
-
 
 <div class="box">
 <p><i>DE.</i> pro<b>j</b>ectsegfau.lt <span class="sml">45.145.41.226</span> 
@@ -149,7 +148,7 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 ?>
 </div>
 
-	<div class="box">
+<div class="box">
 <p><i>US.</i>    <b>s</b>fo     <span class="sml">104.245.33.223</span> 
 <a href="http://identity2.com">http i.c</a> 
 <a href="http://nix.identity2.com">http nix.i.c</a></p>
@@ -166,26 +165,8 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 $s = file_get_contents('https://thunix.net/~id/a-7.txt'); echo $s;
 ?>
 </div>
-
-<div class="box"> <p><i>Mob</i> <b>le</b><span class="sml">novo</p>
-<p>SIP Address	2233589729@sip2sip.info<br>
-Username	2233589729  PASS: ;;6sip<br>
-Domain	sip2sip.info<br>
-Other SIP servers available To locate SIP device must lookup DNS<br>
-<br>
-Acct settings, login using credentials http://x.sip2sip.info<br>
-FAIL sufbo, k.m@g.c<br>
-<br>
-Zoiper Test Server<br>
-Domain: zoiper.com<br>
-Preconfigured test account for Zoiper softphone<br>
-<br>
-Quick setup for basic SIP testing<br>
-Use username: test, password: test1234<br>
-Server: sip.zoiper.com (port 5060)</p>
-</div>
 	
 <?php
-    $tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
-    echo $tail;
+$tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
+echo $tail;
 ?>
