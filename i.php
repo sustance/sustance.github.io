@@ -144,7 +144,7 @@ $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 <a href="https://rawtext.club/">r.c</a> 
 <a href="https://rawtext.club/~identity2">r.c/~i72</a> </p>
 <?php
-    $x = file_get_contents('https://rawtext.club/~identity2/a.txt'); echo $x;
+    $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 ?>
 </div>
 
