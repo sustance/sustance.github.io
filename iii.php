@@ -1,8 +1,7 @@
+<h3> Server features</h3>
+<pre>
 <?php
-// 1. Collect all your multi-source content into a single string variable
-$content = "";
-
-// Example: Fetch all remote text contents you want to include (simplified)
+// URLs as before
 $urls = [
     'https://bsd.tilde.team/~identity2/a.txt',
     'https://ctrl-c.club/~identity2/a.txt',
@@ -22,7 +21,8 @@ $urls = [
     'https://thunix.net/~id/a-7.txt',
 ];
 
-// Fetch each URL content and concatenate
+// Collect all content
+$content = '';
 foreach ($urls as $url) {
     $data = @file_get_contents($url);
     if ($data !== false) {
@@ -30,16 +30,34 @@ foreach ($urls as $url) {
     }
 }
 
-// 2. Split content into lines
+// Split into lines
 $lines = explode("\n", $content);
 
-// 3. Filter lines that start with "]", "!", "[", "("
+// Filter lines starting with specified characters
 $filtered = array_filter($lines, function($line) {
     return strlen($line) > 0 && in_array($line[0], [']', '!', '[', '(']);
 });
 
-// 4. Output the filtered lines
+// Define the order you want by prefix
+$order = ['!', '[', '(', ']'];
+
+// Group lines by their prefix character
+$grouped = [];
 foreach ($filtered as $line) {
-    echo $line . "\n";
+    $prefix = $line;
+    if (!isset($grouped[$prefix])) {
+        $grouped[$prefix] = [];
+    }
+    $grouped[$prefix][] = $line;
+}
+
+// Output lines grouped and sorted by prefix order
+foreach ($order as $prefix) {
+    if (isset($grouped[$prefix])) {
+        foreach ($grouped[$prefix] as $line) {
+            echo $line . "\n";
+        }
+    }
 }
 ?>
+</pre>
