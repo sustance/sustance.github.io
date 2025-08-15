@@ -99,7 +99,7 @@ NOT RESPOND HTTP</div>
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://identity2.p.projectsegfau.lt/">i.p.p.l/~i72</a></p>
 <?php
-$j = file_get_contents('https://projectsegfau.lt/~identity2/a.txt'); echo $j;
+$j = file_get_contents('https://identity2.p.projectsegfau.lt/a.txt'); echo $j;
 ?>
 </div>
 
@@ -108,7 +108,7 @@ $j = file_get_contents('https://projectsegfau.lt/~identity2/a.txt'); echo $j;
 <a href="https://projectsegfau.lt/">p.l</a> 
 <a href="https://id.p.projectsegfau.lt/">i.p.p.l/~id</a></p>
 <?php
-$o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
+$o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 ?>	
 </div>
 
