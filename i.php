@@ -134,10 +134,10 @@ $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 <p><i>US.</i> <b>v</b>ern.cc <span class="sml">5.161.108.85</span> 
 <a href="https://vern.cc/">v.c</a> 
 <a href="https://id.vern.cc/">id.v.c/~id</a></p>
-<!--php
-    $v = file_get_contents('https://vern.cc/~identity2/a.txt'); echo $v;
-?> NO WEB
-</div>-->
+<?php
+     $v = file_get_contents('https://thunix.net/~id/a-v.txt'); echo $v;
+?> 
+</div>
 
 	<div class="box">
 <p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
@@ -159,7 +159,11 @@ $o = file_get_contents('https://projectsegfau.lt/~id/a.txt'); echo $o;
 
 <div class="bsd">
 <p><i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
-<span class="sml">sufbo.tplinkdns.com</span></p>
+<span class="sml">sufbo.tplinkdns.com</span>
+</p>
+<?php
+    $s = file_get_contents('https://thunix.net/~id/a-7.txt'); echo $s;
+?>
 </div>
 
 <div class="box"> <p><i>Mob</i> <b>le</b><span class="sml">novo</p>
