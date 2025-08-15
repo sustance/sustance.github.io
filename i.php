@@ -90,7 +90,7 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
 <a href="https://tilde.institute">t.i</a>  
 <a href="https://id2.tilde.institute">id2.t.i</a> </p>
 <?php
-    $i = file_get_contents('https://tilde.institute/~id2/a.txt'); echo $i;
+    $i = file_get_contents('https://id2.tilde.institute/a.txt'); echo $i;
 ?>
 NOT RESPOND HTTP</div>
 
