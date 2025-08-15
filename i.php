@@ -1,10 +1,10 @@
- <?php 
-    $header = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
-    echo $header
+<?php 
+$head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/head-land.html');
+echo $head
 ?>
 
-
-<div class="box"> <p><i>Mob</i> <b>le</b><span class="sml">novo</p>
+<div class="box"> 
+<p><i>Mob</i> <b>le</b><span class="sml">novo</p>
 <p>SIP Address	2233589729@sip2sip.info<br>
 Username	2233589729  PASS: ;;6sip<br>
 Domain	sip2sip.info<br>
@@ -21,18 +21,8 @@ Quick setup for basic SIP testing<br>
 Use username: test, password: test1234<br>
 Server: sip.zoiper.com (port 5060)</p>
 </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title>IDNIX</title>
- <link rel="stylesheet" href="https://sustance.github.io/head.css" />
-</head>
-<body>
-<div class="box"> 
 
 <?php
-    $footer = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
-    echo $footer;
+$tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
+echo $tail;
 ?>
-</body>
-</html>
