@@ -41,9 +41,7 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 
 <i>CA.</i>  t<b>h</b>unix.net <span class="sml">142.44.150.185</span> 
 <a href="https://thunix.net">t.n</a>  
-<a href="https://thunix.net/~id">t.n/~id</a> <a href="https://tilde.tel">t.tel</a><br>
-u:2043108, p;;tel,<br>
-Svr: connect.tilde.tel, Port: 5060, Transp: UDP
+<a href="https://thunix.net/~id">t.n/~id</a> <a href="https://tilde.tel">t.tel</a> u:2043108, p;;tel, connect.tilde.tel, P;5060, UDP
 <br>
 
 <i>DE.</i> tilde.<b>i</b>nstitute. <span class="sml">opt-svr</span>
