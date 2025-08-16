@@ -179,10 +179,7 @@ $7 = file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt'); echo $7;
 
 
 
-<?php
-$tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
-echo $tail;
-?>
+
 
 
 
@@ -309,3 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<?php
+$tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
+echo $tail;
+?>
