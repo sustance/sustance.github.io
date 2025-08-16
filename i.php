@@ -36,7 +36,7 @@ SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new
 ssh ssh.freeshell.de -p 443 or -p 32768
 <br>
 
-<i>??.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
+<i>CA.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
 <a href="https://tilde.guru">t.g</a>  
 <a href="https://tilde.guru/~edi">t.g/~edi</a>
 <br>
