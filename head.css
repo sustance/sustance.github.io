@@ -96,10 +96,10 @@ h2 h3{font: 800 40px Arial; font-weight: 900;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px;}
 td     {font-size: large; padding: 8px; text-align:center;}
-.box b {font-size: xx-large; color: var(--col10-5); font-weight: 900;}
-.box i {font-size: x-large; color: #a52b36; font-weight: 900;}
-.bsd b {font-size: xx-large; color: #00b0b2; font-weight: 900;}
-.bsd i {font-size: x-large; color: #a52b36; font-weight: 900;}
+.box b {font-size: x-large; color: var(--col10-5); font-weight: 900;}
+.box i {font-size: large; color: #a52b36; font-weight: 900;}
+.bsd b {font-size: x-large; color: #00b0b2; font-weight: 900;}
+.bsd i {font-size: large; color: #a52b36; font-weight: 900;}
 /*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
 u    {color: var(--color-7);}
 a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 5px; margin-left: 5px;}
