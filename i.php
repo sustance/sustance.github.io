@@ -90,6 +90,9 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP
 <a href="http://nix.identity2.com">http nix.i.c</a>
 <br>
 
+<i>HK.</i> <span class="sml">  Huaweit</span> Hu<b>4</b>
+<span class="sml">sufbo.tplinkdns.com</span><br>
+
 <i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
 <span class="sml">sufbo.tplinkdns.com</span>
 </p> 
