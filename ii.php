@@ -62,7 +62,7 @@ $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 
 <div id="async-content-g" class="async-content bsd">
 <p>
-<i>??.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
+<i>CA.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
 <a href="https://tilde.guru">t.g</a>  
 <a href="https://tilde.guru/~edi">t.g/~edi</a>
 </p>
