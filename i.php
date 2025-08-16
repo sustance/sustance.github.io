@@ -75,7 +75,7 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <a href="https://id.vern.cc/">id.v.c/~id</a>
 <br>
 
-<p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
+<i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
 <a href="https://rawtext.club/">r.c</a> 
 <a href="https://rawtext.club/~identity2">r.c/~i72</a> 
 <br>
