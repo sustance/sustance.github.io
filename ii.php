@@ -3,7 +3,7 @@ $head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.g
 echo $head;
 ?>
 
-<div class="bsd">
+<div id="async-content-b bsd" class="async-content">
 <p>
 <i>DE.</i> <b>b</b>sd.tilde.team <span class="sml">157.90.196.52</span> 
 <a href="https://bsd.tilde.team/">b.t.t</a> 
@@ -15,7 +15,7 @@ $b = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
 </div>  
 
 
-<div class="box">
+<div id="async-content-c bsd" class="async-content">
 <i>US.</i> <b>c</b>trl-c.club <span class="tin">165.227.127.54</span> <i>NewsB</i> 
 <a href="https://ctrl-c.club/">c.c</a>
 <a href="https://ctrl-c.club/~i52">c.c/~i72</a>
@@ -25,7 +25,7 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
 </div>
 
-<div class="box">
+<div id="async-content-d bsd" class="async-content">
 <p>
 <i>GB.</i> <b>d</b>imesion.sh <span class="sml">209.97.187.90</span> 
 <a href="https://dimension.sh/">d.s</a> 
@@ -170,3 +170,123 @@ $s = file_get_contents('https://thunix.net/~id/a-7.txt'); echo $s;
 $tail = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.github.io/refs/heads/main/tail-land.html');
 echo $tail;
 ?>
+
+
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Load async content after main page is ready
+
+ 
+  fetch('slow_content_b.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_c.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+  fetch('slow_content_d.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_2.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+   fetch('slow_content_e.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_f.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+   fetch('slow_content_g.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_h.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+  fetch('slow_content_i.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_j.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+   fetch('slow_content_o.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_p.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+
+ 
+  fetch('slow_content_s.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_r.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+
+   fetch('slow_content_t.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_v.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+   fetch('slow_content_x.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-b').innerHTML = data;
+    });
+    
+  fetch('slow_content_7.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
+    });
+ 
+});
+</script>
+
