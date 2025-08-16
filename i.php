@@ -31,9 +31,7 @@ identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webm
 <i>DE.</i> <b>f</b>reeshell.de <span class="sml">116.202.128.144</span> 
 <a href="https://freeshell.de/">f.d</a> 
 <a href="https://freeshell.de/~identity">f.d/~i6y</a> 
-<a href="https://freeshell.de/~identity/lineage/">f.d/~i6y/lineage</a> 
-SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new 
-ssh ssh.freeshell.de -p 443 or -p 32768
+<a href="https://freeshell.de/~identity/lineage/">f.d/~i6y/lineage</a> ssh.freeshell.de -p 443/32768
 <br>
 
 <i>CA.</i>  tilde.<b>g</b>uru <span class="sml">95.179.178.246</span> 
@@ -43,9 +41,8 @@ ssh ssh.freeshell.de -p 443 or -p 32768
 
 <i>CA.</i>  t<b>h</b>unix.net <span class="sml">142.44.150.185</span> 
 <a href="https://thunix.net">t.n</a>  
-<a href="https://thunix.net/~id">t.n/~id</a> 
-2043108 <a href="https://tilde.tel">t.tel</a><br>
-Uname: 2043108, Pwrd: p;;tel,<br>
+<a href="https://thunix.net/~id">t.n/~id</a> <a href="https://tilde.tel">t.tel</a><br>
+u:2043108, p;;tel,<br>
 Svr: connect.tilde.tel, Port: 5060, Transp: UDP
 <br>
 
@@ -78,7 +75,7 @@ Svr: connect.tilde.tel, Port: 5060, Transp: UDP
 <i>US.</i> <b>v</b>ern.cc <span class="sml">5.161.108.85</span> 
 <a href="https://vern.cc/">v.c</a> 
 <a href="https://id.vern.cc/">id.v.c/~id</a>
-</p>
+<br>
 
 <p><i>US</i> rawte<b>x</b>t.club <span class="sml">45.33.66.185</span> 
 <a href="https://rawtext.club/">r.c</a> 
