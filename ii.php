@@ -155,6 +155,16 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 <?php
     $s = file_get_contents('https://identity2.com/~identity2/a.txt'); echo $s;
 ?>
+</div
+
+
+<div id="async-content-4 " class="async-content bsd">
+<p><i>HK.</i> <span class="sml">Huawei</span> Hu<b>4</b>
+<span class="sml">sufbo.tplinkdns.com</span>
+</p>
+<?php
+$s = file_get_contents('https://thunix.net/~id/a-4.txt'); echo $s;
+?>
 </div>
 
 <div id="async-content-7 " class="async-content bsd">
@@ -282,6 +292,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.text())
     .then(data => {
       document.getElementById('async-content-b').innerHTML = data;
+    });
+
+    fetch('slow_content_4.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('async-content-c').innerHTML = data;
     });
     
   fetch('slow_content_7.php')
