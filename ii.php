@@ -162,10 +162,10 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 <p><i>HK.</i> <span class="sml">Huawei</span> Hu<b>4</b>
 <span class="sml">sufbo.tplinkdns.com</span>
 </p>
-<?php
+<!--<?php
 $4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt'); echo $4;
 ?>
-</div>
+</div>-->
 
 <div id="async-content-7 " class="async-content bsd">
 <p><i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
