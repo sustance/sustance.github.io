@@ -163,7 +163,7 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 <span class="sml">sufbo.tplinkdns.com</span>
 </p>
 <!--<?php
-$4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt'); echo $4;
+$_4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt'); echo $_4;
 ?>
 </div>-->
 
@@ -172,7 +172,7 @@ $4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt'); echo $4;
 <span class="sml">sufbo.tplinkdns.com</span>
 </p>
 <?php
-$7 = file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt'); echo $7;
+$_7 = file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt'); echo $_7;
 ?>
 </div>
 
