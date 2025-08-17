@@ -22,7 +22,7 @@ echo $head;
 <br> 
 
 <i>DE.</i> <b>e</b>nvs.net <span class="sml">89.163.145.170</span> <i>remi</i> 
-identity2@linkedin.com aaa John Smith p;;lin <a href="https://mail.envs.net/webmail/#?action=listmailbox">identity2@envs.net</a><br>
+<a href="https://mail.envs.net/webmail/#?action=listmailbox">i72@e.n</a>
 <a href="https://envs.net/">e.n</a>  
 <a href="https://envs.net/~identity2">e.n/~i72</a>  
 <a href="https://envs.net/~identity2/lineage/">e.n/~i72/lineage</a> 
