@@ -161,7 +161,8 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 
 <div id="async-content-4" class="async-content bsd">
 <p><i>HK.</i> <span class="sml">Huawei</span> Hu<b>4</b>
-<span class="sml">sufbo.tplinkdns.com</span>
+<span class="sml"><a href="http://sufbo.tplinkdns.com:8004">sufbo.tplinkdns.com:8004</a> </span>
+
 </p>
 <?php
 // Define the custom User-Agent (Chrome)
@@ -178,7 +179,7 @@ echo $_4;
 
 <div id="async-content-7" class="async-content bsd">
 <p><i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
-<span class="sml">sufbo.tplinkdns.com</span>
+<span class="sml"><a href="http://sufbo.tplinkdns.com:8007">sufbo.tplinkdns.com:8007</a> </span>
 </p>
 <?php
 // Define the custom User-Agent (Chrome)
