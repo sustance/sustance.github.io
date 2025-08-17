@@ -60,7 +60,7 @@ echo $head;
 <a href="https://id.p.projectsegfau.lt/">i.p.p.l/~id</a>
 <br>
 
-<i>CA.</i> &nbsp; tilde.<b>p</b>ink  
+<i>CA.</i> tilde.<b>p</b>ink  
 <span class="sml">198.50.210.248 </span> <a href="https://tilde.pink/">t.p</a>  
 <a href="https://tilde.pink/~id2">t.p/~id2</a> 
 <br>
@@ -85,7 +85,7 @@ echo $head;
 <a href="http://nix.identity2.com">http nix.i.c</a>
 <br>
 
-<i>HK.</i> <span class="sml">  Huaweit</span> Hu<b>4</b>
+<i>HK.</i> <span class="sml">  Huawei</span> Hu<b>4</b>
 <span class="sml">sufbo.tplinkdns.com</span><br>
 
 <i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
