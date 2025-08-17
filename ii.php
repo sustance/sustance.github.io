@@ -157,7 +157,7 @@ $x = file_get_contents('https://thunix.net/~id/a-x.txt'); echo $x;
 ?>
 </div
 
-
+<!--
 <div id="async-content-4 " class="async-content bsd">
 <p><i>HK.</i> <span class="sml">Huawei</span> Hu<b>4</b>
 <span class="sml">sufbo.tplinkdns.com</span>
@@ -175,8 +175,53 @@ $_4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt'); echo $_4;
 $_7 = file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt'); echo $_7;
 ?>
 </div>
+-->
 
 
+<div id="async-content-4" class="async-content bsd">
+<p><i>HK.</i> <span class="sml">Huawei</span> Hu<b>4</b>
+<span class="sml">sufbo.tplinkdns.com</span>
+</p>
+<?php
+// Define the custom User-Agent (Chrome)
+$options = [
+    'http' => [
+        'method' => 'GET',
+        'header' => "User-Agent: Chrome \r\n"
+    ]
+];
+// Create the stream context
+$context = stream_context_create($options);
+// Fetch the content with the custom User-Agent
+$_4 = file_get_contents('http://sufbo.tplinkdns.com:8004/a.txt', false, $context);
+// Output the result
+echo $_4;
+?>
+</div>
+
+<div id="async-content-7" class="async-content bsd">
+<p><i>HK.</i> <span class="sml">    HP Mini 32bit</span> Mi<b>7</b>
+<span class="sml">sufbo.tplinkdns.com</span>
+</p>
+<!--file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt'); echo $_7-->
+
+<?php
+// Define the custom User-Agent (Chrome)
+$options = [
+    'http' => [
+        'method' => 'GET',
+        'header' => "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36\r\n"
+    ]
+];
+// Create the stream context
+$context = stream_context_create($options);
+// Fetch the content with the custom User-Agent
+$_7 = file_get_contents('http://sufbo.tplinkdns.com:8007/a.txt', false, $context);
+// Output the result
+echo $_7;
+?>
+
+</div>
 
 
 
