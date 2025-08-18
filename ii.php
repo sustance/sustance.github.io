@@ -51,8 +51,8 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 <p>
 <i>DE.</i> <b>f</b>reeshell.de <span class="sml">116.202.128.144</span> 
 <a href="https://freeshell.de/">f.d</a> 
-<a href="https://freeshell.de/~identity">f.d/~i6y</a> 
-<a href="https://freeshell.de/~identity/lineage/">f.d/~i6y/lineage</a> 
+<a href="https://freeshell.de/~identity">/~i6y</a> 
+<a href="https://freeshell.de/~identity/lineage/">/lineage</a> 
 SHA256:<br> pDFR0atCakVtmZProASRXRGq2aXyKxW6KMx8F6gZtvE (RSA)new 
 ssh ssh.freeshell.de -p 443 or -p 32768</p>
 <?php
@@ -76,9 +76,7 @@ $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 <i>CA.</i>  t<b>h</b>unix.net <span class="sml">142.44.150.185</span> 
 <a href="https://thunix.net">t.n</a>  
 <a href="https://thunix.net/~id">t.n/~id</a> 
-2043108 <a href="https://tilde.tel">t.tel</a><br>
-Uname: 2043108, Pwrd: p;;tel,<br>
-Svr: connect.tilde.tel, Port: 5060, Transp: UDP</p>
+2043108 <a href="https://tilde.tel">t.tel</a></p>
 <?php
     $h = file_get_contents('https://thunix.net/~id/a.txt'); echo $h;
 ?>
