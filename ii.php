@@ -40,8 +40,8 @@ $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 <i>DE.</i> <b>e</b>nvs.net <span class="sml">89.163.145.170</span> <i>remi</i> 
 <a href="https://mail.envs.net/webmail/#?action=listmailbox">i72@e.n</a><br>
 <a href="https://envs.net/">e.n</a>  
-<a href="https://envs.net/~identity2">e.n/~i72</a>  
-<a href="https://envs.net/~identity2/lineage/">e.n/~i72/lineage</a> </p>
+<a href="https://envs.net/~identity2">/~i72</a>  
+<a href="https://envs.net/~identity2/lineage/">/lineage</a> </p>
 <?php
     $e = file_get_contents('https://envs.net/~identity2/a.txt'); echo $e;
 ?>
@@ -75,7 +75,7 @@ $f = file_get_contents('https://freeshell.de/~identity/a.txt'); echo $f;
 <p>
 <i>CA.</i>  t<b>h</b>unix.net <span class="sml">142.44.150.185</span> 
 <a href="https://thunix.net">t.n</a>  
-<a href="https://thunix.net/~id">t.n/~id</a> 
+<a href="https://thunix.net/~id">/~id</a> 
 2043108 <a href="https://tilde.tel">t.tel</a></p>
 <?php
     $h = file_get_contents('https://thunix.net/~id/a.txt'); echo $h;
@@ -112,7 +112,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 
 <div id="async-content-p" class="async-content bsd">
 <p><i>CA.</i> tilde.<b>p</b>ink  
-<span class="sml">198.50.210.248 </span> <a href="https://tilde.pink/">t.p</a>  
+<span class="sml">95.216.6.12 </span> <a href="https://tilde.pink/">t.p</a>  
 <a href="https://tilde.pink/~id2">t.p/~id2</a> </p>
 <?php
     $p = file_get_contents('https://tilde.pink/~id2/a.txt'); echo $p;
@@ -120,9 +120,10 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 </div>
 
 <div id="async-content-t " class="async-content bsd">
-<p><i>CA.</i> tilde.<b>t</b>eam <span class="sml">198.50.210.248</span> <i>Newsb</i> <a href="https://tilde.team/">t.t</a> 
-<a href="https://tilde.team/~identity2">t.t/~i72</a> 
-<a href="https://tilde.team/~identity2/lineage">t.t/~i72/lineage</a> </p>
+<p><i>CA.</i> tilde.<b>t</b>eam <span class="sml">198.50.210.248</span> <i>Newsb</i> 
+<a href="https://tilde.team/">t.t</a> 
+<a href="https://tilde.team/~identity2">/~i72</a> 
+<a href="https://tilde.team/~identity2/lineage">/lineage</a> </p>
 <?php
     $t = file_get_contents('https://tilde.team/~identity2/a.txt'); echo $t;
 ?>
