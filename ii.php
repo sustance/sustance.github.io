@@ -3,7 +3,7 @@ $head = file_get_contents('https://raw.githubusercontent.com/sustance/sustance.g
 echo $head;
 ?>
 
-<div id="async-content-b" class="async-content bsd">
+<div id="async-content-b" class="async-content bsd"> 
 <p>
 <i>DE.</i> <b>b</b>sd.tilde.team <span class="sml">157.90.196.52</span> 
 <a href="https://bsd.tilde.team/">b.t.t</a> 
