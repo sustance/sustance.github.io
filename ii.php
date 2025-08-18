@@ -18,8 +18,8 @@ $b = file_get_contents('https://bsd.tilde.team/~identity2/a.txt'); echo $b;
 <div id="async-content-c" class="async-content bsd">
 <i>US.</i> <b>c</b>trl-c.club <span class="tin">165.227.127.54</span> <i>NewsB</i> 
 <a href="https://ctrl-c.club/">c.c</a>
-<a href="https://ctrl-c.club/~i52">c.c/~i72</a>
-<a href="https://ctrl-c.club/~identity2/lineage/">c.c/~i72/lineage</a> &nbsp 
+<a href="https://ctrl-c.club/~i52">/~i72</a>
+<a href="https://ctrl-c.club/~identity2/lineage/">/lineage</a>
 <?php
 $c = file_get_contents('https://ctrl-c.club/~identity2/a.txt'); echo $c;
 ?>
@@ -111,7 +111,7 @@ $o = file_get_contents('https://id.p.projectsegfau.lt/a.txt'); echo $o;
 </div>
 
 <div id="async-content-p" class="async-content bsd">
-<p><i>CA.</i> &nbsp; tilde.<b>p</b>ink  
+<p><i>CA.</i> tilde.<b>p</b>ink  
 <span class="sml">198.50.210.248 </span> <a href="https://tilde.pink/">t.p</a>  
 <a href="https://tilde.pink/~id2">t.p/~id2</a> </p>
 <?php
