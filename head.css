@@ -76,9 +76,6 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 }
 */
 
-
-
-
 /* Defines the hidden div containing the CRON from servers  Y is 7 as 7 cannot be a html ID*/
 #B, #C, #D, #E, #F, #G, #H, #I, #J, #O, #P, #S, #T, #V, #X, #N, #Y { display: none }
 #B:target, #C:target, #D:target, #E:target, #F:target, #G:target, #H:target, 
@@ -89,7 +86,6 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 #email:target { display: block }
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
-
 div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
 
 h2 h3{font: 800 40px Arial; font-weight: 900;
@@ -112,15 +108,12 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 3px
 .bsd:nth-child(odd) {
       border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
       background-image:var(--colo2-28);}
-
 .box {
       border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
       background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
       background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
-
 .selec {line-height:0;}
-
 .idx i {font-size: x-large;}
 .col {color: #00b0b2;}
