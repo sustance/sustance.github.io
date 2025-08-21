@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✈️ Trips</title>
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Trip Info Portal">
+  <meta property="og:description" content="Access various trip summaries and point balances">
+  <meta property="og:image" content="https://sustance.github.io/assets/image/trip.jpg">
+  <meta property="og:url" content="https://sustance.github.io/trips">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Trip Information Portal">
+  <meta name="twitter:description" content="Various summaries and point credited & available">
+  <meta name="twitter:image" content="https://sustance.github.io/assets/image/trip.jpg">
+  <style>
+    :root {
+      --color-1: rgba(255, 99, 132, 0.75);
+      --color-2: rgba(54, 162, 235, 0.75);
+      --color-3: rgba(255, 206, 86, 0.75);
+      --color-4: rgba(75, 192, 192, 0.75);
+      --color-5: rgba(153, 102, 255, 0.75);
+      --color-6: rgba(255, 159, 64, 0.75);
+      --color-7: rgba(93, 173, 226, 0.75);
+      --color-8: rgba(178, 223, 138, 0.75);
+      --color-9: rgba(255, 117, 117, 0.75);
+      --color-10: rgba(169, 169, 169, 0.75);
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    
+    .link-card {
+      border-radius: 15px;
+      padding: 15px;
+      margin: 15px 0;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+      background: linear-gradient(to bottom right, var(--color-8), var(--color-2));
+    }
+    
+    .link-card:nth-child(odd) {
+      background: linear-gradient(to bottom right, var(--color-2), var(--color-8));
+      border-radius: 15px;
+    }
+    
+    pre {
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    
+    .link-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+    
+    .link-card a {
+      text-decoration: none;
+      color: #333;
+      display: block;
+    }
+    
+    h1, h2 {
+      color: #0066cc;
+      text-align: center;
+    }
+    
+    #content {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      background: #f9f9f9;
+      min-height: 100px;
+    }
+    
+    button {
+      background: #4a6fc0;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background: #3b5aa6;
+    }
+    
+    .status {
+      padding: 12px;
+      margin: 15px 0;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+    }
+    
+    .loading { 
+      background: #fff4e5; 
+      color: #e67700; 
+      display: block;
+    }
+    
+    .success { 
+      background: #d3f9d8; 
+      color: #2b8a3e; 
+      display: block;
+    }
+    
+    .error { 
+      background: #ffe3e3; 
+      color: #c92a2a; 
+      display: block;
+    }
+    
+    .url-input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    .debug-info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>✈️ Trip Info Portal</h1>
+  
+  <div class="link-card">
+    <a href="https://sustance.github.io/tripPoints.html">
+      <h2>💰 Points Available</h2>
+      <p>Usable points as at last advice.</p>
+    </a>
+  </div>
+  
+  <div class="link-card">
+    <a href="https://sustance.github.io/trip2025map.html">
+      <h2>🗺 2025 Visualization</h2>
+      <p>Map for each trip.</p>
+    </a>
+  </div>
+  
+  <div class="link-card">
+    <a href="https://sustance.github.io/trip2024map.html">
+      <h2>🗺 2024 Visualization</h2>
+      <p>Map for each trip.</p>
+    </a>
+  </div>
+  
+  <h1>Generate Latest</h1>
+  
+  <div class="link-card">
+    <label for="php-url">PHP File URL:</label>
+    <input type="text" id="php-url" class="url-input" value="https://thunix.net/~id/IATAbp25csv.php">
+    <button onclick="loadContent()">Load Content</button>
+    
+    <div id="status" class="status"></div>
+    
+    <div id="content">
+      Content will appear here after loading...
+    </div>
+  </div>
+  
+  <div class="link-card">  
+    <h2>2025 H1</h2>
+    <p>✈️ Credit of Points confirmed</p>
+    <pre>
+Date__,__,From,_To_,_On,Flt_,____,Pt
+250620, K, TPE, HKG, HX,0255, 171,-
+250620, S, TPE, HKG, HX,0255, 171,-
+250618, K, SHA, TSA, MU,5097, 169,Y
+    </pre>
+  </div>
+  
+  <div class="link-card">  
+    <h2>💰 Points Credited</h2>
+    <p>Record of Points from Apps</p>
+    <pre>
+CATHAY,,,,,
+250612,        , K , CX,0380 , 800,    8,
+250529, 250530 , K , CX,0758 , 800,    8,
+250515, 250516 , K , CX,0336 , 800,    8,
+250108, 250109 , K , CX,0337 , 800,    8,
+250102, 250103 , K , CX,0380 , 800,    8,
+241205, 241207 , K , CX,0716 ,1300,   13,
+    </pre>
+  </div>
+  
+  <div class="debug-info">
+    <p><strong>Debug Info:</strong> If you're getting "content not found" errors, it's likely due to:</p>
+    <ol>
+      <li>CORS restrictions on the remote server</li>
+      <li>The PHP file not being accessible from the web</li>
+      <li>Authentication requirements</li>
+    </ol>
+    <p>Try opening <a href="https://thunix.net/~id/IATAbp25csv.php" target="_blank">the URL</a> directly in your browser to check if it's accessible.</p>
+  </div>
+
+  <script>
+    async function loadContent() {
+      const phpFileUrl = document.getElementById('php-url').value;
+      
+      if (!phpFileUrl) {
+        showStatus('Please enter a URL', 'error');
+        return;
+      }
+      
+      showStatus('Loading content...', 'loading');
+      
+      try {
+        // Add a timestamp to avoid caching issues
+        const urlWithTimestamp = `${phpFileUrl}?t=${new Date().getTime()}`;
+        const response = await fetch(urlWithTimestamp, {
+          method: 'GET',
+          mode: 'cors', // Attempt to handle CORS
+          headers: {
+            'Accept': 'text/plain',
+          }
+        });
+        
+        console.log('Response status:', response.status);
+        
+        if (!response.ok) {
+          throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+        }
+        
+        const content = await response.text();
+        
+        if (!content || content.trim().length === 0) {
+          throw new Error('The response was empty');
+        }
+        
+        document.getElementById('content').innerHTML = `<pre>${escapeHtml(content)}</pre>`;
+        showStatus('Content loaded successfully!', 'success');
+      } catch (error) {
+        showStatus('Error: ' + error.message, 'error');
+        document.getElementById('content').innerHTML = 
+          'Failed to load content. Please check:<br>' +
+          '1. The URL is correct<br>' +
+          '2. The server allows CORS requests<br>' +
+          '3. You have permission to access the resource';
+        console.error('Fetch error:', error);
+      }
+    }
+    
+    function showStatus(message, type) {
+      const statusElement = document.getElementById('status');
+      statusElement.textContent = message;
+      statusElement.className = 'status ' + type;
+      statusElement.style.display = 'block';
+      
+      // Hide status after 5 seconds for success, 10 for errors
+      setTimeout(() => {
+        if (type !== 'error' || message.includes('loaded successfully')) {
+          statusElement.style.display = 'none';
+        }
+      }, type === 'error' ? 10000 : 5000);
+    }
+    
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+    
+    // Try to load content if URL is already specified
+    window.addEventListener('load', function() {
+      const urlInput = document.getElementById('php-url');
+      if (urlInput && urlInput.value) {
+        // Auto-load after a short delay
+        setTimeout(loadContent, 1000);
+      }
+    });
+  </script> 
+</body>
+</html>
