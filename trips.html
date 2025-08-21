@@ -68,6 +68,44 @@ pre {font-face:bold;}
     }
 
 
+
+
+    
+        #content {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        button {
+            background: #4a6fc0;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            display: none;
+        }
+        .loading { background: #fff4e5; color: #e67700; }
+        .success { background: #d3f9d8; color: #2b8a3e; }
+        .error { background: #ffe3e3; color: #c92a2a; }
+
+
+
+
+
+
+
+
+
+
+    
   </style>
 </head>
 <body>
@@ -96,13 +134,19 @@ pre {font-face:bold;}
   </div>
 
 
-           <div class="result-section">
-                <h2>Results</h2>
-                <div id="status"></div>
-                <div class="content-display" id="content-display">
-                    Content will appear here after fetching...
-                </div>
-            </div>
+
+
+    <h1>Remote PHP Content</h1>
+    
+    <button onclick="loadContent()">Load Remote Content</button>
+    
+    <div id="status" class="status"></div>
+    
+    <div id="content">
+        Content will appear here after loading...
+    </div>
+
+  
 
   
   <div class="link-card">  
