@@ -95,6 +95,16 @@ pre {font-face:bold;}
     </a>
   </div>
 
+
+           <div class="result-section">
+                <h2>Results</h2>
+                <div id="status"></div>
+                <div class="content-display" id="content-display">
+                    Content will appear here after fetching...
+                </div>
+            </div>
+
+  
   <div class="link-card">  
 <h2>2025 H1</h2>
 <p>✈️ Credit of Points confirmed</p>
@@ -249,4 +259,25 @@ HKair,,,,,
   </pre>
   </div>
   
+<script>
+async function loadRemoteContent() {
+    try {
+        const response = await fetch('https://thunix.net/id/IATAbp25csv.php');
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.text();
+        document.getElementById('remote-content').innerHTML = data;
+    } catch (error) {
+        console.error('Failed to load content:', error);
+        document.getElementById('remote-content').innerHTML = 
+            '<p>Content unavailable. Please try again later.</p>';
+    }
+}
+
+// Call the function
+loadRemoteContent(); 
+  </script>  
 </body>
