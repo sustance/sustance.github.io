@@ -117,3 +117,19 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 3px
 .selec {line-height:0;}
 .idx i {font-size: x-large;}
 .col {color: #00b0b2;}
+
+        .svg-container {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+
+
+
