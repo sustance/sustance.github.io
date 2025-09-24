@@ -100,7 +100,7 @@ td     {font-size: large; padding: 8px; text-align:center;}
 .bsd i {color: #a52b36; font-weight: 900;}
 /*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}*/
 u    {color: var(--color-7);}
-a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 3px; margin-left: 3px;}
+a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 2px; margin-left: 2px;}
 .pr {color: var(--col10-2);}
 /*  slash (/) in border-radius separates horizontal and vertical radii
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
