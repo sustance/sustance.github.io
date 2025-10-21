@@ -82,8 +82,10 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 #I:target, #J:target, #O:target, #P:target, #S:target, #T:target, #V:target, 
 #X:target, #N:target, #Y:target { display: block }
 
-#email        { display: none }
-#email:target { display: block }
+#email           { display: none  }
+#email:target    { display: block }
+#printers        { display: none  }
+#printers:target { display: block }
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
