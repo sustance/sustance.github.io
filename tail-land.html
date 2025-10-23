@@ -118,13 +118,36 @@
 <script>
   $('#loadContent').on('click', function(e) {
     e.preventDefault();
-    $('#contentContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
+    $('#contentTContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
       if (status === 'error') {
-        $('#contentContainer').html('Failed to load content.');
+        $('#contentTContainer').html('Failed to load content.');
       }
     });
   });
 </script>
+
+
+<script>
+  $('#loadContent').on('click', function(e) {
+    e.preventDefault();
+    $('#contentTCContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
+      if (status === 'error') {
+        $('#contentCContainer').html('Failed to load content.');
+      }
+    });
+  });
+</script>  
+
+<script>
+  $('#loadContent').on('click', function(e) {
+    e.preventDefault();
+    $('#contentECContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
+      if (status === 'error') {
+        $('#contentEContainer').html('Failed to load content.');
+      }
+    });
+  });
+</script> 
   
 </body> 
 </html>
