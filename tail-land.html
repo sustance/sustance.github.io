@@ -112,42 +112,6 @@
     <td style="background-image: var(--colo2-30);">colo2-30</td>
   </tr>   
 <table>
-  
 
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-  $('#loadTContent').on('click', function(e) {
-    e.preventDefault();
-    $('#contentTContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
-      if (status === 'error') {
-        $('#contentTContainer').html('Failed to load content.');
-      }
-    });
-  });
-</script>
-
-
-<script>
-  $('#loadCContent').on('click', function(e) {
-    e.preventDefault();
-    $('#contentTCContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
-      if (status === 'error') {
-        $('#contentCContainer').html('Failed to load content.');
-      }
-    });
-  });
-</script>  
-
-<script>
-  $('#loadEContent').on('click', function(e) {
-    e.preventDefault();
-    $('#contentECContainer').load('https://tilde.team/~identity2/status_slave.php', function(response, status) {
-      if (status === 'error') {
-        $('#contentEContainer').html('Failed to load content.');
-      }
-    });
-  });
-</script> 
-  
 </body> 
 </html>
