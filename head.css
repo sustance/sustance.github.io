@@ -151,9 +151,11 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 2px
 /* SPECIFIC CODE FOR SERVER LISTING */
 /* Server Filter Menu Styles */
 .server-filter-container {
-    max-width: 1200px;
+padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; 
+    /* sme as my divs
+      max-width: 860px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px;*/
 }
 
 .server-filter-container h2 {
