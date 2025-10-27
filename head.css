@@ -148,4 +148,124 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 2px
         }
 
 
+/* SPECIFIC CODE FOR SERVER LISTING */
+/* Server Filter Menu Styles */
+.server-filter-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.server-filter-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.filter-menu {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.filter-menu h3 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.filter-menu h3:first-of-type {
+    margin-top: 0;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.filter-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.filter-link:hover {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.results-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.results-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#results-table th,
+#results-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#results-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #555;
+}
+
+#results-table tr:hover {
+    background: #f8f9fa;
+}
+
+#results-table td:first-child {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .menu-items {
+        flex-direction: column;
+    }
+    
+    .filter-link {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #results-table {
+        font-size: 0.9em;
+    }
+    
+    #results-table th,
+    #results-table td {
+        padding: 6px;
+    }
+}
+
 
