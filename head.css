@@ -97,11 +97,12 @@ h2 h3{font: 800 40px Arial; font-weight: 900;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px;}
 td     {font-size: large; padding: 8px; text-align:center;}
+/*
 .box b {font-size: normal; color: var(--col10-5); font-weight: 900;}
 .box i {color: #a52b36; font-weight: 900;}
 .bsd b {font-size: normal; color: #00b0b2; font-weight: 900;}
 .bsd i {color: #a52b36; font-weight: 900;}
-
+*/
 
 
 
