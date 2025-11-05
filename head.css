@@ -16,6 +16,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 
 --K25junFW:947;
 
+
       
 /* The standard charts.css set */
   --color-1: rgba(255, 99, 132, 0.75);    /* #ff6384 */
@@ -128,9 +129,9 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 2px
     margin-top: -50px; /* Moves the iframe 50 pixels up, overlapping the content above */
   }
 </style>
-.Linux {color:blue}
-.fBSD {color:black}
-.oBSD {color:green}
+.Linux {color: #00b0b2;}
+.fBSD {color:purple;}
+.oBSD {color:green;}
 
 .selec {line-height:0;}
 .idx i {font-size: x-large;}
