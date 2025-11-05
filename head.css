@@ -128,7 +128,9 @@ a    {text-decoration: none; color: #a52b36; font-weight: 600; margin-right: 2px
     margin-top: -50px; /* Moves the iframe 50 pixels up, overlapping the content above */
   }
 </style>
-
+.Linux {color:blue}
+.fBSD {color:black}
+.oBSD {color:green}
 
 .selec {line-height:0;}
 .idx i {font-size: x-large;}
