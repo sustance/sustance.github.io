@@ -1,3 +1,4 @@
+
 body {font-family: "Noto Sans", Roboto, sans-serif; 
       font-size: small; font-weight: 500;} 
 
@@ -168,9 +169,13 @@ a    {text-decoration: none; color: var(--col10-5); font-weight: 600; margin-rig
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
       background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
 
-.Linux {color: #9999ff;font-size: large; font-weight: 900;}
-.fBSD  {color: purple; font-size: large; font-weight: 900;}
-.oBSD  {color: orange; font-size: large; font-weight: 900;}
+
+
+
+.Linux {color: black; font-size: large; font-weight: 900;}
+.fBSD  {color:purple; font-size: large; font-weight: 900;}
+.oBSD  {color: blue;  font-size: large; font-weight: 900;}
+
 
 
 .selec {line-height:0;}
