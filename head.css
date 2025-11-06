@@ -170,9 +170,9 @@ a    {text-decoration: none; color: var(--col10-5); font-weight: 600; margin-rig
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
       background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
 
-.Linux {var(--col10-2); font-weight: 900;}
-.fBSD {var(--col10-5); font-weight: 900;}
-.oBSD {var(--col10-6); font-weight: 900;}
+.Linux {var(--col10-2); font-size: large; font-weight: 900;}
+.fBSD {var(--col10-5); font-size: large; font-weight: 900;}
+.oBSD {var(--col10-6); font-size: large; font-weight: 900;}
 
 .selec {line-height:0;}
 .idx i {font-size: x-large;}
