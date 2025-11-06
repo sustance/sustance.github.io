@@ -108,6 +108,7 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
   border-radius: 4px;
   font-size: 14px;
   white-space: normal;
+      width: 200px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
