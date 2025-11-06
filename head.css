@@ -89,6 +89,31 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
 #printers:target { display: block }
 
 
+/* START CODE FOR POPUP*/
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .image-caption {
+  transform: translateY(0);
+}
+/* END CODE FOR POPUP*/
+
+
 
 .sml {font-size: x-small;}
 div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
