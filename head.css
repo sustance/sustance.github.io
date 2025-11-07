@@ -167,10 +167,10 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
 
 
 
-.Linux {color: black; font-size: normal; font-weight: 900;}
-.fBSD  {color:purple; font-size: normal; font-weight: 900;}
-.oBSD  {color:orange; font-size: normal; font-weight: 900;}
-.nBSD  {color: red  ; font-size: normal; font-weight: 900;}
+.Linux {color: black; font-size: large; font-weight: 900;}
+.fBSD  {color:purple; font-size: large; font-weight: 900;}
+.oBSD  {color:orange; font-size: large; font-weight: 900;}
+.nBSD  {color: red  ; font-size: large; font-weight: 900;}
 
 
 .selec {line-height:0;}
