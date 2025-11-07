@@ -141,18 +141,12 @@ td     {font-size: large; padding: 8px; text-align:center;}
 .bsd i {color: #a52b36; font-weight: 900;}
 */
 
-
-/*.chart caption {font-size: x-large; color: #a52b36; font-weight: 900;}
-u    {color: var(--col10-7);}/*
-*/
 a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-right: 5px; margin-left: 5px;}
-
 
 /*p    {margin:0; font-family: "Noto Sans", Roboto, sans-serif; }*/
 
 
-.pr {color: var(--col10-2);}
-
+.pr {color: var(--col10-4);}
 
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
