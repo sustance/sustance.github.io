@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="img.css">
+        <link rel="stylesheet" href="external-css.css">
 </head>
 <body>
     <svg class="svg-gears">
