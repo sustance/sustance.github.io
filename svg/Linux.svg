@@ -9,7 +9,7 @@
 <svg class="svg-gears">
   <symbol id="gear">
     <!-- Add gear path definition here -->
-    <path d="M..."/> 
+    <path d="https://github.com/sustance/sustance.github.io/blob/main/svg/> 
   </symbol>
   
   <use href="#gear" class="gear-small"/>
