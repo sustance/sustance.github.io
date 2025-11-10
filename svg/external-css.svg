@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="img.css">
+</head>
+<body>
+    <svg class="svg-gears">
+        <symbol id="gear">
+            <path d="M10,0 L12,5 L17,5 L13,8 ..."/>
+        </symbol>
+        
+        <use href="#gear" class="gear-small"/>
+        <use href="#gear" class="gear-large"/>
+        <use href="#gear" class="gear-rotated"/>
+    </svg>
+</body>
+</html>
