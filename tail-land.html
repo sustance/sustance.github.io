@@ -1,9 +1,79 @@
 
 <p></p>
 
+<?php 
+// Fetch and decode the JSON data
+$json_url = 'https://thunix.net/~id/status_server_master.json';
+$json_data = file_get_contents($json_url);
+$data = json_decode($json_data, true);
+
+// Extract unique values for menu
+$countries = [];
+$software_keys = [];
+
+if (isset($data['servers'])) {
+    foreach ($data['servers'] as $server_id => $server_info) {
+        // Get country
+        if (isset($server_info['country'])) {
+            $countries[$server_info['country']] = true;
+        }
+        
+        // Get software keys (from data->software)
+        if (isset($server_info['data']['software'])) {
+            foreach ($server_info['data']['software'] as $key => $value) {
+                $software_keys[$key] = true;
+            }
+        }
+    }
+}
+
+// Sort the arrays
+ksort($countries);
+ksort($software_keys);
+?>
+
+<div class="server-filter-container">
+    <h2>Server Filter Menu</h2>
+    
+    <div class="filter-menu">
+        <h3>Filter by Country:</h3>
+        <div class="menu-items">
+            <?php foreach (array_keys($countries) as $country): ?>
+                <a href="#" class="filter-link" data-type="country" data-value="<?php echo htmlspecialchars($country); ?>">
+                    <?php echo htmlspecialchars($country); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+        
+        <h3>Filter by Software:</h3>
+        <div class="menu-items">
+            <?php foreach (array_keys($software_keys) as $software): ?>
+                <a href="#" class="filter-link" data-type="software" data-value="<?php echo htmlspecialchars($software); ?>">
+                    <?php echo htmlspecialchars($software); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    
+    <div id="results" class="results-container" style="display: none;">
+        <h3 id="results-title"></h3>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Ctry</th>
+                    <th></th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="results-body">
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <table>
-  <caption> <i>Div Decoration</i> </caption>
+  <caption> <h3>Div Decoration</h3> </caption>
 <tr>
         <td>
 <div class="box">
@@ -115,10 +185,11 @@
 
 
 
+  
+
 <script>
 // Store the JSON data in JavaScript
 const serverData = <?php echo json_encode($data); ?>;
-
 
 // Add click handlers to all filter links
 document.querySelectorAll('.filter-link').forEach(link => {
@@ -140,26 +211,13 @@ function filterServers(filterType, filterValue) {
     // Clear previous results
     resultsBody.innerHTML = '';
     
-    // Debug logging
-    console.log('Filtering by:', filterType, filterValue);
-    console.log('Server data:', serverData);
-    
-    // Check if serverData exists and has servers
-    if (!serverData || !serverData.servers) {
-        console.error('No server data available');
-        resultsTitle.textContent = 'Error: No server data available';
-        resultsDiv.style.display = 'block';
-        return;
-    }
-    
     // Filter and display results
     let rowCount = 0;
     
-    try {
+    if (serverData.servers) {
         for (const [serverId, serverInfo] of Object.entries(serverData.servers)) {
             // Skip if no valid data
             if (serverInfo.status !== 'success' || !serverInfo.data || !serverInfo.data.software) {
-                console.log('Skipping server:', serverId, 'due to missing data');
                 continue;
             }
             
@@ -180,19 +238,14 @@ function filterServers(filterType, filterValue) {
                 }
             }
         }
-        
-        // Update title and show results
-        resultsTitle.textContent = `Result: ${filterType}: ${filterValue} (${rowCount})`;
-        resultsDiv.style.display = 'block';
-        
-        // Scroll to results
-        resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        
-    } catch (error) {
-        console.error('Error filtering servers:', error);
-        resultsTitle.textContent = 'Error processing filter';
-        resultsDiv.style.display = 'block';
     }
+    
+    // Update title and show results
+    resultsTitle.textContent = `Result: ${filterType}: ${filterValue} (${rowCount})`;
+    resultsDiv.style.display = 'block';
+    
+    // Scroll to results
+    resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function addResultRow(tbody, serverId, country, softKey, softValue) {
@@ -211,9 +264,7 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
-
 </script>
-
 
 
 
