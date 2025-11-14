@@ -1,11 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>IDNIX</title>
+ <link rel="stylesheet" href="https://sustance.github.io/head.css" />
+</head>
+<body>
+
+
 
 <p></p>
 
-
-
-
-
 <?php 
+$jsonData = file_get_contents($jsonUrl);
+$data = json_decode($jsonData, true);
+
+    
 // Fetch and decode the JSON data
 $json_url = 'https://thunix.net/~id/status_server_master.json';
 $json_data = file_get_contents($json_url);
