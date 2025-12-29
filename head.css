@@ -160,7 +160,11 @@ use.gear-small {
 }
 /* END CODE FOR POPUP*/
 
-
+      
+.arttext {line-height: -2px;}
+.braillebanner {font-size:x-small;
+                font-weight:900;
+                line-height: -2px;
 
 .sml {font-size: x-small;}
 div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
@@ -183,7 +187,7 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
 
 .pr {color: var(--col10-5);}
 
-.arttext {line-height: -2px;}
+
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
