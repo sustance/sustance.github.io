@@ -164,7 +164,7 @@ use.gear-small {
 .arttext {line-height: -8px;}
 .braillebanner {font-size:x-small;
                 font-weight:900;
-                line-height: 0.8;
+                line-height: 0.6;
                 }
 
 .sml {font-size: x-small;}
