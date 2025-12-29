@@ -162,8 +162,8 @@ use.gear-small {
 
       
 .arttext {line-height: -8px;}
-.braillebanner {font-size:   8pt;
-                line-height: 9pt;  /* try also a bit smaller line-height */
+.braillebanner {font-size:   7pt;
+                line-height: 6pt;  /* try also a bit smaller line-height */
                 font-weight: 900;
                 }
 
