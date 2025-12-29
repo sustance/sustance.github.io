@@ -161,10 +161,11 @@ use.gear-small {
 /* END CODE FOR POPUP*/
 
       
-.arttext {line-height: -2px;}
+.arttext {line-height: -8px;}
 .braillebanner {font-size:x-small;
                 font-weight:900;
-                line-height: -2px;
+                line-height: 0.8;
+                }
 
 .sml {font-size: x-small;}
 div { padding-left: 12px; padding-top: 0px;padding-bottom: 0px;max-width: 860px; margin: 1px; }
