@@ -96,8 +96,11 @@ use.gear-small {
 /* CSS Variables for SVG files    END */
 
 
-
-.tablew3m {border:0; margin:o;} /*border:1px;*/
+.tablew3m td, th {
+    min-width: 100px; /* Sets the minimum width for all cells */
+    padding: 1px;
+    border: 1px solid black;
+  }
       
 /*
   #my-chart .column {
