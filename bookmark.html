@@ -98,6 +98,50 @@ Vectors
 </table>
 </div>
 
+<?php
+     function is_w3m() {
+      return isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'w3m') !== false;
+             }
+     
+    // ANSI color codes
+    $cyan_text = "\033[0;36m";
+     $bold_text = "\033[1m";
+    $reset_style = "\033[0m";
+    
+    // --- Page Header ---
+if (is_w3m()) {
+        echo $bold_text . $cyan_text . "My Awesome Site" . $reset_style . "\n";
+} else {
+        echo '<h1 style="color:teal;">My Awesome Site</h1>';
+}
+?>
+    
+    <hr>
+    
+    <!-- Use a proper list for navigation -->
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+    </ul>
+    
+    <hr>
+    
+    <!-- Use <figure> and <pre> for your text art -->
+    <figure>
+        <pre>⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⡀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀
+        </pre>
+        <figcaption>Fig. 1 - A simple Unicode line art piece.</figcaption>
+  </figure>
+    
+    <blockquote>
+      This is an indented quote. It provides a nice visual break and can be used for highlighting important notes in a clean, structural way that
+      all browsers understand.
+    </blockquote>
 
 
 
