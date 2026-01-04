@@ -97,12 +97,12 @@ use.gear-small {
 
 
 .tablew3m td, th {
-    min-width: 128px; /* Sets the minimum width for all cells */
+    min-width: 130px; /* Sets the minimum width for all cells */
     padding: 1px;
     border: 1px solid black;
   }
 .tableframe{
-    min-width: 768px; /* Sets the minimum width for table */
+    min-width: 780px; /* Sets the minimum width for table */
     padding: 1px;
     border: 1px solid black;
   }
