@@ -1,0 +1,215 @@
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0c0f;
+            color: #e0e4e9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header / Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f1217 0%, #1a1f2a 100%);
+            border-bottom: 2px solid #2a3b4c;
+            padding: 60px 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #8bb9fe 0%, #feac6d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 1.3rem;
+            color: #9aa8b9;
+            border-bottom: 1px solid #2a3b4c;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .manifesto {
+            max-width: 800px;
+            margin: 30px auto 0;
+            color: #b8c5d4;
+            font-size: 1.1rem;
+            text-align: left;
+            background: #151b24;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #feac6d;
+        }
+        .manifesto p {
+            margin-bottom: 15px;
+        }
+        .manifesto strong {
+            color: #8bb9fe;
+        }
+        /* Notifications */
+        .notification {
+            padding: 15px 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+        .notification.success {
+            background: #1b3b2a;
+            border-left: 4px solid #3dd68c;
+            color: #b0f0c0;
+        }
+        .notification.error {
+            background: #4a1e2a;
+            border-left: 4px solid #f28b82;
+            color: #ffd6d0;
+        }
+        /* Section Headers */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 50px 0 30px;
+            color: #feac6d;
+            border-bottom: 1px solid #2a3b4c;
+            padding-bottom: 10px;
+        }
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 40px 0 20px;
+            color: #8bb9fe;
+        }
+        /* Cards for Links */
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        .link-card {
+            background: #151b24;
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid #2a3b4c;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .link-card:hover {
+            transform: translateY(-3px);
+            border-color: #8bb9fe;
+        }
+        .link-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .link-title a {
+            color: #8bb9fe;
+            text-decoration: none;
+        }
+        .link-title a:hover {
+            text-decoration: underline;
+        }
+        .link-author {
+            color: #feac6d;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .link-description {
+            color: #b8c5d4;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .link-type {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .type-free {
+            background: #1b3b2a;
+            color: #b0f0c0;
+        }
+        .type-paid {
+            background: #4a3b1a;
+            color: #f0d88c;
+        }
+        /* Forms */
+        .form-container {
+            background: #151b24;
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid #2a3b4c;
+            margin: 40px 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #b8c5d4;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1e2630;
+            border: 1px solid #2a3b4c;
+            border-radius: 4px;
+            color: #e0e4e9;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #8bb9fe;
+        }
+        button {
+            background: linear-gradient(135deg, #8bb9fe 0%, #feac6d 100%);
+            color: #0a0c0f;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .footer {
+            background: #0f1217;
+            border-top: 1px solid #2a3b4c;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: #6e7e91;
+        }
+        .footer a {
+            color: #8bb9fe;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #2a3b4c;
+            margin: 30px 0;
+        }
+        small {
+            color: #6e7e91;
+        }
