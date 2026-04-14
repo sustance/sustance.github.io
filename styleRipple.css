@@ -25,7 +25,7 @@
   animation: ripple 1.5s linear infinite;
   display: grid;
   place-items: center;
-  width: 100vw;
+  width: 10vw;
   height: 10vh;
   filter: contrast(2000%);
 }
