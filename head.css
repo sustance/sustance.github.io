@@ -3,6 +3,8 @@ body {font-family: "Noto Sans", Roboto, sans-serif;
       font-size: small; font-weight: 500;} 
 
 :root {
+--random-decimal: mod(abs(sin(var(--index) * 12.9898rad) * 43758.5453);
+      
       /*Chart of available points https://sustance.github.io/tripPoints.html*/
 --maxn: 250000;     
       
