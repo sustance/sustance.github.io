@@ -210,12 +210,15 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
       border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
       background-image:var(--colo2-28);}
 .box {
-      border-radius: 125px 99px 333px 22px / 88px 333px 99px 255px;
+      border-radius: 125px 99px 333px 22px / 88px random(100px, 500px); 99px 255px;
       background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
       background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7) );}
 
+  /* Random rotation between 0 and 360 degrees in 10-degree steps
+  transform: rotate(random(0deg, 360deg, by 10deg));*/
+}
 
 
 
