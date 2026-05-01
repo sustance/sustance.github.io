@@ -200,6 +200,17 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
 .pr {color: var(--col10-5);}
 
 
+.item {
+  /* 1. Create a high-frequency wave using sin() */
+  /* 2. Abs() ensures it's positive */
+  /* 3. Modulo (%) 1 extracts the decimal (0.0 to 1.0) */
+  --random-decimal: mod(abs(sin(var(--index) * 12.9898rad) * 43758.5453), 1);
+
+  /* 4. Map that 0-1 value to your 0-400 range */
+  width: calc(var(--random-decimal) * 400px);
+}
+
+      
 
 /*  slash (/) in border-radius separates horizontal and vertical radii
            Order     t-le  t-ri  b-ri  b-le  / t-le  t-ri  b-ri  b-le  */
@@ -210,7 +221,8 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
       border-radius: 255px  15px 255px  15px / 333px  22px  99px 255px;
       background-image:var(--colo2-28);}
 .box {
-      border-radius: 125px 99px 333px 22px / 88px random(100px, 500px); 99px 255px;
+       --random-decimal: mod(abs(sin(var(--index) * 12.9898rad) * 43758.5453), 1);
+      border-radius: 125px 99px 333px 22px / 88px calc(var(--random-decimal) * 300px); 99px 255px;
       background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
