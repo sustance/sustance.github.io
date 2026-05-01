@@ -212,7 +212,7 @@ a    {text-decoration: none; color: var(--col10-2); font-weight: 600; margin-rig
       background-image:var(--colo2-28);}
 .box {
        --random-decimal: mod(abs(sin(var(--index) * 12.9898rad) * 43758.5453), 1);
-      border-radius: 125px 99px 333px 22px / 88px  calc(var(--random-decimal) * 300px);  99px 255px;
+      border-radius: 125px 99px 333px 22px / 88px  300px  99px 255px;
       background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8) );}
 .box:nth-child(odd) {
       border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
