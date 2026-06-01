@@ -101,7 +101,12 @@ use.gear-small {
     min-width: 155px; /* Sets the minimum width for all cells */
     padding: 1px;
     border: 1px solid black;
+      text-align: left;
   }
+.tablew3m td, td {
+      text-align: left;
+  }
+      
 .tableframe{
     min-width: 780px; /* Sets the minimum width for table */
     padding: 1px;
