@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
-  /* ── TOKENS ── */
+  /* ── CSS VARIABLES (easy to customise colours/fonts in one place) ── */
   :root {
     --ink:      #1a1a18;
     --paper:    #f5f0e8;
@@ -17,17 +17,18 @@
     --mark-bg:  #ffe066;
     --mark-ink: #1a1a18;
     --muted:    #6b6456;
+    --ok:       #1a6b1a;
+    --warn:     #8b6a1a;
     --col:      680px;
   }
 
-  /* ── RESET ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 18px; background: var(--paper); color: var(--ink); }
   body { font-family: 'Source Serif 4', Georgia, serif; font-weight: 300; line-height: 1.7; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
-  /* ── MASTHEAD ── */
+  /* ── MASTHEAD / HEADER ── */
   #masthead {
     border-bottom: 3px double var(--rule);
     padding: 1.5rem 2rem 1rem;
@@ -63,7 +64,7 @@
     background: var(--paper);
     font-family: inherit;
     font-size: .82rem;
-    width: 200px;
+    width: 220px;
     border-radius: 2px;
   }
   #masthead button {
@@ -80,14 +81,44 @@
   #masthead button:hover { opacity: .85; }
   #masthead .hint { color: var(--muted); font-size: .75rem; }
 
-  /* ── LAYOUT ── */
+  /* ── MAIN CONTENT AREA ── */
   #app { max-width: var(--col); margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 
-  /* ── STATUS ── */
-  #status { text-align: center; padding: 3rem 0; color: var(--muted); font-style: italic; }
-  #status.error { color: var(--accent); font-style: normal; }
+  /* ── DIAGNOSTIC / STATUS BOX ── */
+  /*
+   * This box shows step-by-step progress as the feed loads.
+   * Each step appends a new line so you can see exactly where it failed.
+   * Colour coding: grey=info, green=ok, red=error, orange=warning
+   */
+  #diag-box {
+    background: #1a1a18;
+    color: #d4cfbf;
+    font-family: 'Courier New', monospace;
+    font-size: .75rem;
+    line-height: 1.6;
+    padding: 1rem 1.2rem;
+    border-radius: 3px;
+    margin-bottom: 1.5rem;
+    white-space: pre-wrap;
+    display: none; /* hidden until load starts */
+  }
+  #diag-box .ok   { color: #6bcf6b; }
+  #diag-box .err  { color: #ff6b6b; font-weight: bold; }
+  #diag-box .warn { color: #ffc56b; }
+  #diag-box .info { color: #6bb5ff; }
 
-  /* ── INDEX ARTICLE CARD ── */
+  /* ── SIMPLE STATUS LINE (shown above diagnostic box) ── */
+  #status {
+    text-align: center;
+    padding: 1.5rem 0 .5rem;
+    color: var(--muted);
+    font-style: italic;
+    font-size: .9rem;
+  }
+  #status.error { color: var(--accent); font-style: normal; font-weight: 600; }
+  #status.ok    { color: var(--ok); font-style: normal; }
+
+  /* ── ARTICLE CARDS (index page) ── */
   .article-card {
     border-bottom: 1px solid var(--rule);
     padding: 1.6rem 0;
@@ -117,11 +148,8 @@
   .article-card h2 a { color: var(--ink); }
   .article-card h2 a:hover { color: var(--accent); text-decoration: none; }
 
-  .article-card .excerpt {
-    font-size: .92rem;
-    color: #3a3530;
-    margin-bottom: .6rem;
-  }
+  .article-card .excerpt { font-size: .92rem; color: #3a3530; margin-bottom: .6rem; }
+
   .article-card .footer-row {
     font-size: .75rem;
     color: var(--muted);
@@ -137,10 +165,9 @@
     letter-spacing: .08em;
     text-transform: uppercase;
     color: var(--accent) !important;
-    font-weight: 400;
   }
 
-  /* ── HIGHLIGHT ── */
+  /* ── KEYWORD HIGHLIGHT (LGT, UBS) ── */
   mark {
     background: var(--mark-bg);
     color: var(--mark-ink);
@@ -149,7 +176,7 @@
     border-radius: 2px;
   }
 
-  /* ── ARTICLE VIEW ── */
+  /* ── ARTICLE DETAIL VIEW ── */
   #article-view { display: none; }
   #article-view.active { display: block; }
   #index-view.hidden { display: none; }
@@ -186,24 +213,23 @@
     line-height: 1.2;
     margin-bottom: 1.2rem;
   }
-  #art-body {
-    font-size: .97rem;
-    line-height: 1.8;
-  }
+  #art-body { font-size: .97rem; line-height: 1.8; }
   #art-body p { margin-bottom: 1.1rem; }
   #art-body img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 1.2rem 0 .4rem;
+    margin: 1.2rem 0 .3rem;
     border: 1px solid var(--rule);
   }
+  /* URL shown below each image so it survives copy-paste to WhatsApp */
   .img-url {
-    font-size: .72rem;
+    font-size: .7rem;
     color: var(--muted);
     word-break: break-all;
     margin-bottom: 1rem;
     display: block;
+    font-family: 'Courier New', monospace;
   }
   #art-comments {
     margin-top: 2rem;
@@ -220,11 +246,14 @@
     padding-top: .8rem;
   }
 
-  /* ── TRANSLATING SPINNER ── */
-  .translating {
-    text-align: center; padding: 2rem; color: var(--muted); font-style: italic;
+  /* ── LOADING SPINNER ── */
+  .loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-style: italic;
   }
-  .translating::after {
+  .loading::after {
     content: '';
     display: inline-block;
     width: .7rem; height: .7rem;
@@ -245,6 +274,20 @@
     padding: 2rem;
     border-top: 1px solid var(--rule);
   }
+
+  /* ── TOGGLE DIAG BUTTON ── */
+  #toggle-diag {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .7rem;
+    font-family: inherit;
+    padding: .2rem .6rem;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-top: .5rem;
+  }
+  #toggle-diag:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -253,21 +296,30 @@
   <h1>Inside Paradeplatz</h1>
   <p class="sub">English Edition &nbsp;·&nbsp; Swiss Financial News</p>
   <div class="controls">
-    <input type="text" id="deepl-key" placeholder="DeepL API key…" autocomplete="off">
+    <input type="text" id="deepl-key" placeholder="DeepL API key (optional)…" autocomplete="off">
     <button onclick="saveKeyAndLoad()">Load Feed</button>
     <span class="hint">Last 36 hours only</span>
+  </div>
+  <div style="text-align:center">
+    <button id="toggle-diag" onclick="toggleDiag()" style="display:none">Show diagnostics</button>
   </div>
 </header>
 
 <main id="app">
+
+  <!-- INDEX VIEW: list of article cards -->
   <div id="index-view">
-    <div id="status">Enter your DeepL API key above and click Load Feed.</div>
+    <div id="status">Enter your DeepL API key above (or leave blank for untranslated) and click Load Feed.</div>
+    <pre id="diag-box"></pre>
     <div id="feed-list"></div>
   </div>
+
+  <!-- ARTICLE VIEW: full article detail -->
   <div id="article-view">
     <button class="back-btn" onclick="showIndex()">← All Articles</button>
     <div id="art-content"></div>
   </div>
+
 </main>
 
 <footer>
@@ -276,294 +328,618 @@
 </footer>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────────
-const RSS_PROXY   = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://insideparadeplatz.ch/feed/');
-const HOURS_36    = 36 * 60 * 60 * 1000;
-const HIGHLIGHT   = ['LGT', 'UBS'];
-const HL_RE       = new RegExp(`\\b(${HIGHLIGHT.join('|')})\\b`, 'g');
-const DEEPL_URL   = 'https://api-free.deepl.com/v2/translate';
-const KEY_STORE   = 'ip_deepl_key';
+// =============================================================================
+// INSIDE PARADEPLATZ — ENGLISH READER
+// Single-file app for GitHub Pages (sustance.github.io)
+//
+// OVERVIEW OF HOW THIS WORKS:
+//   1. User clicks "Load Feed"
+//   2. We fetch the RSS XML via a CORS proxy (allorigins.win)
+//      WHY A PROXY? Browsers block direct cross-domain fetches (CORS policy).
+//      The proxy fetches the RSS server-side and returns it to us.
+//   3. We parse the XML and filter to the last 36 hours
+//   4. Titles + excerpts are sent to DeepL API for translation
+//   5. Results are rendered as article cards
+//   6. Clicking an article fetches the full page (again via proxy),
+//      strips WordPress chrome, translates, and shows the body
+// =============================================================================
 
-// ── STATE ────────────────────────────────────────────────────────────────────
-let deeplKey = localStorage.getItem(KEY_STORE) || '';
-if (deeplKey) document.getElementById('deepl-key').value = deeplKey;
 
-// ── HELPERS ─────────────────────────────────────────────────────────────────
+// ── CONFIGURATION ─────────────────────────────────────────────────────────────
+// These are the only values you should need to change.
+
+// CORS proxy that fetches the RSS feed on our behalf.
+// allorigins.win is free and open. Returns JSON: { contents: "...", status: {...} }
+// Backup option if this dies: replace with:
+//   https://corsproxy.io/?https://insideparadeplatz.ch/feed/
+const RSS_URL   = 'https://insideparadeplatz.ch/feed/';
+const PROXY_URL = 'https://api.allorigins.win/get?url=';
+
+// How many hours back to include articles
+const HOURS_CUTOFF = 36;
+
+// Words to bold+highlight wherever they appear
+const HIGHLIGHT_WORDS = ['LGT', 'UBS'];
+
+// DeepL free-tier endpoint (different from paid: api-free vs api)
+const DEEPL_ENDPOINT = 'https://api-free.deepl.com/v2/translate';
+
+// localStorage key for saving the DeepL API key between sessions
+const STORAGE_KEY_DEEPL = 'ip_deepl_key';
+
+
+// ── STARTUP ───────────────────────────────────────────────────────────────────
+// Restore saved DeepL key from browser localStorage on page load.
+// localStorage is like a simple key→value store that persists between visits.
+let deeplKey = localStorage.getItem(STORAGE_KEY_DEEPL) || '';
+if (deeplKey) {
+  document.getElementById('deepl-key').value = deeplKey;
+}
+
+// Build the regex for highlighting. Creates pattern like: \b(LGT|UBS)\b
+// \b = word boundary (so "TUBS" won't match "UBS")
+// The 'g' flag = global, replace ALL occurrences not just first
+const HIGHLIGHT_RE = new RegExp(
+  '\\b(' + HIGHLIGHT_WORDS.join('|') + ')\\b',
+  'g'
+);
+
+
+// ── DIAGNOSTIC LOGGING ────────────────────────────────────────────────────────
+// These functions write to the black diagnostic box so you can see
+// exactly what is happening and where it fails.
+// Like print() statements in Python.
+
+let diagEl = null; // reference to the <pre> element
+
+function diagInit() {
+  diagEl = document.getElementById('diag-box');
+  diagEl.innerHTML = '';
+  diagEl.style.display = 'block';
+  document.getElementById('toggle-diag').style.display = 'inline-block';
+  document.getElementById('toggle-diag').textContent = 'Hide diagnostics';
+}
+
+// Append a coloured line to the diagnostic box
+// type: 'info' (blue), 'ok' (green), 'err' (red), 'warn' (orange), '' (grey)
+function diag(msg, type) {
+  if (!diagEl) return;
+  const span = document.createElement('span');
+  span.className = type || '';
+  // Timestamp each line (like a log file)
+  const t = new Date().toTimeString().slice(0,8);
+  span.textContent = '[' + t + '] ' + msg + '\n';
+  diagEl.appendChild(span);
+  // Auto-scroll to bottom
+  diagEl.scrollTop = diagEl.scrollHeight;
+}
+
+function toggleDiag() {
+  const box = document.getElementById('diag-box');
+  const btn = document.getElementById('toggle-diag');
+  if (box.style.display === 'none') {
+    box.style.display = 'block';
+    btn.textContent = 'Hide diagnostics';
+  } else {
+    box.style.display = 'none';
+    btn.textContent = 'Show diagnostics';
+  }
+}
+
+
+// ── STATUS LINE ───────────────────────────────────────────────────────────────
+// Updates the human-readable status message above the diagnostic box
+
+function setStatus(msg, type) {
+  // type: 'error', 'ok', or '' (neutral/italic)
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className = type || '';
+}
+
+
+// ── KEYWORD HIGHLIGHTING ──────────────────────────────────────────────────────
+// Wraps LGT/UBS in <mark> tags wherever they appear in a string of text/HTML.
+// Safe to call on already-translated text.
+
 function highlight(text) {
   if (!text) return '';
-  return text.replace(HL_RE, '<mark>$1</mark>');
+  return text.replace(HIGHLIGHT_RE, '<mark>$1</mark>');
 }
+
+
+// ── TIME FORMATTING ───────────────────────────────────────────────────────────
+// Converts a Date object to a human-friendly "X hours ago" string
 
 function timeAgo(date) {
   const mins = Math.round((Date.now() - date) / 60000);
-  if (mins < 60) return `${mins}m ago`;
+  if (mins < 2)  return 'just now';
+  if (mins < 60) return mins + 'm ago';
   const hrs = Math.round(mins / 60);
-  if (hrs < 24) return `${hrs}h ago`;
-  return `${Math.round(hrs/24)}d ago`;
+  if (hrs < 24)  return hrs + 'h ago';
+  return Math.round(hrs / 24) + 'd ago';
 }
 
-function setStatus(msg, isError = false) {
-  const el = document.getElementById('status');
-  el.textContent = msg;
-  el.className = isError ? 'error' : '';
-}
 
-// ── DEEPL TRANSLATE ──────────────────────────────────────────────────────────
-async function translate(texts) {
-  // texts: array of strings
-  if (!deeplKey) return texts; // passthrough if no key
+// ── DEEPL TRANSLATION ─────────────────────────────────────────────────────────
+// Sends an array of strings to DeepL and returns translated array.
+// DeepL accepts multiple texts in one request (batch) to save API calls.
+//
+// NOTE: DeepL free tier = api-free.deepl.com (NOT api.deepl.com)
+//       Using the wrong endpoint gives a 403 error.
+
+async function translateBatch(texts) {
+  // Guard: if no key provided, return originals unchanged
+  if (!deeplKey) {
+    diag('No DeepL key — skipping translation, showing German', 'warn');
+    return texts;
+  }
+
+  diag('Sending ' + texts.length + ' text(s) to DeepL…', 'info');
+
+  // DeepL API uses URL-encoded form data, not JSON
+  // URLSearchParams is like PHP's http_build_query()
   const body = new URLSearchParams();
   body.append('auth_key', deeplKey);
   body.append('target_lang', 'EN');
-  body.append('source_lang', 'DE');
+  body.append('source_lang', 'DE');  // Swiss German is close enough to DE
   texts.forEach(t => body.append('text', t));
-  const res = await fetch(DEEPL_URL, { method: 'POST', body });
-  if (!res.ok) throw new Error(`DeepL error ${res.status}`);
+
+  const res = await fetch(DEEPL_ENDPOINT, {
+    method: 'POST',
+    body: body
+  });
+
+  // HTTP error handling
+  if (res.status === 403) {
+    throw new Error('DeepL: 403 Forbidden — check your API key, or you may be using a Pro key with the Free endpoint');
+  }
+  if (res.status === 456) {
+    throw new Error('DeepL: 456 — monthly character quota exceeded (500k free limit reached)');
+  }
+  if (!res.ok) {
+    throw new Error('DeepL HTTP error: ' + res.status + ' ' + res.statusText);
+  }
+
   const data = await res.json();
-  return data.translations.map(t => t.text);
+
+  // data.translations is an array like: [{detected_source_language:"DE", text:"..."}]
+  const results = data.translations.map(t => t.text);
+  diag('DeepL returned ' + results.length + ' translation(s)', 'ok');
+  return results;
 }
 
-// ── SAVE KEY ─────────────────────────────────────────────────────────────────
+
+// ── SAVE KEY AND START LOADING ─────────────────────────────────────────────────
+// Called when user clicks "Load Feed" button
+
 function saveKeyAndLoad() {
-  deeplKey = document.getElementById('deepl-key').value.trim();
-  if (deeplKey) localStorage.setItem(KEY_STORE, deeplKey);
+  const inputKey = document.getElementById('deepl-key').value.trim();
+  if (inputKey) {
+    deeplKey = inputKey;
+    localStorage.setItem(STORAGE_KEY_DEEPL, deeplKey);
+    diag && diag('DeepL key saved to localStorage', 'ok');
+  } else {
+    deeplKey = '';
+  }
   loadFeed();
 }
 
-// ── LOAD & PARSE RSS ─────────────────────────────────────────────────────────
+
+// ── MAIN: LOAD AND RENDER FEED ────────────────────────────────────────────────
+// This is the main function. Python equivalent would be main().
+// async/await here is like Python's asyncio — we can pause and wait for
+// network requests without freezing the browser.
+
 async function loadFeed() {
-  setStatus('Fetching feed…');
+  // Initialise diagnostic log
+  diagInit();
+  setStatus('Loading…');
   document.getElementById('feed-list').innerHTML = '';
 
-  let xml;
+  // ── STEP 1: Fetch RSS via CORS proxy ────────────────────────────────────────
+  diag('=== STEP 1: Fetch RSS feed via proxy ===', 'info');
+  diag('Proxy URL: ' + PROXY_URL + encodeURIComponent(RSS_URL));
+
+  let proxyData;
   try {
-    const res  = await fetch(RSS_PROXY);
-    const data = await res.json();
-    const parser = new DOMParser();
-    const doc  = parser.parseFromString(data.contents, 'text/xml');
-    xml = doc;
-  } catch(e) {
-    setStatus('Could not fetch RSS feed. Check your connection.', true);
+    const proxyResponse = await fetch(PROXY_URL + encodeURIComponent(RSS_URL));
+
+    // Check HTTP status of the proxy request itself
+    diag('Proxy HTTP status: ' + proxyResponse.status + ' ' + proxyResponse.statusText,
+         proxyResponse.ok ? 'ok' : 'err');
+
+    if (!proxyResponse.ok) {
+      throw new Error('Proxy request failed with HTTP ' + proxyResponse.status);
+    }
+
+    proxyData = await proxyResponse.json();
+
+  } catch (err) {
+    setStatus('Network error fetching feed', 'error');
+    diag('FAILED: ' + err.message, 'err');
+    diag('Possible causes:', 'warn');
+    diag('  - No internet connection', 'warn');
+    diag('  - allorigins.win is down (try again later)', 'warn');
+    diag('  - Browser blocking the request', 'warn');
     return;
   }
 
-  const items = [...xml.querySelectorAll('item')];
-  const cutoff = Date.now() - HOURS_36;
+  // ── STEP 2: Validate proxy response ─────────────────────────────────────────
+  diag('=== STEP 2: Validate proxy response ===', 'info');
 
-  const recent = items.filter(item => {
-    const pub = new Date(item.querySelector('pubDate')?.textContent || 0);
-    return pub.getTime() > cutoff;
+  // allorigins returns: { contents: "...", status: { url, content_type, http_code } }
+  const httpCode    = proxyData?.status?.http_code;
+  const contentType = proxyData?.status?.content_type || 'unknown';
+  const contents    = proxyData?.contents || '';
+
+  diag('Feed server HTTP code: ' + httpCode,
+       httpCode === 200 ? 'ok' : 'err');
+  diag('Content-Type: ' + contentType);
+  diag('Content length: ' + contents.length + ' characters',
+       contents.length > 100 ? 'ok' : 'err');
+
+  if (httpCode !== 200) {
+    setStatus('Feed server returned HTTP ' + httpCode, 'error');
+    diag('FAILED: The feed server rejected the request.', 'err');
+    diag('HTTP ' + httpCode + ' may mean: blocked bot access, server down, or URL changed.', 'warn');
+    return;
+  }
+
+  if (contents.length < 100) {
+    setStatus('Feed returned empty or very short content', 'error');
+    diag('FAILED: contents is nearly empty (' + contents.length + ' chars).', 'err');
+    diag('The site may be blocking the proxy. Try opening ' + RSS_URL + ' in your browser.', 'warn');
+    return;
+  }
+
+  // Check it looks like XML (RSS starts with <?xml or <rss)
+  const looksLikeXML = contents.trimStart().startsWith('<?xml') || contents.trimStart().startsWith('<rss');
+  diag('Starts with XML declaration: ' + looksLikeXML, looksLikeXML ? 'ok' : 'warn');
+
+  if (!looksLikeXML) {
+    diag('WARNING: content does not look like RSS XML.', 'warn');
+    diag('First 200 chars: ' + contents.slice(0, 200), 'warn');
+    // Don't abort — try parsing anyway, but warn user
+  }
+
+  // ── STEP 3: Parse XML ────────────────────────────────────────────────────────
+  diag('=== STEP 3: Parse RSS XML ===', 'info');
+
+  // DOMParser is the browser's built-in XML parser.
+  // Like PHP's SimpleXML but for JavaScript.
+  const parser = new DOMParser();
+  const xmlDoc = parser.parseFromString(contents, 'text/xml');
+
+  // Check for XML parse errors (DOMParser doesn't throw, it returns an error document)
+  const parseError = xmlDoc.querySelector('parsererror');
+  if (parseError) {
+    setStatus('RSS XML failed to parse', 'error');
+    diag('FAILED: XML parse error:', 'err');
+    diag(parseError.textContent.slice(0, 200), 'err');
+    return;
+  }
+  diag('XML parsed successfully', 'ok');
+
+  // Extract all <item> elements from the feed
+  // In RSS, each article is one <item>
+  const allItems = [...xmlDoc.querySelectorAll('item')];
+  diag('Total <item> elements in feed: ' + allItems.length,
+       allItems.length > 0 ? 'ok' : 'err');
+
+  if (allItems.length === 0) {
+    setStatus('Feed parsed but contains no articles', 'error');
+    diag('FAILED: No <item> elements found.', 'err');
+    diag('The feed may have changed structure. Check ' + RSS_URL + ' in browser.', 'warn');
+    return;
+  }
+
+  // ── STEP 4: Filter by date (last 36 hours) ───────────────────────────────────
+  diag('=== STEP 4: Filter by date (last ' + HOURS_CUTOFF + ' hours) ===', 'info');
+
+  const nowMs     = Date.now();
+  const cutoffMs  = nowMs - (HOURS_CUTOFF * 60 * 60 * 1000);
+  const cutoffStr = new Date(cutoffMs).toUTCString();
+  diag('Current time : ' + new Date(nowMs).toUTCString());
+  diag('Cutoff time  : ' + cutoffStr + '  (' + HOURS_CUTOFF + 'h ago)');
+
+  // Log every article's date so we can see which ones are filtered out
+  diag('--- Article dates ---');
+  const recentItems = allItems.filter(function(item) {
+    // querySelector('pubDate') gets the <pubDate> child element
+    const pubDateText = item.querySelector('pubDate')?.textContent?.trim() || '';
+    const pubDateMs   = new Date(pubDateText).getTime(); // parse to milliseconds
+
+    const ageHours = ((nowMs - pubDateMs) / 3600000).toFixed(1);
+    const included = pubDateMs > cutoffMs;
+
+    // Log each one so you can see the filter decisions
+    diag(
+      (included ? '✓ INCLUDE' : '✗ EXCLUDE') +
+      ' (' + ageHours + 'h old) ' +
+      (item.querySelector('title')?.textContent?.slice(0, 50) || '?'),
+      included ? 'ok' : ''
+    );
+
+    return included;
   });
 
-  if (recent.length === 0) {
-    setStatus('No articles in the last 36 hours.', false);
+  diag('--- Filter result: ' + recentItems.length + ' of ' + allItems.length + ' articles included ---',
+       recentItems.length > 0 ? 'ok' : 'warn');
+
+  if (recentItems.length === 0) {
+    setStatus('No articles published in the last ' + HOURS_CUTOFF + ' hours', '');
+    diag('This is a genuine "nothing recent" result — the feed is working fine,', 'warn');
+    diag('but all ' + allItems.length + ' articles are older than ' + HOURS_CUTOFF + ' hours.', 'warn');
+    diag('You could increase HOURS_CUTOFF in the config at the top of the script.', 'warn');
     return;
   }
 
-  setStatus(`Translating ${recent.length} articles…`);
+  // ── STEP 5: Translate titles and excerpts ────────────────────────────────────
+  diag('=== STEP 5: Translate ' + recentItems.length + ' articles ===', 'info');
+  setStatus('Translating ' + recentItems.length + ' articles…');
 
-  // Batch translate titles + excerpts
-  const titles   = recent.map(i => i.querySelector('title')?.textContent || '');
-  const descs    = recent.map(i => {
-    const raw = i.querySelector('description')?.textContent || '';
-    // strip HTML tags for excerpt
+  // Extract plain-text excerpts from the HTML in each <description>
+  // (description contains HTML snippets like <p>some text</p>)
+  function extractExcerpt(item) {
+    const raw = item.querySelector('description')?.textContent || '';
+    // Create a throwaway div, set its HTML, then read .textContent to strip tags.
+    // Same as PHP's strip_tags()
     const div = document.createElement('div');
     div.innerHTML = raw;
-    return div.textContent.trim().slice(0, 300);
-  });
+    return div.textContent.trim().slice(0, 350); // max 350 chars
+  }
 
-  let tTitles = titles;
-  let tDescs  = descs;
+  const rawTitles  = recentItems.map(i => i.querySelector('title')?.textContent?.trim() || '');
+  const rawExcerpts = recentItems.map(i => extractExcerpt(i));
+
+  let translatedTitles  = rawTitles;   // default = original German
+  let translatedExcerpts = rawExcerpts; // default = original German
 
   if (deeplKey) {
     try {
-      tTitles = await translate(titles);
-      tDescs  = await translate(descs);
-    } catch(e) {
-      setStatus('DeepL translation failed: ' + e.message, true);
-      // render untranslated rather than nothing
+      // Send all titles + excerpts in two batches
+      // (DeepL has a limit per request but this amount is fine)
+      setStatus('Translating titles…');
+      translatedTitles   = await translateBatch(rawTitles);
+
+      setStatus('Translating excerpts…');
+      translatedExcerpts = await translateBatch(rawExcerpts);
+
+    } catch (err) {
+      setStatus('Translation failed — showing German', 'error');
+      diag('DeepL error: ' + err.message, 'err');
+      diag('Continuing with untranslated German text.', 'warn');
+      // Don't return — still show the articles, just in German
     }
-  } else {
-    setStatus('No DeepL key — showing original German. Enter key to translate.');
   }
 
-  renderIndex(recent, tTitles, tDescs);
+  // ── STEP 6: Render article cards ─────────────────────────────────────────────
+  diag('=== STEP 6: Render article list ===', 'info');
+  renderIndex(recentItems, translatedTitles, translatedExcerpts);
+  setStatus(recentItems.length + ' articles loaded' + (deeplKey ? ' (translated)' : ' (German — no DeepL key)'), 'ok');
+  diag('Done!', 'ok');
 }
 
-// ── RENDER INDEX ─────────────────────────────────────────────────────────────
-function renderIndex(items, titles, descs) {
-  setStatus('');
+
+// ── RENDER INDEX PAGE ─────────────────────────────────────────────────────────
+// Builds the article card list.
+// Equivalent to a PHP foreach loop generating HTML.
+
+function renderIndex(items, titles, excerpts) {
   const list = document.getElementById('feed-list');
   list.innerHTML = '';
 
-  items.forEach((item, i) => {
-    const link     = item.querySelector('link')?.textContent || '#';
-    const commentsUrl = item.querySelector('comments')?.textContent || '';
-    const commentsN   = item.querySelector('comments')?.textContent
-      ? (item.querySelector('slash\\:comments, comments')?.textContent || '') : '';
-    const slashComments = [...item.children].find(el => el.nodeName === 'slash:comments');
-    const numComments = slashComments?.textContent || '';
-    const author   = item.querySelector('creator')?.textContent || '';
-    const pubDate  = new Date(item.querySelector('pubDate')?.textContent);
-    const cats     = [...item.querySelectorAll('category')].map(c => c.textContent).join(' · ');
+  items.forEach(function(item, i) {
 
+    // Extract fields from the RSS item using querySelector.
+    // querySelector works like CSS selectors — 'title' finds the first <title> child.
+    const articleUrl  = item.querySelector('link')?.textContent?.trim() || '#';
+    const commentsUrl = item.querySelector('comments')?.textContent?.trim() || '';
+    const pubDate     = new Date(item.querySelector('pubDate')?.textContent?.trim());
+    const cats        = [...item.querySelectorAll('category')]
+                          .map(c => c.textContent).join(' · ');
+
+    // Namespaced elements (dc:creator, slash:comments) need getElementsByTagName
+    // querySelector doesn't handle XML namespaces reliably in all browsers
+    const author      = item.getElementsByTagName('dc:creator')[0]?.textContent?.trim() || '';
+    const numComments = item.getElementsByTagName('slash:comments')[0]?.textContent?.trim() || '';
+
+    // Build the card HTML.
+    // We encode the URL in a data attribute so click handler can read it safely.
     const card = document.createElement('article');
     card.className = 'article-card';
-    card.style.animationDelay = (i * 40) + 'ms';
-    card.innerHTML = `
-      <div class="meta">
-        <span class="cat">${cats}</span>
-        <span>${timeAgo(pubDate)}</span>
-        ${author ? `<span>${author}</span>` : ''}
-      </div>
-      <h2><a href="#" onclick="loadArticle(event, '${encodeURIComponent(link)}', ${i})">${highlight(titles[i])}</a></h2>
-      <p class="excerpt">${highlight(descs[i])}</p>
-      <div class="footer-row">
-        ${numComments ? `<a href="${commentsUrl}" target="_blank">💬 ${numComments} comments</a>` : ''}
-        <a class="read-more" href="#" onclick="loadArticle(event, '${encodeURIComponent(link)}', ${i})">Read full article →</a>
-      </div>
-    `;
+    card.style.animationDelay = (i * 40) + 'ms'; // stagger the fade-in
+
+    // Note: highlight() wraps LGT/UBS in <mark> tags
+    card.innerHTML =
+      '<div class="meta">' +
+        (cats   ? '<span class="cat">' + cats + '</span>' : '') +
+        '<span>' + timeAgo(pubDate) + '</span>' +
+        (author ? '<span>' + author + '</span>' : '') +
+      '</div>' +
+      '<h2><a href="#" data-url="' + encodeURIComponent(articleUrl) + '" class="art-link">' +
+        highlight(titles[i] || rawTitle) +
+      '</a></h2>' +
+      '<p class="excerpt">' + highlight(excerpts[i]) + '</p>' +
+      '<div class="footer-row">' +
+        (numComments && commentsUrl
+          ? '<a href="' + commentsUrl + '" target="_blank">💬 ' + numComments + ' comments</a>'
+          : '') +
+        '<a href="#" data-url="' + encodeURIComponent(articleUrl) + '" class="art-link read-more">Read full article →</a>' +
+      '</div>';
+
     list.appendChild(card);
+  });
+
+  // Attach click handlers to all article links.
+  // We use event delegation on the container rather than onclick= in HTML
+  // (cleaner, avoids encoding issues with URLs in HTML attributes)
+  list.querySelectorAll('.art-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // stop normal link navigation
+      const url = decodeURIComponent(this.dataset.url);
+      loadArticle(url);
+    });
   });
 }
 
-// ── LOAD FULL ARTICLE ────────────────────────────────────────────────────────
-async function loadArticle(e, encodedUrl, idx) {
-  e.preventDefault();
-  const url = decodeURIComponent(encodedUrl);
 
+// ── LOAD AND RENDER A FULL ARTICLE ───────────────────────────────────────────
+// Fetches the original article page, strips WordPress chrome,
+// translates the body, and shows it.
+
+async function loadArticle(articleUrl) {
   showArticleView();
-  document.getElementById('art-content').innerHTML = '<div class="translating">Fetching and translating article</div>';
+  document.getElementById('art-content').innerHTML =
+    '<div class="loading">Fetching article</div>';
 
-  // Fetch article via proxy
+  // ── Fetch article page via proxy ─────────────────────────────────────────
   let articleHTML = '';
   try {
-    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
-    const res  = await fetch(proxyUrl);
-    const data = await res.json();
-    articleHTML = data.contents;
-  } catch(e) {
-    document.getElementById('art-content').innerHTML = '<p style="color:var(--accent)">Could not fetch article.</p>';
+    const proxyRes  = await fetch(PROXY_URL + encodeURIComponent(articleUrl));
+    const proxyData = await proxyRes.json();
+
+    if (!proxyData?.contents || proxyData.contents.length < 200) {
+      throw new Error('Proxy returned empty content (HTTP ' + proxyData?.status?.http_code + ')');
+    }
+    articleHTML = proxyData.contents;
+
+  } catch (err) {
+    document.getElementById('art-content').innerHTML =
+      '<p style="color:var(--accent)">Could not fetch article: ' + err.message + '</p>' +
+      '<p style="margin-top:1rem"><a href="' + articleUrl + '" target="_blank">Open original article →</a></p>';
     return;
   }
 
-  // Parse and extract article body
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(articleHTML, 'text/html');
+  // ── Parse the article HTML ───────────────────────────────────────────────
+  // DOMParser parses the full page HTML into a queryable document tree,
+  // just like PHP's DOMDocument::loadHTML()
+  const parser  = new DOMParser();
+  const pageDoc = parser.parseFromString(articleHTML, 'text/html');
 
-  // Try WordPress article selectors in order of preference
+  // ── Extract article body ─────────────────────────────────────────────────
+  // WordPress stores article body in .entry-content
+  // We try several selectors in order of preference (most to least specific)
   const bodyEl =
-    doc.querySelector('article .entry-content') ||
-    doc.querySelector('.entry-content') ||
-    doc.querySelector('article') ||
-    doc.querySelector('main');
+    pageDoc.querySelector('article .entry-content') ||
+    pageDoc.querySelector('.entry-content') ||
+    pageDoc.querySelector('[class*="post-content"]') ||
+    pageDoc.querySelector('article');
 
-  // Extract title
-  const titleEl = doc.querySelector('h1.entry-title, h1.post-title, h1');
-  const rawTitle = titleEl?.textContent?.trim() || '';
+  // Extract title (the <h1> of the article)
+  const rawTitle = pageDoc.querySelector('h1.entry-title, h1.post-title, h1')
+                           ?.textContent?.trim() || '';
 
-  // Extract date/author from article page
-  const dateEl   = doc.querySelector('time, .entry-date, .post-date');
-  const authorEl = doc.querySelector('.author, .byline');
+  // Extract byline info if present on the article page
+  const dateText   = pageDoc.querySelector('time, .entry-date, .post-date')
+                             ?.textContent?.trim() || '';
+  const authorText = pageDoc.querySelector('.author, .byline, [class*="author"]')
+                             ?.textContent?.trim() || '';
 
-  // Extract comment link
-  const commentLink = doc.querySelector('a[href*="#comments"], a[href*="comments"]');
-
-  // Clean body: remove scripts, nav, footer, aside, comment forms
+  // ── Clean up the body ────────────────────────────────────────────────────
+  // Remove elements we don't want (nav, ads, comment forms, share buttons etc.)
   if (bodyEl) {
-    ['script','style','nav','footer','aside','.comment-respond',
-     '.navigation','#comments','.sharedaddy','.jp-relatedposts',
-     '.wpcnt','.post-navigation'].forEach(sel => {
-      bodyEl.querySelectorAll(sel).forEach(el => el.remove());
+    const removeSelectors = [
+      'script', 'style', 'nav', 'footer', 'aside',
+      '.comment-respond',    // "Leave a reply" form
+      '.navigation',         // prev/next post links
+      '#comments',           // comment thread
+      '.sharedaddy',         // Jetpack share buttons
+      '.jp-relatedposts',    // Jetpack related posts
+      '.wpcnt',              // WordPress ads
+      '.post-navigation',
+      '[class*="widget"]',
+      '[id*="sidebar"]'
+    ];
+    removeSelectors.forEach(function(sel) {
+      bodyEl.querySelectorAll(sel).forEach(function(el) { el.remove(); });
     });
   }
 
-  // Get images before translation
+  // ── Collect inline images ────────────────────────────────────────────────
+  // We preserve original src URLs so images load from their server.
+  // We also show the URL as text below each image for WhatsApp copy-paste.
   const images = bodyEl ? [...bodyEl.querySelectorAll('img')] : [];
 
-  // Get text nodes for translation (preserve image placeholders)
-  let bodyText = bodyEl?.innerHTML || '<p>Could not extract article body.</p>';
+  // ── Get text for translation ─────────────────────────────────────────────
+  // We get paragraphs individually for better translation quality
+  // (translating one huge block sometimes produces worse results)
+  const paragraphs = bodyEl
+    ? [...bodyEl.querySelectorAll('p, h2, h3, h4, blockquote')]
+        .map(function(el) { return el.textContent.trim(); })
+        .filter(function(t) { return t.length > 0; })
+    : [bodyEl?.textContent?.trim() || 'Could not extract article text.'];
 
-  // Replace images with placeholders so translation doesn't mangle src
-  const imgMap = {};
-  images.forEach((img, i) => {
-    const placeholder = `__IMG_${i}__`;
-    imgMap[placeholder] = img.outerHTML;
-    bodyText = bodyText.replace(img.outerHTML, placeholder);
-  });
+  // ── Translate ────────────────────────────────────────────────────────────
+  document.getElementById('art-content').innerHTML =
+    '<div class="loading">Translating</div>';
 
-  // Strip remaining HTML for translation text
-  const tempDiv = document.createElement('div');
-  tempDiv.innerHTML = bodyText;
-  const plainText = tempDiv.textContent || '';
-
-  // Translate
   let translatedTitle = rawTitle;
-  let translatedBody  = plainText;
+  let translatedParas = paragraphs;
 
-  if (deeplKey) {
+  if (deeplKey && paragraphs.length > 0) {
     try {
-      const results = await translate([rawTitle, plainText]);
-      translatedTitle = results[0];
-      translatedBody  = results[1];
-    } catch(err) {
-      translatedTitle = rawTitle + ' [translation failed]';
-      translatedBody  = plainText;
+      // Translate title + all paragraphs in one batch call
+      const allTexts    = [rawTitle, ...paragraphs];
+      const translated  = await translateBatch(allTexts);
+      translatedTitle   = translated[0];
+      translatedParas   = translated.slice(1); // remainder are the paragraphs
+    } catch (err) {
+      // Translation failed — use German originals
+      translatedTitle = rawTitle + ' [translation failed: ' + err.message + ']';
     }
   }
 
-  // Wrap translated body in paragraphs
-  const paras = translatedBody
-    .split(/\n\n+/)
-    .map(p => p.trim())
-    .filter(p => p.length > 0)
-    .map(p => `<p>${p}</p>`)
+  // ── Build image HTML ─────────────────────────────────────────────────────
+  // Each image: the actual <img> + a text URL below it (survives WhatsApp paste)
+  const imageBlocks = images.map(function(img) {
+    const src = img.getAttribute('src') || '';
+    const alt = img.getAttribute('alt') || '';
+    if (!src || src.startsWith('data:')) return ''; // skip data URIs and blank srcs
+    return '<img src="' + src + '" alt="' + alt + '" loading="lazy">' +
+           '<span class="img-url">📷 ' + src + '</span>';
+  }).join('\n');
+
+  // ── Build body HTML ──────────────────────────────────────────────────────
+  // Wrap each translated paragraph in <p> tags, apply highlighting
+  let bodyHTML = translatedParas
+    .map(function(p) { return '<p>' + highlight(p) + '</p>'; })
     .join('\n');
 
-  // Re-insert images into translated body at reasonable positions
-  // (Since we can't easily match positions, we append them after first paragraph)
-  let finalBody = paras;
-  if (images.length > 0) {
-    const imgBlock = images.map((img, i) => {
-      const src = img.getAttribute('src') || '';
-      const alt = img.getAttribute('alt') || '';
-      return `<img src="${src}" alt="${alt}" loading="lazy"><span class="img-url">📷 ${src}</span>`;
-    }).join('\n');
-
-    // Insert images after first </p>
-    finalBody = finalBody.replace('</p>', `</p>\n${imgBlock}`);
+  // Insert images after the first paragraph (best-effort placement)
+  if (imageBlocks) {
+    bodyHTML = bodyHTML.replace('</p>', '</p>\n' + imageBlocks);
   }
 
-  // Apply highlighting
-  finalBody        = highlight(finalBody);
-  translatedTitle  = highlight(translatedTitle);
+  // ── Render final article ─────────────────────────────────────────────────
+  const commentsUrl = articleUrl + '#comments';
 
-  // Comments
-  const commentsHref = commentLink?.href || (url + '#comments');
-
-  // Render
-  document.getElementById('art-content').innerHTML = `
-    <div id="art-meta">
-      ${dateEl ? `<span>${dateEl.textContent.trim()}</span>` : ''}
-      ${authorEl ? `<span>${authorEl.textContent.trim()}</span>` : ''}
-    </div>
-    <h1 id="art-title">${translatedTitle}</h1>
-    <div id="art-body">${finalBody}</div>
-    <div id="art-comments">
-      <a href="${commentsHref}" target="_blank">💬 View comments on original site</a>
-    </div>
-    <div id="art-source">
-      Source: <a href="${url}" target="_blank">${url}</a>
-    </div>
-  `;
+  document.getElementById('art-content').innerHTML =
+    '<div id="art-meta">' +
+      (dateText   ? '<span>' + dateText   + '</span>' : '') +
+      (authorText ? '<span>' + authorText + '</span>' : '') +
+    '</div>' +
+    '<h1 id="art-title">' + highlight(translatedTitle) + '</h1>' +
+    '<div id="art-body">' + bodyHTML + '</div>' +
+    '<div id="art-comments">' +
+      '<a href="' + commentsUrl + '" target="_blank">💬 View comments on original site</a>' +
+    '</div>' +
+    '<div id="art-source">' +
+      'Source: <a href="' + articleUrl + '" target="_blank">' + articleUrl + '</a>' +
+    '</div>';
 }
 
+
 // ── VIEW SWITCHING ────────────────────────────────────────────────────────────
+// Toggle between the index (list) view and the article detail view
+
 function showArticleView() {
   document.getElementById('index-view').classList.add('hidden');
   document.getElementById('article-view').classList.add('active');
   window.scrollTo(0, 0);
 }
+
 function showIndex() {
   document.getElementById('article-view').classList.remove('active');
   document.getElementById('index-view').classList.remove('hidden');
