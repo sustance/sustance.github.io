@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside Paradeplatz — English</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --ink:      #1a1a18;
+    --paper:    #f5f0e8;
+    --cream:    #ede8dc;
+    --rule:     #c8bfa8;
+    --accent:   #8b1a1a;
+    --mark-bg:  #ffe066;
+    --mark-ink: #1a1a18;
+    --muted:    #6b6456;
+    --col:      680px;
+  }
+
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; background: var(--paper); color: var(--ink); }
+  body { font-family: 'Source Serif 4', Georgia, serif; font-weight: 300; line-height: 1.7; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── MASTHEAD ── */
+  #masthead {
+    border-bottom: 3px double var(--rule);
+    padding: 1.5rem 2rem 1rem;
+    text-align: center;
+    background: var(--cream);
+  }
+  #masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    letter-spacing: -.02em;
+    line-height: 1.1;
+  }
+  #masthead .sub {
+    font-size: .78rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: .35rem;
+  }
+  #masthead .controls {
+    margin-top: .9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    flex-wrap: wrap;
+    font-size: .82rem;
+  }
+  #masthead input[type="text"] {
+    padding: .35rem .7rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    font-family: inherit;
+    font-size: .82rem;
+    width: 200px;
+    border-radius: 2px;
+  }
+  #masthead button {
+    padding: .35rem .9rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: .82rem;
+    border-radius: 2px;
+    transition: opacity .15s;
+  }
+  #masthead button:hover { opacity: .85; }
+  #masthead .hint { color: var(--muted); font-size: .75rem; }
+
+  /* ── LAYOUT ── */
+  #app { max-width: var(--col); margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── STATUS ── */
+  #status { text-align: center; padding: 3rem 0; color: var(--muted); font-style: italic; }
+  #status.error { color: var(--accent); font-style: normal; }
+
+  /* ── INDEX ARTICLE CARD ── */
+  .article-card {
+    border-bottom: 1px solid var(--rule);
+    padding: 1.6rem 0;
+    animation: fadeIn .4s ease both;
+  }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:none } }
+
+  .article-card .meta {
+    font-size: .73rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .45rem;
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+  }
+  .article-card .meta .cat { color: var(--accent); }
+
+  .article-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: .5rem;
+  }
+  .article-card h2 a { color: var(--ink); }
+  .article-card h2 a:hover { color: var(--accent); text-decoration: none; }
+
+  .article-card .excerpt {
+    font-size: .92rem;
+    color: #3a3530;
+    margin-bottom: .6rem;
+  }
+  .article-card .footer-row {
+    font-size: .75rem;
+    color: var(--muted);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .article-card .footer-row a { color: var(--muted); font-size: .75rem; }
+  .article-card .footer-row a:hover { color: var(--accent); }
+  .read-more {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent) !important;
+    font-weight: 400;
+  }
+
+  /* ── HIGHLIGHT ── */
+  mark {
+    background: var(--mark-bg);
+    color: var(--mark-ink);
+    font-weight: 700;
+    padding: 0 .15em;
+    border-radius: 2px;
+  }
+
+  /* ── ARTICLE VIEW ── */
+  #article-view { display: none; }
+  #article-view.active { display: block; }
+  #index-view.hidden { display: none; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    margin-bottom: 1.8rem;
+    background: none;
+    border: none;
+    font-family: inherit;
+    padding: 0;
+  }
+  .back-btn:hover { color: var(--accent); }
+
+  #art-meta {
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .7rem;
+    display: flex; gap: .8rem; flex-wrap: wrap;
+  }
+  #art-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+  #art-body {
+    font-size: .97rem;
+    line-height: 1.8;
+  }
+  #art-body p { margin-bottom: 1.1rem; }
+  #art-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.2rem 0 .4rem;
+    border: 1px solid var(--rule);
+  }
+  .img-url {
+    font-size: .72rem;
+    color: var(--muted);
+    word-break: break-all;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  #art-comments {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-size: .82rem;
+    color: var(--muted);
+  }
+  #art-source {
+    margin-top: 1.2rem;
+    font-size: .78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    padding-top: .8rem;
+  }
+
+  /* ── TRANSLATING SPINNER ── */
+  .translating {
+    text-align: center; padding: 2rem; color: var(--muted); font-style: italic;
+  }
+  .translating::after {
+    content: '';
+    display: inline-block;
+    width: .7rem; height: .7rem;
+    border: 2px solid var(--rule);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+    margin-left: .6rem;
+    vertical-align: middle;
+  }
+  @keyframes spin { to { transform: rotate(360deg) } }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    font-size: .72rem;
+    color: var(--muted);
+    padding: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+</style>
+</head>
+<body>
+
+<header id="masthead">
+  <h1>Inside Paradeplatz</h1>
+  <p class="sub">English Edition &nbsp;·&nbsp; Swiss Financial News</p>
+  <div class="controls">
+    <input type="text" id="333529ff-6233-4e54-bcaf-c8bbf74537e2:fx" placeholder="DeepL API key" autocomplete="off">
+    <button onclick="saveKeyAndLoad()">Load Feed</button>
+    <span class="hint">Last 36 hours only</span>
+  </div>
+</header>
+
+<main id="app">
+  <div id="index-view">
+    <div id="status">Enter your DeepL API key above and click Load Feed.</div>
+    <div id="feed-list"></div>
+  </div>
+  <div id="article-view">
+    <button class="back-btn" onclick="showIndex()">← All Articles</button>
+    <div id="art-content"></div>
+  </div>
+</main>
+
+<footer>
+  Personal reader for <a href="https://insideparadeplatz.ch" target="_blank">insideparadeplatz.ch</a>
+  &nbsp;·&nbsp; Translations via DeepL &nbsp;·&nbsp; Articles from last 36 hours
+</footer>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────────────────────────────
+const RSS_PROXY   = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://insideparadeplatz.ch/feed/');
+const HOURS_36    = 36 * 60 * 60 * 1000;
+const HIGHLIGHT   = ['LGT', 'UBS'];
+const HL_RE       = new RegExp(`\\b(${HIGHLIGHT.join('|')})\\b`, 'g');
+const DEEPL_URL   = 'https://api-free.deepl.com/v2/translate';
+const KEY_STORE   = 'ip_deepl_key';
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+let deeplKey = localStorage.getItem(KEY_STORE) || '';
+if (deeplKey) document.getElementById('deepl-key').value = deeplKey;
+
+// ── HELPERS ─────────────────────────────────────────────────────────────────
+function highlight(text) {
+  if (!text) return '';
+  return text.replace(HL_RE, '<mark>$1</mark>');
+}
+
+function timeAgo(date) {
+  const mins = Math.round((Date.now() - date) / 60000);
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.round(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.round(hrs/24)}d ago`;
+}
+
+function setStatus(msg, isError = false) {
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className = isError ? 'error' : '';
+}
+
+// ── DEEPL TRANSLATE ──────────────────────────────────────────────────────────
+async function translate(texts) {
+  // texts: array of strings
+  if (!deeplKey) return texts; // passthrough if no key
+  const body = new URLSearchParams();
+  body.append('auth_key', deeplKey);
+  body.append('target_lang', 'EN');
+  body.append('source_lang', 'DE');
+  texts.forEach(t => body.append('text', t));
+  const res = await fetch(DEEPL_URL, { method: 'POST', body });
+  if (!res.ok) throw new Error(`DeepL error ${res.status}`);
+  const data = await res.json();
+  return data.translations.map(t => t.text);
+}
+
+// ── SAVE KEY ─────────────────────────────────────────────────────────────────
+function saveKeyAndLoad() {
+  deeplKey = document.getElementById('deepl-key').value.trim();
+  if (deeplKey) localStorage.setItem(KEY_STORE, deeplKey);
+  loadFeed();
+}
+
+// ── LOAD & PARSE RSS ─────────────────────────────────────────────────────────
+async function loadFeed() {
+  setStatus('Fetching feed…');
+  document.getElementById('feed-list').innerHTML = '';
+
+  let xml;
+  try {
+    const res  = await fetch(RSS_PROXY);
+    const data = await res.json();
+    const parser = new DOMParser();
+    const doc  = parser.parseFromString(data.contents, 'text/xml');
+    xml = doc;
+  } catch(e) {
+    setStatus('Could not fetch RSS feed. Check your connection.', true);
+    return;
+  }
+
+  const items = [...xml.querySelectorAll('item')];
+  const cutoff = Date.now() - HOURS_36;
+
+  const recent = items.filter(item => {
+    const pub = new Date(item.querySelector('pubDate')?.textContent || 0);
+    return pub.getTime() > cutoff;
+  });
+
+  if (recent.length === 0) {
+    setStatus('No articles in the last 36 hours.', false);
+    return;
+  }
+
+  setStatus(`Translating ${recent.length} articles…`);
+
+  // Batch translate titles + excerpts
+  const titles   = recent.map(i => i.querySelector('title')?.textContent || '');
+  const descs    = recent.map(i => {
+    const raw = i.querySelector('description')?.textContent || '';
+    // strip HTML tags for excerpt
+    const div = document.createElement('div');
+    div.innerHTML = raw;
+    return div.textContent.trim().slice(0, 300);
+  });
+
+  let tTitles = titles;
+  let tDescs  = descs;
+
+  if (deeplKey) {
+    try {
+      tTitles = await translate(titles);
+      tDescs  = await translate(descs);
+    } catch(e) {
+      setStatus('DeepL translation failed: ' + e.message, true);
+      // render untranslated rather than nothing
+    }
+  } else {
+    setStatus('No DeepL key — showing original German. Enter key to translate.');
+  }
+
+  renderIndex(recent, tTitles, tDescs);
+}
+
+// ── RENDER INDEX ─────────────────────────────────────────────────────────────
+function renderIndex(items, titles, descs) {
+  setStatus('');
+  const list = document.getElementById('feed-list');
+  list.innerHTML = '';
+
+  items.forEach((item, i) => {
+    const link     = item.querySelector('link')?.textContent || '#';
+    const commentsUrl = item.querySelector('comments')?.textContent || '';
+    const commentsN   = item.querySelector('comments')?.textContent
+      ? (item.querySelector('slash\\:comments, comments')?.textContent || '') : '';
+    const slashComments = [...item.children].find(el => el.nodeName === 'slash:comments');
+    const numComments = slashComments?.textContent || '';
+    const author   = item.querySelector('creator')?.textContent || '';
+    const pubDate  = new Date(item.querySelector('pubDate')?.textContent);
+    const cats     = [...item.querySelectorAll('category')].map(c => c.textContent).join(' · ');
+
+    const card = document.createElement('article');
+    card.className = 'article-card';
+    card.style.animationDelay = (i * 40) + 'ms';
+    card.innerHTML = `
+      <div class="meta">
+        <span class="cat">${cats}</span>
+        <span>${timeAgo(pubDate)}</span>
+        ${author ? `<span>${author}</span>` : ''}
+      </div>
+      <h2><a href="#" onclick="loadArticle(event, '${encodeURIComponent(link)}', ${i})">${highlight(titles[i])}</a></h2>
+      <p class="excerpt">${highlight(descs[i])}</p>
+      <div class="footer-row">
+        ${numComments ? `<a href="${commentsUrl}" target="_blank">💬 ${numComments} comments</a>` : ''}
+        <a class="read-more" href="#" onclick="loadArticle(event, '${encodeURIComponent(link)}', ${i})">Read full article →</a>
+      </div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+// ── LOAD FULL ARTICLE ────────────────────────────────────────────────────────
+async function loadArticle(e, encodedUrl, idx) {
+  e.preventDefault();
+  const url = decodeURIComponent(encodedUrl);
+
+  showArticleView();
+  document.getElementById('art-content').innerHTML = '<div class="translating">Fetching and translating article</div>';
+
+  // Fetch article via proxy
+  let articleHTML = '';
+  try {
+    const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(url);
+    const res  = await fetch(proxyUrl);
+    const data = await res.json();
+    articleHTML = data.contents;
+  } catch(e) {
+    document.getElementById('art-content').innerHTML = '<p style="color:var(--accent)">Could not fetch article.</p>';
+    return;
+  }
+
+  // Parse and extract article body
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(articleHTML, 'text/html');
+
+  // Try WordPress article selectors in order of preference
+  const bodyEl =
+    doc.querySelector('article .entry-content') ||
+    doc.querySelector('.entry-content') ||
+    doc.querySelector('article') ||
+    doc.querySelector('main');
+
+  // Extract title
+  const titleEl = doc.querySelector('h1.entry-title, h1.post-title, h1');
+  const rawTitle = titleEl?.textContent?.trim() || '';
+
+  // Extract date/author from article page
+  const dateEl   = doc.querySelector('time, .entry-date, .post-date');
+  const authorEl = doc.querySelector('.author, .byline');
+
+  // Extract comment link
+  const commentLink = doc.querySelector('a[href*="#comments"], a[href*="comments"]');
+
+  // Clean body: remove scripts, nav, footer, aside, comment forms
+  if (bodyEl) {
+    ['script','style','nav','footer','aside','.comment-respond',
+     '.navigation','#comments','.sharedaddy','.jp-relatedposts',
+     '.wpcnt','.post-navigation'].forEach(sel => {
+      bodyEl.querySelectorAll(sel).forEach(el => el.remove());
+    });
+  }
+
+  // Get images before translation
+  const images = bodyEl ? [...bodyEl.querySelectorAll('img')] : [];
+
+  // Get text nodes for translation (preserve image placeholders)
+  let bodyText = bodyEl?.innerHTML || '<p>Could not extract article body.</p>';
+
+  // Replace images with placeholders so translation doesn't mangle src
+  const imgMap = {};
+  images.forEach((img, i) => {
+    const placeholder = `__IMG_${i}__`;
+    imgMap[placeholder] = img.outerHTML;
+    bodyText = bodyText.replace(img.outerHTML, placeholder);
+  });
+
+  // Strip remaining HTML for translation text
+  const tempDiv = document.createElement('div');
+  tempDiv.innerHTML = bodyText;
+  const plainText = tempDiv.textContent || '';
+
+  // Translate
+  let translatedTitle = rawTitle;
+  let translatedBody  = plainText;
+
+  if (deeplKey) {
+    try {
+      const results = await translate([rawTitle, plainText]);
+      translatedTitle = results[0];
+      translatedBody  = results[1];
+    } catch(err) {
+      translatedTitle = rawTitle + ' [translation failed]';
+      translatedBody  = plainText;
+    }
+  }
+
+  // Wrap translated body in paragraphs
+  const paras = translatedBody
+    .split(/\n\n+/)
+    .map(p => p.trim())
+    .filter(p => p.length > 0)
+    .map(p => `<p>${p}</p>`)
+    .join('\n');
+
+  // Re-insert images into translated body at reasonable positions
+  // (Since we can't easily match positions, we append them after first paragraph)
+  let finalBody = paras;
+  if (images.length > 0) {
+    const imgBlock = images.map((img, i) => {
+      const src = img.getAttribute('src') || '';
+      const alt = img.getAttribute('alt') || '';
+      return `<img src="${src}" alt="${alt}" loading="lazy"><span class="img-url">📷 ${src}</span>`;
+    }).join('\n');
+
+    // Insert images after first </p>
+    finalBody = finalBody.replace('</p>', `</p>\n${imgBlock}`);
+  }
+
+  // Apply highlighting
+  finalBody        = highlight(finalBody);
+  translatedTitle  = highlight(translatedTitle);
+
+  // Comments
+  const commentsHref = commentLink?.href || (url + '#comments');
+
+  // Render
+  document.getElementById('art-content').innerHTML = `
+    <div id="art-meta">
+      ${dateEl ? `<span>${dateEl.textContent.trim()}</span>` : ''}
+      ${authorEl ? `<span>${authorEl.textContent.trim()}</span>` : ''}
+    </div>
+    <h1 id="art-title">${translatedTitle}</h1>
+    <div id="art-body">${finalBody}</div>
+    <div id="art-comments">
+      <a href="${commentsHref}" target="_blank">💬 View comments on original site</a>
+    </div>
+    <div id="art-source">
+      Source: <a href="${url}" target="_blank">${url}</a>
+    </div>
+  `;
+}
+
+// ── VIEW SWITCHING ────────────────────────────────────────────────────────────
+function showArticleView() {
+  document.getElementById('index-view').classList.add('hidden');
+  document.getElementById('article-view').classList.add('active');
+  window.scrollTo(0, 0);
+}
+function showIndex() {
+  document.getElementById('article-view').classList.remove('active');
+  document.getElementById('index-view').classList.remove('hidden');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
