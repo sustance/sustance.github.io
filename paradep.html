@@ -293,7 +293,7 @@
 <body>
 
 <header id="masthead">
-  <h1>Inside Paradeplatz</h1>
+  <h1>Inside Paradeplatz!</h1>
   <p class="sub">English Edition &nbsp;·&nbsp; Swiss Financial News</p>
   <div class="controls">
     <input type="text" id="deepl-key" placeholder="DeepL API key (optional)…" autocomplete="off">
@@ -461,30 +461,67 @@ function timeAgo(date) {
 }
 
 
-// ── DEEPL TRANSLATION ─────────────────────────────────────────────────────────
-// Sends an array of strings to DeepL and returns translated array.
-// DeepL accepts multiple texts in one request (batch) to save API calls.
+// ── TRANSLATION ENGINE ───────────────────────────────────────────────────────
 //
-// IMPORTANT AUTH NOTE:
-//   OLD broken format: body param  auth_key=xxx  (URLSearchParams)
-//   NEW correct format: JSON body + Authorization header
-//   The old format triggers a CORS preflight that DeepL rejects with NetworkError.
+// WHY TWO ENGINES?
+//   DeepL produces the best German→English quality but its API cannot be called
+//   directly from a browser on a different domain (CORS policy blocks it).
+//   We route DeepL through corsproxy.io which adds the required CORS headers.
+//   MyMemory is a free translation API with no key and no CORS issues (GET
+//   request) — used as fallback when DeepL is unavailable or unconfigured.
 //
-// ENDPOINT NOTE:
-//   Free key  -> api-free.deepl.com  (this code)
-//   Pro key   -> api.deepl.com  (change DEEPL_ENDPOINT constant at top)
+// FLOW:
+//   Has DeepL key?  →  Try DeepL via corsproxy.io
+//                         Success → done
+//                         Fail    → warn + fall through to MyMemory
+//   No key?         →  MyMemory directly
+//
+// DeepL endpoint note:
+//   Free key  → DEEPL_ENDPOINT should be https://api-free.deepl.com/v2/translate
+//   Pro key   → change to https://api.deepl.com/v2/translate
+
+// corsproxy.io proxies our POST to DeepL, adding CORS headers so the browser
+// allows it. It's a free open-source proxy service.
+const DEEPL_VIA_PROXY = 'https://corsproxy.io/?' +
+                        encodeURIComponent('https://api-free.deepl.com/v2/translate');
+
+// MyMemory: free, no key, simple GET — but limited to ~5000 chars/day per IP.
+// Translates one string at a time (no batch endpoint).
+const MYMEMORY_URL = 'https://api.mymemory.translated.net/get';
+
+
+// ── translateBatch() ──────────────────────────────────────────────────────────
+// Public function called by the rest of the code.
+// Accepts an array of strings, returns an array of translated strings.
+// Tries DeepL first (if key present), falls back to MyMemory.
 
 async function translateBatch(texts) {
-  // Guard: if no key provided, return originals unchanged
-  if (!deeplKey) {
-    diag('No DeepL key — skipping translation, showing German', 'warn');
-    return texts;
+  if (!texts || texts.length === 0) return [];
+
+  if (deeplKey) {
+    diag('Translation engine: DeepL via corsproxy.io', 'info');
+    try {
+      return await translateWithDeepL(texts);
+    } catch (err) {
+      diag('DeepL failed (' + err.message + ') — falling back to MyMemory', 'warn');
+      // Fall through to MyMemory below
+    }
+  } else {
+    diag('No DeepL key — using MyMemory (free, lower quality)', 'warn');
   }
 
-  diag('Sending ' + texts.length + ' text(s) to DeepL…', 'info');
+  return await translateWithMyMemory(texts);
+}
 
-  // JSON body — modern DeepL v2 API format.
-  // "text" is an array so we can batch multiple strings in one request.
+
+// ── translateWithDeepL() ──────────────────────────────────────────────────────
+// Sends all texts in one batch POST to DeepL (via corsproxy.io).
+
+async function translateWithDeepL(texts) {
+  diag('Sending ' + texts.length + ' text(s) to DeepL via corsproxy.io…', 'info');
+
+  // JSON body — DeepL v2 modern format
+  // "text" is an array: send all strings in one request (batch)
   const requestBody = JSON.stringify({
     text:        texts,
     target_lang: 'EN',
@@ -493,50 +530,90 @@ async function translateBatch(texts) {
 
   let res;
   try {
-    res = await fetch(DEEPL_ENDPOINT, {
+    res = await fetch(DEEPL_VIA_PROXY, {
       method:  'POST',
       headers: {
-        // Authorization header is the correct modern auth method.
-        // DeepL requires the "DeepL-Auth-Key" prefix (not "Bearer").
         'Authorization': 'DeepL-Auth-Key ' + deeplKey,
         'Content-Type':  'application/json'
       },
       body: requestBody
     });
   } catch (networkErr) {
-    // This catch block fires on network/CORS errors BEFORE any HTTP response.
-    // Most common cause: wrong endpoint (Pro key used with Free endpoint URL).
-    diag('Network error contacting DeepL (no HTTP response received): ' + networkErr.message, 'err');
-    diag('Free key must use endpoint: https://api-free.deepl.com/v2/translate', 'warn');
-    diag('Pro key must use endpoint:  https://api.deepl.com/v2/translate', 'warn');
+    // Network/CORS error — no HTTP response at all
+    diag('corsproxy.io network error: ' + networkErr.message, 'err');
     throw networkErr;
   }
 
-  diag('DeepL HTTP response: ' + res.status + ' ' + res.statusText,
-       res.ok ? 'ok' : 'err');
+  diag('DeepL response: HTTP ' + res.status, res.ok ? 'ok' : 'err');
 
-  if (res.status === 403) {
-    throw new Error('DeepL 403 — key invalid, or Pro key used with Free endpoint');
-  }
-  if (res.status === 456) {
-    throw new Error('DeepL 456 — 500k/month free character quota exceeded');
-  }
-  if (res.status === 429) {
-    throw new Error('DeepL 429 — rate limited, wait a moment then retry');
-  }
+  if (res.status === 403) throw new Error('DeepL 403 — invalid API key');
+  if (res.status === 456) throw new Error('DeepL 456 — 500k/month quota exceeded');
+  if (res.status === 429) throw new Error('DeepL 429 — rate limited');
   if (!res.ok) {
-    const errBody = await res.text().catch(() => '');
-    throw new Error('DeepL HTTP ' + res.status + ': ' + errBody.slice(0, 120));
+    const body = await res.text().catch(() => '');
+    throw new Error('DeepL HTTP ' + res.status + ': ' + body.slice(0, 100));
   }
 
-  const data = await res.json();
-  // data.translations = [{detected_source_language: "DE", text: "...translated..."}]
+  const data    = await res.json();
   const results = data.translations.map(t => t.text);
-  diag('DeepL OK — ' + results.length + ' translation(s) received', 'ok');
+  diag('DeepL OK — ' + results.length + ' translation(s)', 'ok');
   return results;
 }
 
 
+// ── translateWithMyMemory() ───────────────────────────────────────────────────
+// Translates texts one by one using MyMemory free API.
+// MyMemory only supports single strings per request (no batch endpoint),
+// so we loop. For 14 article titles this takes ~2-3 seconds.
+//
+// MyMemory response: { responseData: { translatedText: "..." }, responseStatus: 200 }
+
+async function translateWithMyMemory(texts) {
+  diag('Using MyMemory: translating ' + texts.length + ' text(s) one by one…', 'info');
+  const results = [];
+
+  for (let i = 0; i < texts.length; i++) {
+    const text = texts[i];
+    if (!text || !text.trim()) {
+      results.push(text); // push empty strings through unchanged
+      continue;
+    }
+
+    // Truncate very long strings — MyMemory has a 500 char limit per call
+    // For article bodies we'll only translate the first 500 chars of each paragraph
+    const truncated = text.slice(0, 490);
+
+    // Build GET URL — encodeURIComponent encodes special chars like PHP urlencode()
+    const url = MYMEMORY_URL +
+      '?q=' + encodeURIComponent(truncated) +
+      '&langpair=de|en';
+
+    try {
+      const res  = await fetch(url);
+      const data = await res.json();
+
+      if (data.responseStatus === 200 && data.responseData?.translatedText) {
+        results.push(data.responseData.translatedText);
+      } else {
+        // MyMemory returned an error for this string — use original
+        diag('MyMemory error for text ' + (i+1) + ': ' + data.responseStatus, 'warn');
+        results.push(text);
+      }
+    } catch (err) {
+      diag('MyMemory network error for text ' + (i+1) + ': ' + err.message, 'err');
+      results.push(text); // fall back to original
+    }
+
+    // Small delay between MyMemory calls to avoid rate-limiting
+    // (like time.sleep(0.1) in Python — but non-blocking)
+    if (i < texts.length - 1) {
+      await new Promise(resolve => setTimeout(resolve, 120));
+    }
+  }
+
+  diag('MyMemory done — ' + results.length + ' translation(s)', 'ok');
+  return results;
+}
 // ── SAVE KEY AND START LOADING ─────────────────────────────────────────────────
 // Called when user clicks "Load Feed" button
 
