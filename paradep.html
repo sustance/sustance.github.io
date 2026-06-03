@@ -293,7 +293,7 @@
 <body>
 
 <header id="masthead">
-  <h1>Inside Paradeplatz*</h1>
+  <h1>Inside Paradeplatz</h1>
   <p class="sub">English Edition &nbsp;·&nbsp; Swiss Financial News</p>
   <div class="controls">
     <input type="text" id="deepl-key" placeholder="DeepL API key (optional)…" autocomplete="off">
@@ -465,8 +465,14 @@ function timeAgo(date) {
 // Sends an array of strings to DeepL and returns translated array.
 // DeepL accepts multiple texts in one request (batch) to save API calls.
 //
-// NOTE: DeepL free tier = api-free.deepl.com (NOT api.deepl.com)
-//       Using the wrong endpoint gives a 403 error.
+// IMPORTANT AUTH NOTE:
+//   OLD broken format: body param  auth_key=xxx  (URLSearchParams)
+//   NEW correct format: JSON body + Authorization header
+//   The old format triggers a CORS preflight that DeepL rejects with NetworkError.
+//
+// ENDPOINT NOTE:
+//   Free key  -> api-free.deepl.com  (this code)
+//   Pro key   -> api.deepl.com  (change DEEPL_ENDPOINT constant at top)
 
 async function translateBatch(texts) {
   // Guard: if no key provided, return originals unchanged
@@ -477,35 +483,56 @@ async function translateBatch(texts) {
 
   diag('Sending ' + texts.length + ' text(s) to DeepL…', 'info');
 
-  // DeepL API uses URL-encoded form data, not JSON
-  // URLSearchParams is like PHP's http_build_query()
-  const body = new URLSearchParams();
-  body.append('auth_key', deeplKey);
-  body.append('target_lang', 'EN');
-  body.append('source_lang', 'DE');  // Swiss German is close enough to DE
-  texts.forEach(t => body.append('text', t));
-
-  const res = await fetch(DEEPL_ENDPOINT, {
-    method: 'POST',
-    body: body
+  // JSON body — modern DeepL v2 API format.
+  // "text" is an array so we can batch multiple strings in one request.
+  const requestBody = JSON.stringify({
+    text:        texts,
+    target_lang: 'EN',
+    source_lang: 'DE'
   });
 
-  // HTTP error handling
+  let res;
+  try {
+    res = await fetch(DEEPL_ENDPOINT, {
+      method:  'POST',
+      headers: {
+        // Authorization header is the correct modern auth method.
+        // DeepL requires the "DeepL-Auth-Key" prefix (not "Bearer").
+        'Authorization': 'DeepL-Auth-Key ' + deeplKey,
+        'Content-Type':  'application/json'
+      },
+      body: requestBody
+    });
+  } catch (networkErr) {
+    // This catch block fires on network/CORS errors BEFORE any HTTP response.
+    // Most common cause: wrong endpoint (Pro key used with Free endpoint URL).
+    diag('Network error contacting DeepL (no HTTP response received): ' + networkErr.message, 'err');
+    diag('Free key must use endpoint: https://api-free.deepl.com/v2/translate', 'warn');
+    diag('Pro key must use endpoint:  https://api.deepl.com/v2/translate', 'warn');
+    throw networkErr;
+  }
+
+  diag('DeepL HTTP response: ' + res.status + ' ' + res.statusText,
+       res.ok ? 'ok' : 'err');
+
   if (res.status === 403) {
-    throw new Error('DeepL: 403 Forbidden — check your API key, or you may be using a Pro key with the Free endpoint');
+    throw new Error('DeepL 403 — key invalid, or Pro key used with Free endpoint');
   }
   if (res.status === 456) {
-    throw new Error('DeepL: 456 — monthly character quota exceeded (500k free limit reached)');
+    throw new Error('DeepL 456 — 500k/month free character quota exceeded');
+  }
+  if (res.status === 429) {
+    throw new Error('DeepL 429 — rate limited, wait a moment then retry');
   }
   if (!res.ok) {
-    throw new Error('DeepL HTTP error: ' + res.status + ' ' + res.statusText);
+    const errBody = await res.text().catch(() => '');
+    throw new Error('DeepL HTTP ' + res.status + ': ' + errBody.slice(0, 120));
   }
 
   const data = await res.json();
-
-  // data.translations is an array like: [{detected_source_language:"DE", text:"..."}]
+  // data.translations = [{detected_source_language: "DE", text: "...translated..."}]
   const results = data.translations.map(t => t.text);
-  diag('DeepL returned ' + results.length + ' translation(s)', 'ok');
+  diag('DeepL OK — ' + results.length + ' translation(s) received', 'ok');
   return results;
 }
 
@@ -820,26 +847,48 @@ async function loadArticle(articleUrl) {
     '<div class="loading">Fetching article</div>';
 
   // ── Fetch article page via proxy ─────────────────────────────────────────
+  // Same CORS proxy as the RSS feed — allorigins fetches the page server-side
+  // and returns JSON: { contents: "...", status: { http_code, content_type } }
   let articleHTML = '';
-  try {
-    const proxyRes  = await fetch(PROXY_URL + encodeURIComponent(articleUrl));
-    const proxyData = await proxyRes.json();
+  const articleProxyUrl = PROXY_URL + encodeURIComponent(articleUrl);
 
-    if (!proxyData?.contents || proxyData.contents.length < 200) {
-      throw new Error('Proxy returned empty content (HTTP ' + proxyData?.status?.http_code + ')');
+  try {
+    const proxyRes = await fetch(articleProxyUrl);
+
+    if (!proxyRes.ok) {
+      throw new Error('Proxy HTTP ' + proxyRes.status + ' — proxy server itself failed');
     }
-    articleHTML = proxyData.contents;
+
+    const proxyData = await proxyRes.json();
+    const httpCode  = proxyData?.status?.http_code;
+
+    if (httpCode && httpCode !== 200) {
+      throw new Error('Article server returned HTTP ' + httpCode + ' (site may block proxy access)');
+    }
+
+    const rawContents = proxyData?.contents || '';
+    if (rawContents.length < 500) {
+      throw new Error('Proxy returned only ' + rawContents.length + ' chars — article blocked or empty');
+    }
 
     // Decode base64 data URI if allorigins encoded it (same issue as RSS feed)
-    const b64pos = articleHTML.indexOf('base64,');
+    // allorigins wraps binary/non-UTF8 content as: "data:text/html;base64,..."
+    const b64pos = rawContents.indexOf('base64,');
     if (b64pos !== -1) {
-      articleHTML = decodeURIComponent(escape(atob(articleHTML.slice(b64pos + 7))));
+      articleHTML = decodeURIComponent(escape(atob(rawContents.slice(b64pos + 7))));
+    } else {
+      articleHTML = rawContents;
+    }
+
+    if (articleHTML.length < 500) {
+      throw new Error('Article HTML too short after decoding (' + articleHTML.length + ' chars)');
     }
 
   } catch (err) {
     document.getElementById('art-content').innerHTML =
-      '<p style="color:var(--accent)">Could not fetch article: ' + err.message + '</p>' +
-      '<p style="margin-top:1rem"><a href="' + articleUrl + '" target="_blank">Open original article →</a></p>';
+      '<p style="color:var(--accent);font-weight:600">Could not fetch article body.</p>' +
+      '<p style="margin-top:.5rem;font-size:.85rem;color:#666">Error: ' + err.message + '</p>' +
+      '<p style="margin-top:1rem"><a href="' + articleUrl + '" target="_blank" style="color:var(--accent)">→ Open original article directly</a></p>';
     return;
   }
 
