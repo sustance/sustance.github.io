@@ -1,0 +1,423 @@
+/* ============================================================
+   COMMON.CSS  —  shared stylesheet
+   ============================================================
+   STRUCTURE
+   1.  Custom properties  (variables, chart colours, data points)
+   2.  Base / reset
+   3.  Typography
+   4.  Links
+   5.  Layout helpers  (div, .box, .bsd, .svg-container)
+   6.  Tables  (.tablew3m, .tableframe, #results-table)
+   7.  Tooltip  (.tooltip)
+   8.  Show/hide targets  (#B–#Y, #xtra, #email, #printers)
+   9.  Server-filter UI  (.server-filter-container et al.)
+  10.  SVG / gear helpers
+  11.  Utility classes
+  12.  Responsive overrides
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. CUSTOM PROPERTIES
+   ──────────────────────────────────────────────────────────── */
+:root {
+
+  /* ── Trip data points ──────────────────────────────────────
+     Reference: https://sustance.github.io/tripPoints.html
+     Naming: {Route}{YY}{mon}{Type}  e.g. K25marAM = Kalgoorlie Mar 2025 AM
+     --maxn is the ceiling used in percentage calculations.     */
+  --maxn:      250000;
+
+  --K25marAM:   32035; --K25aprAM:   32035; --K25mayAM:   32835; --K25junAM:   34435;
+  --S25marAM:  174743; --S25aprAM:  175543; --S25mayAM:  175543; --S25junAM:  177143;
+  --K25marMM:   35661; --K25aprMM:   35661; --K25mayMM:   35661; --K25junMM:   35661; --K25augMM: 336161;
+  --S25marMM:  205518; --S25aprMM:  205518; --S25mayMM:  209268; --S25junMM:  209268; --S25augMM:      0;
+  --K25maySK:   53445; --K25junSK:   53445;
+  --S25maySK:  159236; --S25junSK:  159236;
+  --K25junFW:     947;
+
+  /* ── Chart colours ─────────────────────────────────────────
+     Three variants per colour index:
+       --color-N    0.75 alpha  (fill, default use)
+       --col10-N    1.0  alpha  (border / solid use)
+       --colo2-N    0.2  alpha  (light fill / background bands)
+     21–30 are pattern fills (repeating gradients) for charts.  */
+
+  --color-1:  rgba(255,  99, 132, .75); --col10-1:  rgba(255,  99, 132, 1); --colo2-1:  rgba(255,  99, 132, .2);
+  --color-2:  rgba( 54, 162, 235, .75); --col10-2:  rgba( 54, 162, 235, 1); --colo2-2:  rgba( 54, 162, 235, .2);
+  --color-3:  rgba(255, 206,  86, .75); --col10-3:  rgba(255, 206,  86, 1); --colo2-3:  rgba(255, 206,  86, .2);
+  --color-4:  rgba( 75, 192, 192, .75); --col10-4:  rgba( 75, 192, 192, 1); --colo2-4:  rgba( 75, 192, 192, .2);
+  --color-5:  rgba(153, 102, 255, .75); --col10-5:  rgba(153, 102, 255, 1); --colo2-5:  rgba(153, 102, 255, .2);
+  --color-6:  rgba(255, 159,  64, .75); --col10-6:  rgba(255, 159,  64, 1); --colo2-6:  rgba(255, 159,  64, .2);
+  --color-7:  rgba( 93, 173, 226, .75); --col10-7:  rgba( 93, 173, 226, 1); --colo2-7:  rgba( 93, 173, 226, .2);
+  --color-8:  rgba(178, 223, 138, .75); --col10-8:  rgba(178, 223, 138, 1); --colo2-8:  rgba(178, 223, 138, .2);
+  --color-9:  rgba(255, 117, 117, .75); --col10-9:  rgba(255, 117, 117, 1); --colo2-9:  rgba(255, 117, 117, .2);
+  --color-10: rgba(169, 169, 169, .75); --col10-10: rgba(169, 169, 169, 1); --colo2-10: rgba(169, 169, 169, .2);
+
+  /* Pattern fills 21–30 blend color-7 (blue) and color-8 (green) */
+  --colo2-21: repeating-linear-gradient(        var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-22: repeating-linear-gradient( 45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-23: repeating-linear-gradient( 90deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-24: repeating-linear-gradient(-45deg, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-25: repeating-linear-gradient(transparent, var(--colo2-8) 20px), repeating-linear-gradient(90deg, transparent, var(--colo2-8) 20px);
+  --colo2-26: repeating-radial-gradient(circle,             var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-27: repeating-radial-gradient(circle at  50% 100%, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-28: repeating-radial-gradient(circle at  50%   0%, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-29: repeating-radial-gradient(circle at   0%  50%, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+  --colo2-30: repeating-radial-gradient(circle at 100%  50%, var(--colo2-7), var(--colo2-7) 10px, var(--colo2-8) 10px, var(--colo2-8) 20px);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. BASE / RESET
+   ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: "Noto Sans", Roboto, system-ui, sans-serif;
+  font-size: small;
+  font-weight: 500;
+  background: #fff;
+  color: #1a1a1a;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  max-width: 100%;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. TYPOGRAPHY
+   ──────────────────────────────────────────────────────────── */
+
+/* h2/h3 outlined display style — used for section banners */
+h2, h3 {
+  font: 900 1.6rem Arial, sans-serif;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px;
+}
+
+/* h2 used as a nav bar (bookmarks page) — overrides display style above */
+h2:has(> a) {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  font: 500 inherit "Noto Sans", sans-serif;
+  -webkit-text-fill-color: unset;
+  -webkit-text-stroke: unset;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.5px solid #e8e8e8;
+  margin: 0 0 0.75rem;
+}
+
+p { margin: 0.25rem 0; }
+
+.sml          { font-size: x-small; }
+.arttext      { line-height: 1; }
+.braillebanner { font-size: 10pt; line-height: 10pt; font-weight: 900; }
+
+/* OS label colours */
+.Linux { color: black;  font-size: large; font-weight: 900; }
+.fBSD  { color: purple; font-size: large; font-weight: 900; }
+.oBSD  { color: orange; font-size: large; font-weight: 900; }
+.nBSD  { color: red;    font-size: large; font-weight: 900; }
+
+
+/* ────────────────────────────────────────────────────────────
+   4. LINKS
+   ──────────────────────────────────────────────────────────── */
+a {
+  text-decoration: none;
+  color: var(--col10-2);
+  font-weight: 600;
+  margin: 0 5px;
+}
+
+/* Nav links inside h2 */
+h2 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 0.5px solid #e0e0e0;
+  background: #fff;
+  white-space: nowrap;
+  margin: 0;
+}
+h2 a:hover { background: #f5f5f5; color: #111; }
+
+/* Accent colour for special link text */
+.pr { color: var(--col10-5); }
+
+/* Highlight links by href substring — add more as needed */
+/* a[href*="svrsrch"] { color: red; } */
+
+
+/* ────────────────────────────────────────────────────────────
+   5. LAYOUT HELPERS
+   ──────────────────────────────────────────────────────────── */
+div {
+  padding: 0 0 0 12px;
+  max-width: 860px;
+  margin: 1px;
+}
+
+/* Organic card — even children */
+.box {
+  --index: 1;
+  overflow-x: auto;
+  background: linear-gradient(to bottom right, var(--colo2-7), var(--colo2-8));
+  border-radius: 125px 99px 333px 22px / 88px 300px 99px 55px;
+}
+/* Organic card — odd children get mirrored gradient + tighter radius */
+.box:nth-child(odd) {
+  background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7));
+  border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
+}
+
+/* Organic border card */
+.bsd {
+  border-radius: 255px 15px 255px 15px / 333px 22px 99px 255px;
+  background-image: var(--colo2-27);
+}
+.bsd:nth-child(odd) {
+  background-image: var(--colo2-28);
+}
+
+/* SVG display container */
+.svg-container {
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Index icon size */
+.idx i { font-size: x-large; }
+.col   { color: #00b0b2; }
+.selec { line-height: 0; }
+
+
+/* ────────────────────────────────────────────────────────────
+   6. TABLES
+   ──────────────────────────────────────────────────────────── */
+
+/* w3m-compatible bookmark table — no-wrap card columns */
+.tablew3m {
+  border-collapse: collapse;
+  border: none !important;
+  width: auto;
+  table-layout: auto;
+}
+.tablew3m td {
+  border: none !important;
+  padding: 0;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.tablew3m td,
+.tablew3m td * { white-space: nowrap; }
+.tablew3m td br { display: block; }
+
+/* Card wrapper for each column's content block */
+.tablew3m td > * {
+  display: block;
+  background: #fff;
+  border: 0.5px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin: 3px;
+  white-space: nowrap;
+}
+.tablew3m a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #1a1a1a;
+  padding: 2px 4px;
+  border-radius: 5px;
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0;
+}
+.tablew3m a:hover { background: #f5f5f5; }
+
+/* General framed table (min-width enforces side-scroll before collapse) */
+.tableframe {
+  min-width: 780px;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+/* Default td — used outside .tablew3m */
+td {
+  font-size: large;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Results table (server listing) */
+#results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#results-table th,
+#results-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+#results-table th {
+  background: #f8f9fa;
+  font-weight: bold;
+  color: #555;
+}
+#results-table tr:hover         { background: #f8f9fa; }
+#results-table td:first-child   { font-weight: bold; color: #007bff; }
+
+
+/* ────────────────────────────────────────────────────────────
+   7. TOOLTIP  (pure CSS, no JS)
+   Usage: <span class="tooltip" data-tooltip="Your text">…</span>
+   ──────────────────────────────────────────────────────────── */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: normal;
+  width: 140px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s, visibility .25s;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  pointer-events: none;
+}
+.tooltip:hover::after { opacity: 1; visibility: visible; }
+
+
+/* ────────────────────────────────────────────────────────────
+   8. SHOW / HIDE TARGETS
+   Sections hidden by default; revealed when their ID is the
+   URL fragment (e.g. page.html#email).
+   Add new IDs to both lists to extend.
+   ──────────────────────────────────────────────────────────── */
+#B,#C,#D,#E,#F,#G,#H,#I,#J,#O,#P,#S,#T,#V,#X,#N,#Y,
+#xtra, #email, #printers { display: none; }
+
+#B:target,#C:target,#D:target,#E:target,#F:target,#G:target,
+#H:target,#I:target,#J:target,#O:target,#P:target,#S:target,
+#T:target,#V:target,#X:target,#N:target,#Y:target,
+#xtra:target, #email:target, #printers:target { display: block; }
+
+
+/* ────────────────────────────────────────────────────────────
+   9. SERVER FILTER UI
+   Used on i-svrlist.php and similar pages.
+   ──────────────────────────────────────────────────────────── */
+.server-filter-container {
+  max-width: 860px;
+  padding-left: 12px;
+}
+.filter-menu {
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.filter-menu h3 {
+  margin: 12px 0 8px;
+  color: #555;
+  font-size: 1.05em;
+}
+.filter-menu h3:first-of-type { margin-top: 0; }
+
+.menu-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.filter-link {
+  display: inline-block;
+  padding: 2px 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: background .15s, color .15s, transform .1s;
+}
+.filter-link:hover {
+  background: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  transform: translateY(-1px);
+}
+.results-container {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+  10. SVG / GEAR HELPERS
+   Applied when SVG files are inlined or loaded as <img>.
+   ──────────────────────────────────────────────────────────── */
+.svg-gears { width: 100%; height: auto; }
+
+.gear-small   { transform: scale(0.7);                    fill: var(--col10-9); }
+.gear-large   { transform: scale(1.3) translate(40px, 0); fill: var(--col10-5); }
+.gear-rotated { transform: rotate(45deg) translate(80px, 0); fill: var(--col10-6); }
+
+/* Override fill on <use> elements referencing gear symbols */
+use.gear-small { fill: var(--col10-2) !important; }
+
+
+/* ────────────────────────────────────────────────────────────
+  11. UTILITY CLASSES
+   ──────────────────────────────────────────────────────────── */
+/* .selec, .arttext, .braillebanner, .sml — see Typography section */
+
+
+/* ────────────────────────────────────────────────────────────
+  12. RESPONSIVE OVERRIDES
+   ──────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .menu-items    { flex-direction: column; }
+  .filter-link   { width: 100%; text-align: center; }
+
+  #results-table               { font-size: .9em; }
+  #results-table th,
+  #results-table td            { padding: 6px; }
+}
