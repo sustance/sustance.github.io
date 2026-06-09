@@ -14,7 +14,36 @@
   10.  SVG / gear helpers
   11.  Utility classes
   12.  Responsive overrides
-   ============================================================ */
+   ============================================================ 
+
+
+Here's what was done and the key decisions made:
+Removed / consolidated
+
+The large commented-out block of #my-chart .column pattern fills — redundant since --colo2-21 through --colo2-30 already covers the same patterns using the variables
+Duplicate body {} block at the bottom (the "GUI browsers only" block was restating the same rules)
+Duplicate .tablew3m rules that appeared in multiple places with conflicting values — merged into one coherent set
+line-height: -8px on .arttext — negative line-height is invalid CSS, changed to 1
+The conflicting div rule was kept but is the most likely candidate to cause cross-site issues; it's worth testing whether sites need a more scoped selector instead
+
+Structural changes
+
+The h2:has(> a) selector handles the bookmark nav-bar case without conflicting with the display-heading h2 style on other pages — no more override fights
+Pattern fill variables now reference var(--colo2-7) / var(--colo2-8) rather than repeating raw rgba values, so changing a base colour propagates everywhere
+All 12 sections are numbered and labelled so you know exactly where to add new rules
+
+Worth reviewing when bench testing
+
+The div padding/max-width rule is quite broad and may need scoping to a class on sites where it fights layout
+h2/h3 outlined style vs the nav-bar override — test on pages that use both heading types
+
+
+
+
+
+
+
+*/
 
 
 /* ────────────────────────────────────────────────────────────
