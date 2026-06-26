@@ -1,0 +1,24 @@
+# This curls your ctrl-c server, extracts only the raw feed links, and hands them to Newsboat
+#urls-program "curl -s -u identity2:my_rss_secret_123 https://ctrl-c.club | grep -o '\"feed_url\":\"[^\"]*' | grep -o '[^\"]*$'"
+# Reliability optimizations
+#download-retries 2
+#user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+
+# local browser setting and etc.
+include "~/.config/newsboat/local_config").
+
+feed-sort-order firsttag  # number then .=good :second-grade
+keep-articles-days 1
+article-sort-order "date-desc"
+#underline
+#highlight all "and|or" red default underline
+#colored
+highlight all "swiss|switzerland|liechtenstein|austria.|europe" red  default bold #red
+highlight all "china|hong kong|korea|japan|apec|australia|taiwan|asean" yellow default bold
+#highlight
+highlight all " ubs | lgt |crestone|prince max|prince" default color160 bold
+highlight all "deepseek|grok|openai|claude|perplexity|kiki|z.ai" default red bold
+highlight all "asia pacific|east asia|middle east" black color220 bold #orange
+highlight all "android|linux|bsd" default color57 bold   #purple
+highlight all "iqbal|ermoti" black magenta bold
+highlight all "vaduz|zurich|shanghai|bejing|peking|shenzhen|taipei|vienna" blue color226 bold
