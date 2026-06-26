@@ -10,12 +10,12 @@ https://kill-the-newsletter.com/feeds/nb58u4nn305fuihz58hd.xml fav "~Kill Reuter
 https://kill-the-newsletter.com/feeds/d91oyytpn3mvfzey99c6.xml fav "~Kill SciAm Today"
 
 
-https://feeds.content.dowjones.io/public/rss/RSSWorldNews 0.       "~0. WSJ World"
-https://feeds.content.dowjones.io/public/rss/socialeconomyfeed 0.  "~0. WSJ Economy"
-https://feeds.content.dowjones.io/public/rss/RSSWSJD 0.            "~0. WSJ Tech"
-https://www.fastcompany.com/latest/rss 0.          "~0 FastCompany"
-https://phys.org/rss-feed/ 0.                      "~0. Phys News"
-https://phys.org/rss-feed/breaking/ 0.             "~0. Phys Spotlight"
+https://feeds.content.dowjones.io/public/rss/RSSWorldNews 3.       "~3. WSJ World"
+https://feeds.content.dowjones.io/public/rss/socialeconomyfeed 3.  "~3. WSJ Economy"
+https://feeds.content.dowjones.io/public/rss/RSSWSJD 3.            "~3. WSJ Tech"
+https://www.fastcompany.com/latest/rss fav 1.      "~1. FastCompany"
+https://phys.org/rss-feed/ 2.                      "~2. Phys News"
+https://phys.org/rss-feed/breaking/ 2.             "~2. Phys Spotlight"
 
 
 https://www.techmeme.com/feed.xml fav 2.           "~2. TechMeme"
