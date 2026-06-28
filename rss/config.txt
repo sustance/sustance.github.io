@@ -9,8 +9,6 @@
 # OR if using chafa:
 macro , pipe-to "chafa -"
 
-
-
 # local browser setting and etc.
 include "~/.config/newsboat/local_config").
 
