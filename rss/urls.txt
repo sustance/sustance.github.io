@@ -9,6 +9,7 @@ https://kill-the-newsletter.com/feeds/kdk9p9gmg3eu6yedoi1p.xml fav "~Kill Reuter
 https://kill-the-newsletter.com/feeds/nb58u4nn305fuihz58hd.xml fav "~Kill Reuters TechRn"
 https://kill-the-newsletter.com/feeds/d91oyytpn3mvfzey99c6.xml fav "~Kill SciAm Today"
 
+https://www.lemonde.fr/en/international/rss_full.xml 0. "~0. Lemonde Intl"
 
 https://feeds.content.dowjones.io/public/rss/RSSWorldNews 3.       "~3. WSJ World"
 https://feeds.content.dowjones.io/public/rss/socialeconomyfeed 3.  "~3. WSJ Economy"
