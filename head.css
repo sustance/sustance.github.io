@@ -265,7 +265,7 @@ div {
 .tablew3m td > * {
   display: block;
   background: #fff;
-  border: 1.5px solid #e8e8e8;
+  border: 1px solid #e8e8e8;
   border-radius: 8px;
   padding: 6px 8px;
   margin: 3px;
