@@ -196,6 +196,7 @@ div {
 }
 
 /* Organic card — even children */
+/*
 .box {
   --index: 1;
   overflow-x: auto;
@@ -216,6 +217,7 @@ div {
 .bsd:nth-child(odd) {
   background-image: var(--colo2-28);
 }
+*/
 
 /* SVG display container */
 .svg-container {
