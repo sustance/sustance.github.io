@@ -204,11 +204,12 @@ div {
   border-radius: 125px 99px 333px 22px / 88px 300px 99px 55px;
 }
 /* Organic card — odd children get mirrored gradient + tighter radius */
+/*
 .box:nth-child(odd) {
   background: linear-gradient(to bottom right, var(--colo2-8), var(--colo2-7));
   border-radius: 55px 15px 25px 15px / 15px 55px 15px 55px;
 }
-
+*/
 /* Organic border card */
 .bsd {
   border-radius: 255px 15px 255px 15px / 333px 22px 99px 255px;
