@@ -20,7 +20,7 @@
 Here's what was done and the key decisions made:
 Removed / consolidated
 
-The large commented-out block of #my-chart .column pattern fills — redundant since --colo2-21 through --colo2-30 already covers the same patterns using the variables
+The large commented-out  of #my-chart .column pattern fills — redundant since --colo2-21 through --colo2-30 already covers the same patterns using the variables
 Duplicate body {} block at the bottom (the "GUI browsers only" block was restating the same rules)
 Duplicate .tablew3m rules that appeared in multiple places with conflicting values — merged into one coherent set
 line-height: -8px on .arttext — negative line-height is invalid CSS, changed to 1
@@ -263,7 +263,7 @@ div {
 
 /* Card wrapper for each column's content block */
 .tablew3m td > * {
-  display: block;
+  display: inline-block;
   background: #fff;
   border: 1px solid #e8e8e8;
   border-radius: 8px;
@@ -366,7 +366,7 @@ td {
 #B:target,#C:target,#D:target,#E:target,#F:target,#G:target,
 #H:target,#I:target,#J:target,#O:target,#P:target,#S:target,
 #T:target,#V:target,#X:target,#N:target,#Y:target,
-#xtra:target, #email:target, #printers:target { display: block; }
+#xtra:target, #email:target, #printers:target { display: inline-block; }
 
 
 /* ────────────────────────────────────────────────────────────
