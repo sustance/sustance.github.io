@@ -259,7 +259,7 @@ div {
 }
 .tablew3m td,
 .tablew3m td * { white-space: nowrap; }
-.tablew3m td br { display: block; }
+.tablew3m td br { display: inline-block; }
 
 /* Card wrapper for each column's content block */
 .tablew3m td > * {
