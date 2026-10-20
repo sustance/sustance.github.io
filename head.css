@@ -162,6 +162,11 @@ a {
   margin: 0 5px;
 }
 
+u {
+  text-decoration-color: red; /* Changes only the underline color */
+}
+
+
 /* Nav links inside h2 */
 h2 a {
   display: inline-flex;
